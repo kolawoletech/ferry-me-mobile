@@ -1,7 +1,7 @@
-import { Component,ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 
-import { NavController,Slides} from 'ionic-angular';
+import { NavController, Slides } from 'ionic-angular';
 
 import { Home } from '../home/home';
 
@@ -16,37 +16,37 @@ import { Signup } from '../signup/signup';
 })
 export class Landing {
   @ViewChild('mySlider') slider: Slides;
-  showPrev:any;
-showNext:any;
-currentIndex:any;
+  showPrev: any;
+  showNext: any;
+  currentIndex: any;
   constructor(public navCtrl: NavController) {
-  this.showPrev = true;
-this.showNext = false;
-this.currentIndex = 0;
+    this.showPrev = true;
+    this.showNext = false;
+    this.currentIndex = 0;
 
   }
 
   goToNextSlide() {
-  	  this.slider.slideNext();
-    }
-    goToPrevSlide() {
-  	  this.slider.slidePrev();
-    }
-    onSlideChanged() {
-  	  this.showPrev = this.slider.isBeginning();
-  	  this.showNext = this.slider.isEnd();
-      this.currentIndex = this.slider.getActiveIndex();
-    }
+    this.slider.slideNext();
+  }
+  goToPrevSlide() {
+    this.slider.slidePrev();
+  }
+  onSlideChanged() {
+    this.showPrev = this.slider.isBeginning();
+    this.showNext = this.slider.isEnd();
+    this.currentIndex = this.slider.getActiveIndex();
+  }
 
-    home() {
+  home() {
     this.navCtrl.push(Home);
   }
 
   login() {
-  this.navCtrl.push(Login);
-}
+    this.navCtrl.push(Login);
+  }
 
-signup() {
-this.navCtrl.push(Signup);
-}
+  signup() {
+    this.navCtrl.push(Signup);
+  }
 }

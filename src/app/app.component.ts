@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, AlertController } from 'ionic-angular';
 
 import { StatusBar } from 'ionic-native';
 
@@ -30,7 +30,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform) {
+  constructor(public platform: Platform, private alertCtrl: AlertController) {
     this.initializeApp();
 
 
@@ -60,6 +60,15 @@ login() {
  this.nav.setRoot(Login);
 }
 
+showPlatform() {
+  let text = 'I run on: ' + this.platform.platforms();
+  let alert = this.alertCtrl.create({
+    title: 'My Home',
+    subTitle: text,
+    buttons: ['Ok']
+  });
+  alert.present();
+}
 
 
 
