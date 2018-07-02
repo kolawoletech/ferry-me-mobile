@@ -1,0 +1,102 @@
+<ion-header class="jr_theme_color jr_header">
+  <button menuToggle ion-button class="jr_left jr_header_btn jr_sidemenu_icon"></button>
+  <div class="jr_header_title">
+    <h4>Your rides</h4>
+  </div>
+  <button ion-button class="jr_right jr_header_btn jr_mail_icon" (click)="message()"></button>
+  <button ion-button class="jr_right jr_header_btn jr_profile_icon" (click)="profile()"></button>
+  <div class="jr_clear"></div>
+  <div class="jr_home_tab_bay">
+    <ul>
+      <li [class.active]="tab=='active'" (click)="tab_swap('active')">Current</li>
+      <li [class.active]="tab=='inactive'" (click)="tab_swap('inactive')">History</li>
+    </ul>
+  </div>
+</ion-header>
+<ion-content class="jr_body_wrapper">
+  <div class="jr_home_tab_content"  [hidden]="tab=='inactive'">
+  <div class="jr_div_half">
+    <div class="jr_div_overlay">
+      <div class="jr_over_inner">
+      <button ion-button class="jr_offer_ride" (click)="offerride()">Offer a ride</button>
+      <p>Share your car journey with co- travellers just like you and cover all your fuel costs!</p>
+    </div>
+    </div>
+    <img src="assets/img/jr_div_half1.png">
+  </div>
+  <div class="jr_div_half">
+    <div class="jr_div_overlay">
+      <div class="jr_over_inner">
+      <button ion-button class="jr_offer_ride1" (click)="findride()"> Find a ride</button>
+      <p>Yoyfull and comfortable travel, share your journey with all like you</p>
+    </div>
+    </div>
+    <img src="assets/img/jr_div_half2.png">
+  </div>
+  <!-- <div class="jr_home_active">
+    <div class="jr_profile_content">
+      <div class="jr_home_offer_ride">
+        <ul>
+          <div class="jr_offer_ride_top">
+            Offered Ride
+          </div>
+          <li>
+            <div class="jr_home_offer_photo"><img src="assets/img/jr_car_img.png"></div>
+            <div class="jr_home_offer_detail">
+              <h5>Saturday 29, April</h5>
+              <h6>05: 00 am</h6>
+              <p>Majestic<span><img src="assets/img/jr_forward.png"></span>Christ Tower</p>
+              <div class="jr_edit_more" (click)="presentPopover($event)"><img src="assets/img/jr_more.png"></div>
+            </div>
+            <div class="jr_clear"></div>
+
+            <div class="jr_home_btm">
+              <hr>
+              <p>Request waiting for Approval</p>
+            </div>
+          </li>
+          <li>
+            <div class="jr_home_offer_photo"><img src="assets/img/jr_car_img.png"></div>
+            <div class="jr_home_offer_detail">
+              <h5>Saturday 29, April</h5>
+              <h6>05: 00 am</h6>
+              <p>Electronic City<span><img src="assets/img/jr_forward.png"></span>Madiwala</p>
+              <div class="jr_edit_more" (click)="presentPopover($event)"><img src="assets/img/jr_more.png"></div>
+            </div>
+            <div class="jr_clear"></div>
+
+          </li>
+        </ul>
+        <ul>
+          <div class="jr_book_ride_top">
+            Your Bookings
+          </div>
+          <li>
+            <div class="jr_home_offer_photo"><img src="assets/img/jr_car_img.png"></div>
+            <div class="jr_home_offer_detail">
+              <h5>Saturday 29, April</h5>
+              <h6>05: 00 am</h6>
+              <p>Infopark<span><img src="assets/img/jr_forward.png"></span>Piravom</p>
+              <div class="jr_edit_more" (click)="presentPopover($event)"><img src="assets/img/jr_more.png"></div>
+            </div>
+            <div class="jr_clear"></div>
+
+            <div class="jr_home_btm">
+              <hr>
+              <p>Request waiting for Approval</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div> -->
+</div>
+<div class="jr_home_tab_content jr_theme_color jr_text_center" [hidden]="tab=='active'" >
+  <div class="jr_ride_wrapper">
+    <br><br>
+    <img src="assets/img/jr_history.png">
+    <p>You have no recent rides. They are auto-<br>matically archived after 10 days.</p>
+    <button ion-button class="jr_archive_btn">See archived rides</button>
+  </div>
+</div>
+</ion-content>

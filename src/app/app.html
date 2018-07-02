@@ -1,0 +1,35 @@
+<ion-menu [content]="content" side="left" id="menu1" >
+  <ion-content>
+    <div class="jr_inside_bg">
+      <div class="jr_sidemenu_bg">
+        <div class="jr_sidemenu_top">
+          <div class="jr_sidemenu_photo">
+            <img src="assets/img/jr_img.png">
+          </div>
+        </div>
+        <div class="jr_sidemenu_detail">
+          <h4>Ann Kichu Abraham</h4>
+          <p>annakichu@gmail.com</p>
+          <button class="jr_side_edit" menuClose (click)="editprofile()">edit</button>
+
+          <ul>
+            <li menuClose ><img src="assets/img/jr_side1.png"><span>Your ride</span></li>
+            <li menuClose (click)="findride()"><img src="assets/img/jr_side2.png"><span>Find a ride</span></li>
+            <li menuClose (click)="offerride()"><img src="assets/img/jr_side3.png"><span>Offer a ride</span></li>
+            <li menuClose (click)="login()"><img src="assets/img/jr_side4.png"><span>Logout</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+</ion-content>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+
+<!--<ion-list>
+  <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+    {{p.title}}
+  </button>
+</ion-list>-->

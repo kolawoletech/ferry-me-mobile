@@ -1,0 +1,52 @@
+<ion-header class="jr_theme_color1 jr_header">
+    <button menuToggle ion-button class="jr_left jr_header_btn jr_sidemenu_icon"></button>
+  <div class="jr_header_title">
+    <h4>Find a ride</h4>
+  </div>
+  <button ion-button class="jr_right jr_header_btn"></button>
+  <div class="jr_clear"></div>
+</ion-header>
+
+
+<ion-content>
+  <div class="jr_ride_wrapper">
+    <h5>Looking for a Ride?</h5>
+    <div class="jr_offer_bg">
+        <img src="assets/img/jr_find_img.png">
+    </div>
+    <div class="jr_ride_form">
+      <input class="jr_ride_input1" placeholder="From">
+      <br><br>
+      <input class="jr_ride_input2" placeholder="To">
+      <div class="jr_box"></div>
+      <br>
+      <br>
+      <br>
+      <div class="jr_time_div">
+          <select class="jr_select">
+            <option>Travel date</option>
+          </select>
+        <div class="j_clear"></div>
+      </div>
+      <br>
+      <div class="jr_time_div">
+          <select class="jr_select">
+            <option>Leaving after</option>
+          </select>
+        <div class="j_clear"></div>
+      </div>
+      <div class="jr_seat_number">
+        <ul>
+          <span>Number of Seats</span>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+      </div>
+    </div>
+    <div class="jr_bottom_button_bay">
+      <button ion-button class="jr_offer_ride3" (click)="searchresult()">Find a Ride</button>
+    </div>
+  </div>
+
+</ion-content>

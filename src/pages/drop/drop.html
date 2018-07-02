@@ -1,0 +1,30 @@
+<ion-header class="jr_theme_color jr_header">
+  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>
+  <div class="jr_header_title">
+    <h4>Choose a Drop off Points</h4>
+  </div>
+  <div class="jr_clear"></div>
+</ion-header>
+<ion-content>
+  <div class="jr_pick_drop">
+    <div class="jr_map">
+    </div>
+    <div class="jr_pick_drop_detail">
+      <div class="jr_up_arw" (click)="dropex()">
+        <img src="assets/img/jr_arw_up.png">
+      </div>
+      <h5>Dropoff Location</h5>
+      <hr>
+      <ul>
+        <li>
+          <div class="jr_loc_no1"><ion-radio ng-model="choice1" ng-value="'A'" class="jr_radio_id"></ion-radio></div>
+          <p>Majestic</p>
+          <div class="jr_clear"></div>
+        </li>
+          <button ion-button class="jr_offer_ride2" (click)="dismiss()">Confirm Location</button>
+      </ul>
+
+
+    </div>
+  </div>
+</ion-content>

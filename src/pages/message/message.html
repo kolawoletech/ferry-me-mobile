@@ -1,0 +1,71 @@
+<ion-header class="jr_theme_color jr_header">
+  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>
+  <div class="jr_header_title">
+    <h4>Messages</h4>
+  </div>
+  <button ion-button class="jr_right jr_header_btn jr_mail_icon"></button>
+  <button ion-button class="jr_right jr_header_btn jr_profile_icon" (click)="profile()"></button>
+  <div class="jr_clear"></div>
+  <div class="jr_home_tab_bay1">
+    <ul>
+      <li [class.active]="tab=='active'" (click)="tab_swap('active')">Messages</li>
+      <li [class.active]="tab=='inactive'" (click)="tab_swap('inactive')">Notifications</li>
+      <div class="jr_clear"></div>
+    </ul>
+  </div>
+</ion-header>
+  <ion-content class="jr_body_wrapper">
+    <div class="jr_message_wrapper">
+      <div class="jr_home_tab_content"  [hidden]="tab=='inactive'">
+        <div class="jr_profile_content">
+          <div class="jr_no_msg">
+          <div class="jr_offer_bg">
+              <img src="assets/img/jr_nomsg.png">
+          </div>
+          <div class="jr_text_center">
+            <div class="jr_edit_row jr_text_center">
+              <br><br>
+                <hr>
+                  <br><br>
+            <h4 class="jr_padding0 jr_margin0">currently you have</h4>
+            <h3 class="jr_margintop0">no Messages</h3>
+            </div>
+            </div>
+          </div>
+          </div>
+      </div>
+      <div class="jr_home_tab_content" [hidden]="tab=='active'" >
+        <div class="jr_profile_content">
+          <div class="jr_no_msg">
+          <div class="jr_offer_bg">
+              <img src="assets/img/jr_no_not.png">
+          </div>
+          <div class="jr_text_center">
+            <div class="jr_edit_row jr_text_center">
+              <br><br>
+                <hr>
+                  <br><br>
+            <h4 class="jr_padding0 jr_margin0">currently you have</h4>
+            <h3 class="jr_margintop0">no Notification</h3>
+            </div>
+            </div>
+          </div>
+          <!-- <div class="jr_notification_main">
+            <ul>
+                <li>
+                  <div class="jr_not_left">
+                  <h4>Verify your Govt. ID</h4>
+                  <p>Verify your Govt. ID and more people will choose to travel with you.</p>
+                  </div>
+                  <div class="jr_not_close">
+                    <img src="assets/img/jr_not_close.png">
+                  </div>
+                  <div class="jr_clear"></div>
+                </li>
+            </ul>
+          </div> -->
+          </div>
+      </div>
+    </div>
+
+</ion-content>

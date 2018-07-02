@@ -1,0 +1,27 @@
+<ion-header class="jr_theme_color jr_header">
+  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>
+  <div class="jr_header_title">
+    <h4>Ask about</h4>
+  </div>
+  <div class="jr_clear"></div>
+</ion-header>
+<ion-content padding>
+  <div class="jr_profile_content" style="width:90%;">
+    <div class="jr_offer_bg">
+        <img src="assets/img/jr_ask.png">
+    </div>
+    <div class="jr_profile_tab_content">
+      <ul>
+        <br>
+        <li (click)="pickup()">Pickup Point</li><br>
+        <li (click)="drop()">Drop off Point</li><br>
+        <li>Luggage</li><br>
+        <li (click)="ratting()">Ratting</li><br>
+        <li>Avialable Seats</li><br>
+        <li>Transporting parcels or animals</li><br>
+        <li (click)="thanks()">Others</li>
+      </ul>
+    </div>
+  </div>
+
+</ion-content>

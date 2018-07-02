@@ -1,0 +1,33 @@
+<ion-header class="jr_theme_color jr_header">
+  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>
+  <div class="jr_header_title">
+    <h4>Thanks for signing up</h4>
+  </div>
+  <div class="jr_clear"></div>
+</ion-header>
+
+
+<ion-content padding>
+  <div class="jr_ride_wrapper">
+    <h3> You will get an email when new
+rides matching your alert
+are offered.</h3>
+<div class="jr_edit_row ">
+  <div class="jr_proofs_list">
+    <li><ion-radio ng-model="choice1" ng-value="'A'" class="jr_radio_id"></ion-radio><p>Search engines</p><div class="jr_clear"></div></li>
+    <li><ion-radio ng-model="choice2" ng-value="'B'" class="jr_radio_id"></ion-radio><p>Events or festivals</p><div class="jr_clear"></div></li>
+    <li><ion-radio ng-model="choice3" ng-value="'C'" class="jr_radio_id"></ion-radio><p>News Articles</p><div class="jr_clear"></div></li>
+    <li><ion-radio ng-model="choice3" ng-value="'D'" class="jr_radio_id"></ion-radio><p>Outdoor Advertising</p><div class="jr_clear"></div></li>
+    <li><ion-radio ng-model="choice3" ng-value="'E'" class="jr_radio_id"></ion-radio><p>Youtube or Online sites</p><div class="jr_clear"></div></li>
+    <li><ion-radio ng-model="choice3" ng-value="'F'" class="jr_radio_id"></ion-radio><p>Petrol pump</p><div class="jr_clear"></div></li>
+    <li><ion-radio ng-model="choice3" ng-value="'G'" class="jr_radio_id"></ion-radio><p>Television</p><div class="jr_clear"></div></li>
+  </div>
+</div>
+
+
+    <div class="jr_bottom_button_bay">
+      <button ion-button class="jr_offer_ride2" (click)="dismiss()">Submit</button>
+    </div>
+  </div>
+
+</ion-content>

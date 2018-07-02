@@ -1,0 +1,107 @@
+<ion-header class="jr_theme_color jr_header">
+<button menuToggle ion-button class="jr_left jr_header_btn jr_sidemenu_icon"></button>
+  <div class="jr_header_title">
+    <h4>Edit Profile</h4>
+  </div>
+  <button ion-button class="jr_right jr_header_btn"></button>
+  <div class="jr_clear"></div>
+</ion-header>
+
+
+<ion-content>
+  <div class="jr_profile_wrapper">
+    <div class="jr_profile_banner">
+      <div class="jr_profile_photo">
+        <div class="jr_profile_photo_edit" (click)="editphoto()">
+          <img src="assets/img/jr_edit.png">
+        </div>
+      </div>
+    </div>
+    <div class="jr_profile_content">
+      <h4>BRUCE WAYNE</h4>
+      <hr>
+      <br>
+      <div class="jr_profile_tab_content">
+        <h4>ABOUT YOU</h4>
+        <div class="jr_edit_row">
+            <span>
+              <h5>GENDER
+              <select class="jr_edit_select">
+                <option>MALE</option>
+                <option>FEMALE</option>
+              </select>
+              </h5>
+            </span>
+        </div>
+        <div class="jr_edit_row">
+          <h5>FIRST NAME</h5>
+          <input class="jr_edit_profile_input" placeholder="FIRST NAME">
+        </div>
+        <div class="jr_edit_row">
+          <h5>LAST NAME</h5>
+          <input class="jr_edit_profile_input" placeholder="LAST NAME">
+        </div>
+        <div class="jr_edit_row">
+          <h5>DATE OF BIRTH</h5>
+          <div>
+            <div class="jr_width25">
+              <select class="jr_edit_select1">
+                <option>dd</option>
+              </select>
+            </div>
+            <div class="jr_width5">&nbsp;</div>
+            <div class="jr_width25">
+              <select class="jr_edit_select1">
+                <option>mm</option>
+              </select>
+            </div>
+            <div class="jr_width5">&nbsp;</div>
+            <div class="jr_width40">
+              <select class="jr_edit_select1">
+                <option>yyyy</option>
+              </select>
+            </div>
+            <div class="jr_clear"></div>
+          </div>
+        </div>
+        <div class="jr_edit_row jr_padding0">
+          <h4>YOUR BIOGRAPHY</h4>
+          <p>Contrary to popular belief, Lorem Ipsum is not simply random text.
+             It has roots in a piece of classical Latin literature from 45 BC,
+              making it over 2000 years old. Richard McClintock,
+               a Latin professor at Hampden-Sydney College in Virginia,
+             looked up one of the more obscure Latin words, consectetur,
+             from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered</p>
+             <button ion-button class="jr_addcomment_btn" (click)="editbio()">edit biography</button>
+        </div>
+        <div class="jr_edit_row jr_padding0" >
+          <h4>EMAIL</h4>
+          <input class="jr_edit_profile_input verified" placeholder="email@dummy.com">
+        </div>
+        <div class="jr_edit_row jr_padding0">
+          <h4>PHONE NUMBER</h4>
+          <div>
+            <div class="jr_width30">
+              <select class="jr_edit_select1">
+                <option>+91</option>
+              </select>
+            </div>
+            <div class="jr_width70">
+              <input class="jr_edit_profile_input" placeholder="9961531199">
+            </div>
+            <div class="jr_clear"></div>
+          </div>
+        </div>
+        <div class="jr_edit_row jr_padding0">
+          <div class="jr_custom">
+              <input id="check1" type="checkbox" name="check" value="check1">
+              <label for="check1">Don’t display my phone number to anyone</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="jr_bottom_button_bay">
+      <button ion-button class="jr_offer_ride2">Save</button>
+    </div>
+  </div>
+</ion-content>

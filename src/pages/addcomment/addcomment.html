@@ -1,0 +1,23 @@
+<ion-header class="jr_theme_color jr_header">
+  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>
+  <div class="jr_header_title">
+    <h4>Add Comment</h4>
+  </div>
+  <button ion-button class="jr_right jr_header_btn"></button>
+  <div class="jr_clear"></div>
+</ion-header>
+<ion-content>
+  <div class="jr_offerride_details">
+    <ul>
+      <li>
+        <h4><img src="assets/img/jr_comment.png">ADD COMMENT</h4>
+        <textarea class="jr_input_comment" placeholder="Type your comments here" rows="5"></textarea>
+      </li>
+    </ul>
+    <div class="jr_bottom_button_bay">
+      <div class="jr_tick" (click)="dismiss()">
+        <img src="assets/img/jr_tick.png">
+      </div>
+    </div>
+  </div>
+</ion-content>
