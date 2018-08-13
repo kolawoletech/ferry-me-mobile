@@ -32,6 +32,7 @@ export class Landing {
   goToPrevSlide() {
     this.slider.slidePrev();
   }
+  
   onSlideChanged() {
     this.showPrev = this.slider.isBeginning();
     this.showNext = this.slider.isEnd();
