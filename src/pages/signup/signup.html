@@ -1,0 +1,81 @@
+<ion-content class="jr_login_bg">
+  <div class="jr_profile_content">
+    <div class="jr_login_detail">
+      <h5>Your</h5>
+      <h4>journey starts here !</h4>
+      <p>Share your car journey with co- travellers just
+        <br> like you and cover all your fuel costs!</p>
+      <hr>
+      <form [formGroup]="signupForm" (submit)="login()" novalidate>
+        <ion-item class="jr_login_input1">
+          <ion-input formControlName="firstName" type="text" placeholder="First Name"></ion-input>
+        </ion-item>
+        <ion-item class="error-message" *ngIf="!signupForm.controls.firstName.valid &&
+        signupForm.controls.firstName.dirty">
+          <p>Hey, you need to enter your first name</p>
+        </ion-item>
+        <ion-item class="jr_login_input1">
+          <ion-input formControlName="lastName" type="text" placeholder="Last Name"></ion-input>
+        </ion-item>
+        <ion-item class="error-message" *ngIf="!signupForm.controls.lastName.valid &&
+        signupForm.controls.lastName.dirty">
+          <p>Hey, you need to enter your last name</p>
+        </ion-item>
+        <ion-item class="jr_login_input1">
+          <ion-input formControlName="username" type="text" placeholder="Username"></ion-input>
+        </ion-item>
+        <ion-item class="error-message" *ngIf="!signupForm.controls.username.valid &&
+        signupForm.controls.username.dirty">
+          <p>Hey, you need to enter a longer username of minlength of 6</p>
+        </ion-item>
+        <ion-item class="jr_login_input1">
+          <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>
+        </ion-item>
+        <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid &&
+        signupForm.controls.email.dirty">
+          <p>Please write a valid email.</p>
+        </ion-item>
+
+        <ion-item class="jr_login_input1">
+          <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
+        </ion-item>
+        <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid &&
+        signupForm.controls.password.dirty">
+          <p>Your password needs more than 6 characters.</p>
+        </ion-item>
+        <button ion-button block type="submit" [disabled]="!signupForm.valid" class="jr_offer_ride3">SIGNUP</button>
+      </form>
+    </div>
+    <!--     <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
+      <ion-item>
+        <ion-label stacked>Email</ion-label>
+        <ion-input formControlName="email" type="email" placeholder="Your email address" [class.invalid]="!signupForm.controls.email.valid && blur">
+        </ion-input>
+      </ion-item>
+      <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid
+        && signupForm.controls.email.touched">
+        <p>Please enter a valid email.</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Password</ion-label>
+        <ion-input formControlName="password" type="password" placeholder="Your password" [class.invalid]="!signupForm.controls.password.valid && blur">
+        </ion-input>
+      </ion-item>
+      <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid  &&
+        signupForm.controls.password.touched">
+        <p>Your password needs more than 6 characters.</p>
+      </ion-item>
+
+      <button ion-button block type="submit" [disabled]="!signupForm.valid">
+        Create an Account
+      </button>
+    </form> -->
+
+    <div class="jr_landing_btm">
+      <button ion-button class="jr_btm_btn2" (click)="goBack()">
+        <img src="assets/img/jr_arrow1.png">
+      </button>
+    </div>
+  </div>
+</ion-content>
