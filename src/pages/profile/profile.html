@@ -1,0 +1,108 @@
+<ion-header class="jr_theme_color jr_header">
+  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="goBack()"></button>
+  <div class="jr_header_title">
+    <h4>Profile</h4>
+  </div>
+  <button ion-button class="jr_right jr_header_btn jr_mail_icon" (click)="message()"></button>
+  <button ion-button class="jr_right jr_header_btn jr_profile_icon"></button>
+  <div class="jr_clear"></div>
+</ion-header>
+<ion-content>
+  <div class="jr_profile_wrapper">
+    <button class="jr_more_pop_up" (click)="presentPopover($event)">
+      <img src="assets/img/jr_more.png">
+    </button>
+    <div class="jr_profile_banner">
+      <div class="jr_profile_photo">
+        <!--         <div class="jr_profile_photo_edit" (click)="takePicture()">
+           <img src="assets/img/jr_edit.png">
+          <img *ngIf="!userProfile.profilePic" src="assets/img/default.jpg" />
+          <img *ngIf="userProfile.profilePic" src="{{userProfile.profilePic}}" />
+         
+        </div> -->
+      </div>
+    </div>
+    <!--     <ion-item (click)="updateName()">
+      <ion-grid class="jr_profile_content">
+        <ion-row>
+          <ion-col col-6> Name </ion-col>
+          <ion-col col-6 *ngIf="userProfile?.firstName || userProfile?.lastName">
+            {{userProfile?.firstName}} {{userProfile?.lastName}}
+          </ion-col>
+          <ion-col col-6 class="placeholder-profile" *ngIf="!userProfile?.firstName">
+            <span> Tap here to edit. </span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item> -->
+
+    <div class="jr_profile_content">
+      <h4 (click)="updateName()">{{userProfile?.firstName}} {{userProfile?.lastName}}</h4>
+      <hr>
+      <br>
+      <div class="jr_profile_tab_bay">
+        <li [class.active]="tab=='active'" (click)="tab_swap('active')">Details</li>
+        <li [class.active]="tab=='inactive'" (click)="tab_swap('inactive')">Accounts</li>
+        <div class="jr_clear"></div>
+      </div>
+      <div class="jr_profile_tab_content" [hidden]="tab=='inactive'">
+        <h4>ABOUT YOU</h4>
+        <ul>
+          <li>{{userProfile?.username}}</li>
+          <li (click)="editbio()">Write my Biography</li>
+          <li (click)="editpreference()">Add my Preferences</li>
+        </ul>
+        <hr>
+        <h4>VERIFICATION</h4>
+        <ul>
+          <li (click)="editid()">Verify my ID</li>
+          <li (click)="addnumber()">Add my Phone</li>
+          <li class="verified">{{userProfile?.email}}</li>
+          <!-- <li class="verified">Facebook Verified</li> -->
+        </ul>
+        <hr>
+        <h4>CAR</h4>
+        <!--         <ul>
+          <li (click)="addcar()">Add my Car</li>
+          <br>
+          <li>
+            <div class="jr_car_pic">
+              <div class="jr_edit1" (click)="addcarphoto()">
+                <img src="assets/img/jr_edit1.png">
+              </div>
+            </div>
+            <div class="jr_car_name" (click)="editcar()">
+              <h5>BMW M5</h5>
+              <p>Cherry Red</p>
+            </div>
+            <div class="jr_clear"></div>
+          </li>
+          <br>
+          <br>
+        </ul> -->
+        <div class="jr_bottom_button_bay">
+          <button ion-button class="jr_offer_ride4" (click)="publicprofile()">See my public profile</button>
+        </div>
+      </div>
+      <div class="jr_profile_tab_content" [hidden]="tab=='active'">
+        <h4>PREFERENCES</h4>
+        <ul>
+          <li (click)="notification()">Notifications</li>
+        </ul>
+        <hr>
+        <h4>ABOUT</h4>
+        <ul>
+          <li>Help</li>
+          <li>Terms & Conditions</li>
+          <li>Privacy Policy</li>
+          <li>Licenses</li>
+        </ul>
+        <div class="jr_bottom_button_bay">
+          <button ion-button class="jr_offer_ride5">Logout</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</ion-content>

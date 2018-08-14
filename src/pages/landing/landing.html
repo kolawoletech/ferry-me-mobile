@@ -1,0 +1,68 @@
+
+
+<ion-content class="jr_landing_bg">
+  <ion-slides  pager="true" #mySlider  (ionSlideDidChange)="onSlideChanged()">
+    <ion-slide class="jr_slide jr_landing_overlay">
+      <div class="jr_slider_inner">
+        <h4>Welcome to</h4>
+        <h3><strong>FerryMe</strong></h3>
+        <h4> Rides</h4>
+        <hr>
+        <p>instantly find a traveling partner for short and long distance trips<br> as well as connect passengers and drivers for events related trip<br> to share journeys.</p>
+        <div class="jr_space"></div>
+     </div>
+    </ion-slide>
+    <ion-slide class="jr_slide jr_landing_overlay">
+      <div class="jr_slider_inner">
+        <h4>You can</h4>
+        <h3><strong>Offer a Ride</strong></h3>
+        <hr>
+        <p>Share your car journey with co- travellers just like you and cover all your fuel costs!</p>
+        <div class="jr_space"></div>
+     </div>
+    </ion-slide>
+    <ion-slide class="jr_slide jr_landing_overlay">
+      <div class="jr_slider_inner">
+        <h4>or</h4>
+        <h3><strong>Find a Ride</strong></h3>
+        <hr>
+        <p>Joyfull and comfortable travel, share your journey with all like you</p>
+        <div class="jr_space"></div>
+     </div>
+    </ion-slide>
+    <ion-slide class="jr_slide jr_landing_overlay1 animate fadeIn">
+      <div class="jr_slider_inner">
+        <h4>Choose a trusted people</h4>
+        <h3><strong>to travel with you</strong></h3>
+        <hr>
+        <div class="jr_icon_bar">
+          <span><img src="assets/img/jr_verified.png"></span>
+          <span><img src="assets/img/jr_ratting.png"></span>
+          <span><img src="assets/img/jr_phone.png"></span>
+         </div>
+        <p>Trusted Profiles<br>
+        Ratting<br>
+      Verified Contact</p>
+        <div class="jr_space" style="height:200px;"></div>
+     </div>
+    </ion-slide>
+  </ion-slides>
+    <div class="jr_landing_btm">
+      <button ion-button class="jr_btm_btn" [hidden] ="currentIndex != 0"  (click)="goToNextSlide()">
+        Know how
+      </button>
+      <button ion-button class="jr_btm_btn animate fadeInLeft" style="width:40px;height:40px;border-radius:50%;padding: 10px;" [hidden]="currentIndex == 0 || currentIndex == 3"  (click)="goToNextSlide()">
+        <img src="assets/img/jr_arrow.png">
+      </button>
+      <div class="clear"></div>
+      <div class="jr_last_slide_btn_bar" [hidden] ="currentIndex != 3"  >
+        <!-- <button ion-button class="jr_strtd_btn" (click)="home()">GET STARTED</button> -->
+        <div class="jr_sign_bar">
+          <ul>
+            <li ion-button (click)="login()">LOGIN</li>
+            <li ion-button (click)="signup()">SIGN UP</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+</ion-content>
