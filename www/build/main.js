@@ -90,11 +90,11 @@ var map = {
 		2
 	],
 	"../pages/public-profile/public-profile.module": [
-		727,
+		726,
 		1
 	],
 	"../pages/signup/signup.module": [
-		726,
+		727,
 		0
 	]
 };
@@ -360,8 +360,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/pop-over-more/pop-over-more.module#PopOverMorePageModule', name: 'PopOverMorePage', segment: 'pop-over-more', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/pop-over/pop-over.module#PopOverPageModule', name: 'PopOverPage', segment: 'pop-over', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/public-profile/public-profile.module#PublicProfilePageModule', name: 'PublicProfilePage', segment: 'public-profile', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/public-profile/public-profile.module#PublicProfilePageModule', name: 'PublicProfilePage', segment: 'public-profile', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_11_angularfire2__["a" /* AngularFireModule */].initializeApp(__WEBPACK_IMPORTED_MODULE_9__credentials__["a" /* firebaseConfig */]),
@@ -422,7 +422,7 @@ var MyApp = /** @class */ (function () {
                 _this.rootPage = 'LandingPage';
             }
             else {
-                _this.rootPage = 'ProfilePage';
+                _this.rootPage = 'HomePage';
             }
         });
         platform.ready().then(function () {

@@ -74,7 +74,7 @@ export class SignupPage {
         .then(
           () => {
             loading.dismiss().then(() => {
-              this.navCtrl.setRoot(HomePage);
+              this.navCtrl.setRoot('PhonePage');
             });
           },
           error => {

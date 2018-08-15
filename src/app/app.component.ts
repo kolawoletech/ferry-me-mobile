@@ -16,7 +16,7 @@ export class MyApp {
       if (!user) {
         this.rootPage = 'LandingPage';
       } else {
-        this.rootPage = 'ProfilePage';
+        this.rootPage = 'HomePage';
       }
     });
     platform.ready().then(() => {
