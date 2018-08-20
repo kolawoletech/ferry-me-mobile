@@ -1,14 +1,14 @@
 webpackJsonp([12],{
 
-/***/ 715:
+/***/ 728:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditPreferencePageModule", function() { return EditPreferencePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IdeditPageModule", function() { return IdeditPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(89);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_preference__ = __webpack_require__(734);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__idedit__ = __webpack_require__(750);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,33 +18,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var EditPreferencePageModule = /** @class */ (function () {
-    function EditPreferencePageModule() {
+var IdeditPageModule = /** @class */ (function () {
+    function IdeditPageModule() {
     }
-    EditPreferencePageModule = __decorate([
+    IdeditPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__edit_preference__["a" /* EditPreferencePage */],
+                __WEBPACK_IMPORTED_MODULE_2__idedit__["a" /* IdeditPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__edit_preference__["a" /* EditPreferencePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__idedit__["a" /* IdeditPage */]),
             ],
         })
-    ], EditPreferencePageModule);
-    return EditPreferencePageModule;
+    ], IdeditPageModule);
+    return IdeditPageModule;
 }());
 
-//# sourceMappingURL=edit-preference.module.js.map
+//# sourceMappingURL=idedit.module.js.map
 
 /***/ }),
 
-/***/ 734:
+/***/ 750:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditPreferencePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IdeditPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(91);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57,29 +57,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the EditPreferencePage page.
+ * Generated class for the IdeditPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var EditPreferencePage = /** @class */ (function () {
-    function EditPreferencePage(navCtrl, navParams) {
+var IdeditPage = /** @class */ (function () {
+    function IdeditPage(navCtrl, viewCtrl) {
         this.navCtrl = navCtrl;
-        this.navParams = navParams;
+        this.viewCtrl = viewCtrl;
     }
-    EditPreferencePage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad EditPreferencePage');
+    IdeditPage.prototype.ionViewDidLoad = function () {
     };
-    EditPreferencePage = __decorate([
+    IdeditPage.prototype.dismiss = function () {
+        this.viewCtrl.dismiss();
+    };
+    IdeditPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-preference',template:/*ion-inline-start:"C:\Users\kolaw\Documents\freelance\ferryMe\modularApp\src\pages\edit-preference\edit-preference.html"*/'<!--\n  Generated template for the EditPreferencePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>EditPreference</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\kolaw\Documents\freelance\ferryMe\modularApp\src\pages\edit-preference\edit-preference.html"*/,
+            selector: 'page-idedit',template:/*ion-inline-start:"C:\Users\kolaw\Documents\freelance\ferryMe\modularApp\src\pages\idedit\idedit.html"*/'<ion-header class="jr_theme_color jr_header">\n  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>\n  <div class="jr_header_title">\n    <h4>Confirm id</h4>\n  </div>\n  <button ion-button class="jr_right jr_header_btn"></button>\n  <div class="jr_clear"></div>\n</ion-header>\n<ion-content>\n  <div class="jr_profile_content">\n    <div class="jr_text_center">\n      <div class="jr_edit_row jr_text_center">\n        <br><br>\n      <h4 class="jr_padding0 jr_margin0">is that the name on your</h4>\n      <h3 class="jr_margintop0">Aadhar card</h3>\n      <hr>\n    </div>\n      </div>\n    <div class="jr_edit_row">\n          <h5>FIRST NAME</h5>\n          <input class="jr_edit_profile_input" placeholder="FIRST NAME">\n        </div>\n        <div class="jr_edit_row">\n              <h5>LAST NAME</h5>\n              <input class="jr_edit_profile_input" placeholder="LAST NAME">\n            </div>\n            <div class="jr_confidential jr_bordernone">\n              <div class="jr_confidential_left">\n                <img src="assets/img/jr_confidentional.png" >\n              </div>\n              <div class="jr_confidential_right">\n                <p>Your ID card will be kept strictly\n      confidential</p>\n              </div>\n              <div class="jr_clear"></div>\n            </div>\n\n\n  <div class="jr_bottom_button_bay">\n    <button ion-button class="jr_offer_ride2">Continue</button>\n  </div>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\kolaw\Documents\freelance\ferryMe\modularApp\src\pages\idedit\idedit.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
-    ], EditPreferencePage);
-    return EditPreferencePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */]])
+    ], IdeditPage);
+    return IdeditPage;
 }());
 
-//# sourceMappingURL=edit-preference.js.map
+//# sourceMappingURL=idedit.js.map
 
 /***/ })
 

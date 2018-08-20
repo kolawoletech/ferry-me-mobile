@@ -179,7 +179,7 @@ export class ProfilePage {
   }
 
   addcar() {
-    let modal = this.modalCtrl.create('AddCar');
+    let modal = this.modalCtrl.create('AddCarPage');
     modal.present();
   }
 
@@ -199,7 +199,7 @@ export class ProfilePage {
   }
 
   notification() {
-    let modal = this.modalCtrl.create(Notification);
+    let modal = this.modalCtrl.create('NotificationPage');
     modal.present();
   }
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the MessagePage page.
@@ -14,12 +14,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'message.html',
 })
 export class MessagePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  tab: any;
+  constructor(public navCtrl: NavController, public viewCtrl: ViewController) { }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MessagePage');
+    this.tab = "active";
   }
 
+  tab_swap(type) {
+    this.tab = type;
+  }
+
+
+
+  dismiss() {
+    this.viewCtrl.dismiss();
+  }
+
+
+  profile() {
+    this.navCtrl.push('ProfilePage');
+  }
 }

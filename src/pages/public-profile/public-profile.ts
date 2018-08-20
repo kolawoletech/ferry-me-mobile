@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the PublicProfilePage page.
@@ -15,11 +15,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PublicProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController,public viewCtrl: ViewController) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PublicProfilePage');
   }
+
+  dismiss() {
+   this.viewCtrl.dismiss();
+ }
 
 }

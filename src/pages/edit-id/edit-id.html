@@ -1,18 +1,48 @@
-<!--
-  Generated template for the EditIdPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>EditId</ion-title>
-  </ion-navbar>
-
+<ion-header class="jr_theme_color jr_header">
+  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>
+  <div class="jr_header_title">
+    <h4>Choose your Govt ID</h4>
+  </div>
+  <button ion-button class="jr_right jr_header_btn"></button>
+  <div class="jr_clear"></div>
 </ion-header>
 
+<ion-content>
+  <div class="jr_profile_wrapper">
+    <div class="jr_profile_banner">
+        <img src="assets/img/jr_chooseid.png" class="jr_chooseid">
+    </div>
+    <div class="jr_profile_content">
+      <div class="jr_text_center">
+        <div class="jr_edit_row jr_text_center">
+        <h4 class="jr_padding0 jr_margin0">Choose the type of </h4>
+        <h3 class="jr_margintop0">Govt. ID</h3>
+        <hr>
+      </div>
+        <div class="jr_edit_row ">
+          <div class="jr_proofs_list">
+            <li><ion-radio ng-model="choice1" ng-value="'A'" class="jr_radio_id"></ion-radio><p>Passport</p><div class="jr_clear"></div></li>
+            <li><ion-radio ng-model="choice2" ng-value="'B'" class="jr_radio_id"></ion-radio><p>Aadhaar Card</p><div class="jr_clear"></div></li>
+            <li><ion-radio ng-model="choice3" ng-value="'C'" class="jr_radio_id"></ion-radio><p>Pan Card</p><div class="jr_clear"></div></li>
+          </div>
+      </div>
+      </div>
+      <div class="jr_confidential">
+        <div class="jr_confidential_left">
+          <img src="assets/img/jr_confidentional.png" >
+        </div>
+        <div class="jr_confidential_right">
+          <p>Your ID card will be kept strictly
+confidential</p>
+        </div>
+        <div class="jr_clear"></div>
+      </div>
+    </div>
+    <hr>
 
-<ion-content padding>
+    <div class="jr_bottom_button_bay">
+      <button ion-button class="jr_offer_ride2" (click)="idupload()">Continue</button>
+    </div>
+  </div>
 
 </ion-content>

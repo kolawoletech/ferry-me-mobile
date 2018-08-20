@@ -11,10 +11,15 @@ import { AuthProvider } from '../providers/auth/auth';
 import { firebaseConfig } from './credentials';
 import * as firebase from 'firebase/app'
 
+
+import { File } from '@ionic-native/file';
+import { FileChooser } from '@ionic-native/file-chooser';
+import { FilePath } from '@ionic-native/file-path';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { ProfileProvider } from '../providers/profile/profile';
+import { ImghandlerProvider } from '../providers/imghandler/imghandler';
 
 
 firebase.initializeApp(firebaseConfig);
@@ -40,10 +45,14 @@ firebase.initializeApp(firebaseConfig);
   providers: [
     StatusBar,
     SplashScreen,
+    File,
+    FilePath,
+    FileChooser,
     Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
-    ProfileProvider
-  ]
+    ProfileProvider,
+    ImghandlerProvider,
+    ]
 })
 export class AppModule {}

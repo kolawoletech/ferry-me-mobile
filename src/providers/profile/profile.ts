@@ -35,7 +35,7 @@ export class ProfileProvider {
     return this.userProfile.update({ firstName, lastName });
   }
 
-  updateDOB(birthDate:string): Promise<any> {
+  updateDOB(birthDate: string): Promise<any> {
     return this.userProfile.update({ birthDate });
   }
 
@@ -74,5 +74,27 @@ export class ProfileProvider {
       .catch(error => {
         console.error(error);
       });
+  }
+
+  updateimage(imageurl) {
+    var promise = new Promise((resolve, reject) => {
+      this.afAuth.auth.currentUser.updateProfile({
+        displayName: this.afAuth.auth.currentUser.displayName,
+        photoURL: imageurl
+      }).then(() => {
+        firebase.database().ref('/userProfile/' + firebase.auth().currentUser.uid).update({
+          displayName: this.afAuth.auth.currentUser.displayName,
+          photoURL: imageurl,
+          uid: firebase.auth().currentUser.uid
+        }).then(() => {
+          resolve({ success: true });
+        }).catch((err) => {
+          reject(err);
+        })
+      }).catch((err) => {
+        reject(err);
+      })
+    })
+    return promise;
   }
 }
