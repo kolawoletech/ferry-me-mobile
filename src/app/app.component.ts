@@ -13,10 +13,10 @@ export class MyApp {
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, afAuth: AngularFireAuth) {
     afAuth.authState.subscribe(user => {
-      if (!user) {
+      if (user) {
+        this.rootPage = HomePage; 
+      } else {  
         this.rootPage = 'LandingPage';
-      } else {
-        this.rootPage = HomePage;
       }
     });
     platform.ready().then(() => {

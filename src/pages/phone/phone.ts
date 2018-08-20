@@ -29,7 +29,7 @@ export class PhonePage {
     }, (successdata) => {
       (<any>window).AccountKitPlugin.getAccount((phone) => {
         
-        this.navCtrl.push('ProfilePage');
+        this.navCtrl.setRoot('HomePage');
       })
       }, (err) => {
         alert(err);

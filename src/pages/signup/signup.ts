@@ -12,6 +12,7 @@ import {
   NavController,
   ModalController
 } from "ionic-angular";
+import { PhonePage } from '../phone/phone';
 /**
  * Generated class for the SignupPage page.
  *
@@ -74,7 +75,7 @@ export class SignupPage {
         .then(
           () => {
             loading.dismiss().then(() => {
-              this.navCtrl.setRoot(HomePage);
+              this.navCtrl.setRoot(PhonePage);
             });
           },
           error => {
@@ -85,6 +86,14 @@ export class SignupPage {
         );
     }
     loading.present();
+  }
+  verification() {
+    let modal = this.modalCtrl.create('VerificationPage');
+    modal.present();
+  }
+
+  goBack() {
+    this.navCtrl.pop();
   }
 
 }
