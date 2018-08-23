@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AuthProvider } from "../../providers/auth/auth";
 import { EmailValidator } from "../../validators/email";
 import { HomePage } from "../../pages/home/home";
+import firebase from 'firebase';
+import { Facebook } from '@ionic-native/facebook';
 import {
   Alert,
   AlertController,
@@ -26,9 +28,11 @@ import { PhonePage } from '../phone/phone';
   templateUrl: 'signup.html',
 })
 export class SignupPage {
+  userProfile: any = null;
   public signupForm: FormGroup;
   public loading: Loading;
   constructor(    
+    private facebook: Facebook,
     public navParams: NavParams,
     public modalCtrl: ModalController,
     public navCtrl: NavController,
@@ -87,6 +91,23 @@ export class SignupPage {
     }
     loading.present();
   }
+
+  facebookLogin(){
+    this.facebook.login(['email']).then( (response) => {
+        const facebookCredential = firebase.auth.FacebookAuthProvider
+            .credential(response.authResponse.accessToken);
+
+        firebase.auth().signInWithCredential(facebookCredential)
+        .then((success) => {
+            console.log("Firebase success: " + JSON.stringify(success));
+            this.userProfile = success;
+        })
+        .catch((error) => {
+            console.log("Firebase failure: " + JSON.stringify(error));
+        });
+
+    }).catch((error) => { console.log(error) });
+}
   verification() {
     let modal = this.modalCtrl.create('VerificationPage');
     modal.present();
