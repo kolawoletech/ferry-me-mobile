@@ -12,7 +12,18 @@
         <input class="jr_login_input" placeholder="Username">
         <input class="jr_login_input" placeholder="Password">
         <button ion-button class="jr_offer_ride2" (click)="home()">LOGIN</button>
+
         <p (click)="password()"><i>Forgot Password ?</i></p>
+        <h5>OR</h5>
+        <button ion-button full block (click)="facebookLogin()">
+            <ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon>
+          Login with Facebook
+        </button>
+  
+        <button ion-button block color="danger" (click)="loginUser()">
+            <ion-icon ios="logo-google" md="logo-google"></ion-icon>
+            Login with Google
+          </button>
       </div>
       <div class="jr_landing_btm">
         <button ion-button class="jr_btm_btn1" (click)="goBack()">
