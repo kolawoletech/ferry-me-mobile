@@ -6,3 +6,11 @@ export const firebaseConfig = {
     storageBucket: "rgengineering-b394c.appspot.com",
     messagingSenderId: "924137236064"
   };
+
+  export const firebaseSdkConfig = {
+    webClientId: '',
+    androidClientId: '',
+    webClientSecret: '',
+    projectId: '',
+    webApiKey: '',
+  };

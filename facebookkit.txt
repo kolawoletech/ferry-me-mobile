@@ -1,1 +1,5 @@
 ionic plugin add cordova-plugin-facebook4 --variable APP_ID="416332122105092" --variable APP_NAME="ferryme"
+
+https://github.com/javebratt/ionic-firebase-mega-starter/blob/master/src/app/credentials.backup.ts
+
+https://github.com/rajayogan/ionic3chat

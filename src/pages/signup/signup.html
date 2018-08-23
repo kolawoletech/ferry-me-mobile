@@ -27,11 +27,15 @@
       <hr>
       <h5>OR</h5>
       <button ion-button full block (click)="facebookLogin()">
+          <ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon>
         Log In with Facebook
       </button>
-      <button ion-button full block>
-        Log In with Google
-      </button>
+
+      <button ion-button block color="danger" (click)="loginUser()">
+          <ion-icon ios="logo-google" md="logo-google"></ion-icon>
+          Login with Google
+        </button>
+      
     </div>
     <!--     <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
       <ion-item>
