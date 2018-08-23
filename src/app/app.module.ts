@@ -13,6 +13,7 @@ import { firebaseConfig } from './credentials';
 import * as firebase from 'firebase/app'
 
 
+
 import { File } from '@ionic-native/file';
 import { FileChooser } from '@ionic-native/file-chooser';
 import { FilePath } from '@ionic-native/file-path';

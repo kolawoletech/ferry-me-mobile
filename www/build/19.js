@@ -1,14 +1,14 @@
 webpackJsonp([19],{
 
-/***/ 739:
+/***/ 732:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditBioPageModule", function() { return EditBioPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditCarPageModule", function() { return EditCarPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(91);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_bio__ = __webpack_require__(762);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_car__ = __webpack_require__(756);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,33 +18,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var EditBioPageModule = /** @class */ (function () {
-    function EditBioPageModule() {
+var EditCarPageModule = /** @class */ (function () {
+    function EditCarPageModule() {
     }
-    EditBioPageModule = __decorate([
+    EditCarPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__edit_bio__["a" /* EditBioPage */],
+                __WEBPACK_IMPORTED_MODULE_2__edit_car__["a" /* EditCarPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__edit_bio__["a" /* EditBioPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__edit_car__["a" /* EditCarPage */]),
             ],
         })
-    ], EditBioPageModule);
-    return EditBioPageModule;
+    ], EditCarPageModule);
+    return EditCarPageModule;
 }());
 
-//# sourceMappingURL=edit-bio.module.js.map
+//# sourceMappingURL=edit-car.module.js.map
 
 /***/ }),
 
-/***/ 762:
+/***/ 756:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditBioPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditCarPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(93);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -56,33 +56,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-//import { NavController,ViewController } from 'ionic-angular';
 /**
- * Generated class for the EditBioPage page.
+ * Generated class for the EditCarPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var EditBioPage = /** @class */ (function () {
-    function EditBioPage(navCtrl, viewCtrl) {
+var EditCarPage = /** @class */ (function () {
+    function EditCarPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
-        this.viewCtrl = viewCtrl;
+        this.navParams = navParams;
     }
-    EditBioPage.prototype.ionViewDidLoad = function () {
+    EditCarPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad EditCarPage');
     };
-    EditBioPage.prototype.dismiss = function () {
-        this.viewCtrl.dismiss();
-    };
-    EditBioPage = __decorate([
+    EditCarPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-bio',template:/*ion-inline-start:"C:\Users\kolaw\Documents\freelance\ferryMe\modularApp\src\pages\edit-bio\edit-bio.html"*/'<ion-header class="jr_theme_color jr_header">\n  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>\n  <div class="jr_header_title">\n    <h4>Edit Biography</h4>\n  </div>\n  <button ion-button class="jr_right jr_header_btn"></button>\n  <div class="jr_clear"></div>\n</ion-header>\n<ion-content>\n  <div class="jr_offerride_details">\n    <ul>\n      <li>\n        <h4><img src="assets/img/jr_pr.png">YOUR BIOGRAPHY</h4>\n        <textarea class="jr_input_comment" placeholder="Type here" rows="5"></textarea>\n      </li>\n    </ul>\n    <div class="jr_bottom_button_bay">\n      <div class="jr_tick" (click)="dismiss()">\n        <img src="assets/img/jr_tick.png">\n      </div>\n    </div>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\kolaw\Documents\freelance\ferryMe\modularApp\src\pages\edit-bio\edit-bio.html"*/,
+            selector: 'page-edit-car',template:/*ion-inline-start:"C:\Users\Administrator\Desktop\ferry-me-mobile\src\pages\edit-car\edit-car.html"*/'<!--\n\n  Generated template for the EditCarPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>EditCar</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Administrator\Desktop\ferry-me-mobile\src\pages\edit-car\edit-car.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */]])
-    ], EditBioPage);
-    return EditBioPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+    ], EditCarPage);
+    return EditCarPage;
 }());
 
-//# sourceMappingURL=edit-bio.js.map
+//# sourceMappingURL=edit-car.js.map
 
 /***/ })
 

@@ -1,14 +1,14 @@
 webpackJsonp([12],{
 
-/***/ 726:
+/***/ 739:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IdeditPageModule", function() { return IdeditPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IduploadPageModule", function() { return IduploadPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(91);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__idedit__ = __webpack_require__(749);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__idupload__ = __webpack_require__(763);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,33 +18,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var IdeditPageModule = /** @class */ (function () {
-    function IdeditPageModule() {
+var IduploadPageModule = /** @class */ (function () {
+    function IduploadPageModule() {
     }
-    IdeditPageModule = __decorate([
+    IduploadPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__idedit__["a" /* IdeditPage */],
+                __WEBPACK_IMPORTED_MODULE_2__idupload__["a" /* IduploadPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__idedit__["a" /* IdeditPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__idupload__["a" /* IduploadPage */]),
             ],
         })
-    ], IdeditPageModule);
-    return IdeditPageModule;
+    ], IduploadPageModule);
+    return IduploadPageModule;
 }());
 
-//# sourceMappingURL=idedit.module.js.map
+//# sourceMappingURL=idupload.module.js.map
 
 /***/ }),
 
-/***/ 749:
+/***/ 763:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IdeditPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IduploadPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(93);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57,31 +57,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the IdeditPage page.
+ * Generated class for the IduploadPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var IdeditPage = /** @class */ (function () {
-    function IdeditPage(navCtrl, viewCtrl) {
+var IduploadPage = /** @class */ (function () {
+    function IduploadPage(navCtrl, viewCtrl) {
         this.navCtrl = navCtrl;
         this.viewCtrl = viewCtrl;
     }
-    IdeditPage.prototype.ionViewDidLoad = function () {
+    IduploadPage.prototype.ionViewDidLoad = function () {
     };
-    IdeditPage.prototype.dismiss = function () {
+    IduploadPage.prototype.idedit = function () {
+        this.navCtrl.push('IdeditPage');
+    };
+    IduploadPage.prototype.dismiss = function () {
         this.viewCtrl.dismiss();
     };
-    IdeditPage = __decorate([
+    IduploadPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-idedit',template:/*ion-inline-start:"C:\Users\kolaw\Documents\freelance\ferryMe\modularApp\src\pages\idedit\idedit.html"*/'<ion-header class="jr_theme_color jr_header">\n  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>\n  <div class="jr_header_title">\n    <h4>Confirm id</h4>\n  </div>\n  <button ion-button class="jr_right jr_header_btn"></button>\n  <div class="jr_clear"></div>\n</ion-header>\n<ion-content>\n  <div class="jr_profile_content">\n    <div class="jr_text_center">\n      <div class="jr_edit_row jr_text_center">\n        <br><br>\n      <h4 class="jr_padding0 jr_margin0">is that the name on your</h4>\n      <h3 class="jr_margintop0">Aadhar card</h3>\n      <hr>\n    </div>\n      </div>\n    <div class="jr_edit_row">\n          <h5>FIRST NAME</h5>\n          <input class="jr_edit_profile_input" placeholder="FIRST NAME">\n        </div>\n        <div class="jr_edit_row">\n              <h5>LAST NAME</h5>\n              <input class="jr_edit_profile_input" placeholder="LAST NAME">\n            </div>\n            <div class="jr_confidential jr_bordernone">\n              <div class="jr_confidential_left">\n                <img src="assets/img/jr_confidentional.png" >\n              </div>\n              <div class="jr_confidential_right">\n                <p>Your ID card will be kept strictly\n      confidential</p>\n              </div>\n              <div class="jr_clear"></div>\n            </div>\n\n\n  <div class="jr_bottom_button_bay">\n    <button ion-button class="jr_offer_ride2">Continue</button>\n  </div>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\kolaw\Documents\freelance\ferryMe\modularApp\src\pages\idedit\idedit.html"*/,
+            selector: 'page-idupload',template:/*ion-inline-start:"C:\Users\Administrator\Desktop\ferry-me-mobile\src\pages\idupload\idupload.html"*/'<ion-header class="jr_theme_color jr_header">\n\n  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>\n\n  <div class="jr_header_title">\n\n    <h4>Upload your Govt ID</h4>\n\n  </div>\n\n  <button ion-button class="jr_right jr_header_btn"></button>\n\n  <div class="jr_clear"></div>\n\n</ion-header>\n\n<ion-content>\n\n  <div class="jr_profile_content">\n\n    <div class="jr_text_center">\n\n      <div class="jr_edit_row jr_text_center">\n\n        <br><br>\n\n      <h4 class="jr_padding0 jr_margin0">Upload good quality copy of your </h4>\n\n      <h3 class="jr_margintop0">Aadhar card</h3>\n\n      <hr>\n\n    </div>\n\n    <div class="jr_upload_img">\n\n      <br>\n\n      <img src="assets/img/jr_upload.png" >\n\n    </div>\n\n  </div>\n\n\n\n  <div class="jr_bottom_button_bay">\n\n    <button ion-button class="jr_offer_ride2" (click)="idedit()">Upload</button>\n\n  </div>\n\n</div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Administrator\Desktop\ferry-me-mobile\src\pages\idupload\idupload.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */]])
-    ], IdeditPage);
-    return IdeditPage;
+    ], IduploadPage);
+    return IduploadPage;
 }());
 
-//# sourceMappingURL=idedit.js.map
+//# sourceMappingURL=idupload.js.map
 
 /***/ })
 

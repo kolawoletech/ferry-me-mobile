@@ -1,14 +1,14 @@
 webpackJsonp([9],{
 
-/***/ 729:
+/***/ 749:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MessagePageModule", function() { return MessagePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(91);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(752);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__message__ = __webpack_require__(772);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,33 +18,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var LoginPageModule = /** @class */ (function () {
-    function LoginPageModule() {
+var MessagePageModule = /** @class */ (function () {
+    function MessagePageModule() {
     }
-    LoginPageModule = __decorate([
+    MessagePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_2__message__["a" /* MessagePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__message__["a" /* MessagePage */]),
             ],
         })
-    ], LoginPageModule);
-    return LoginPageModule;
+    ], MessagePageModule);
+    return MessagePageModule;
 }());
 
-//# sourceMappingURL=login.module.js.map
+//# sourceMappingURL=message.module.js.map
 
 /***/ }),
 
-/***/ 752:
+/***/ 772:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MessagePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(93);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57,29 +57,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the LoginPage page.
+ * Generated class for the MessagePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var LoginPage = /** @class */ (function () {
-    function LoginPage(navCtrl, navParams) {
+var MessagePage = /** @class */ (function () {
+    function MessagePage(navCtrl, viewCtrl) {
         this.navCtrl = navCtrl;
-        this.navParams = navParams;
+        this.viewCtrl = viewCtrl;
     }
-    LoginPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad LoginPage');
+    MessagePage.prototype.ionViewDidLoad = function () {
+        this.tab = "active";
     };
-    LoginPage = __decorate([
+    MessagePage.prototype.tab_swap = function (type) {
+        this.tab = type;
+    };
+    MessagePage.prototype.dismiss = function () {
+        this.viewCtrl.dismiss();
+    };
+    MessagePage.prototype.profile = function () {
+        this.navCtrl.push('ProfilePage');
+    };
+    MessagePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\Users\kolaw\Documents\freelance\ferryMe\modularApp\src\pages\login\login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Login</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\kolaw\Documents\freelance\ferryMe\modularApp\src\pages\login\login.html"*/,
+            selector: 'page-message',template:/*ion-inline-start:"C:\Users\Administrator\Desktop\ferry-me-mobile\src\pages\message\message.html"*/'<ion-header class="jr_theme_color jr_header">\n\n  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>\n\n  <div class="jr_header_title">\n\n    <h4>Messages</h4>\n\n  </div>\n\n  <button ion-button class="jr_right jr_header_btn jr_mail_icon"></button>\n\n  <button ion-button class="jr_right jr_header_btn jr_profile_icon" (click)="profile()"></button>\n\n  <div class="jr_clear"></div>\n\n  <div class="jr_home_tab_bay1">\n\n    <ul>\n\n      <li [class.active]="tab==\'active\'" (click)="tab_swap(\'active\')">Messages</li>\n\n      <li [class.active]="tab==\'inactive\'" (click)="tab_swap(\'inactive\')">Notifications</li>\n\n      <div class="jr_clear"></div>\n\n    </ul>\n\n  </div>\n\n</ion-header>\n\n  <ion-content class="jr_body_wrapper">\n\n    <div class="jr_message_wrapper">\n\n      <div class="jr_home_tab_content"  [hidden]="tab==\'inactive\'">\n\n        <div class="jr_profile_content">\n\n          <div class="jr_no_msg">\n\n          <div class="jr_offer_bg">\n\n              <img src="assets/img/jr_nomsg.png">\n\n          </div>\n\n          <div class="jr_text_center">\n\n            <div class="jr_edit_row jr_text_center">\n\n              <br><br>\n\n                <hr>\n\n                  <br><br>\n\n            <h4 class="jr_padding0 jr_margin0">currently you have</h4>\n\n            <h3 class="jr_margintop0">no Messages</h3>\n\n            </div>\n\n            </div>\n\n          </div>\n\n          </div>\n\n      </div>\n\n      <div class="jr_home_tab_content" [hidden]="tab==\'active\'" >\n\n        <div class="jr_profile_content">\n\n          <div class="jr_no_msg">\n\n          <div class="jr_offer_bg">\n\n              <img src="assets/img/jr_no_not.png">\n\n          </div>\n\n          <div class="jr_text_center">\n\n            <div class="jr_edit_row jr_text_center">\n\n              <br><br>\n\n                <hr>\n\n                  <br><br>\n\n            <h4 class="jr_padding0 jr_margin0">currently you have</h4>\n\n            <h3 class="jr_margintop0">no Notification</h3>\n\n            </div>\n\n            </div>\n\n          </div>\n\n          <!-- <div class="jr_notification_main">\n\n            <ul>\n\n                <li>\n\n                  <div class="jr_not_left">\n\n                  <h4>Verify your Govt. ID</h4>\n\n                  <p>Verify your Govt. ID and more people will choose to travel with you.</p>\n\n                  </div>\n\n                  <div class="jr_not_close">\n\n                    <img src="assets/img/jr_not_close.png">\n\n                  </div>\n\n                  <div class="jr_clear"></div>\n\n                </li>\n\n            </ul>\n\n          </div> -->\n\n          </div>\n\n      </div>\n\n    </div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Administrator\Desktop\ferry-me-mobile\src\pages\message\message.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
-    ], LoginPage);
-    return LoginPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */]])
+    ], MessagePage);
+    return MessagePage;
 }());
 
-//# sourceMappingURL=login.js.map
+//# sourceMappingURL=message.js.map
 
 /***/ })
 

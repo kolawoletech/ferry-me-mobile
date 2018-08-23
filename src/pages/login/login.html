@@ -1,18 +1,24 @@
-<!--
-  Generated template for the LoginPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>Login</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
+<ion-content class="jr_login_bg">
+  <div class="jr_profile_content">
+    <div class="jr_login_wrapper">
+      <div class="jr_logo">
+        <img src="../../assets/img/jr_logo1.png">
+      </div>
+      <div class="jr_login_detail">
+        <h5>Are you</h5>
+        <h4>ready to begin ?</h4>
+        <p>Share your car journey with co- travellers just<br> like you and cover all your fuel costs!</p>
+        <hr>
+        <input class="jr_login_input" placeholder="Username">
+        <input class="jr_login_input" placeholder="Password">
+        <button ion-button class="jr_offer_ride2" (click)="home()">LOGIN</button>
+        <p (click)="password()"><i>Forgot Password ?</i></p>
+      </div>
+      <div class="jr_landing_btm">
+        <button ion-button class="jr_btm_btn1" (click)="goBack()">
+          <img src="assets/img/jr_arrow1.png">
+        </button>
+      </div>
+    </div>
+  </div>
 </ion-content>

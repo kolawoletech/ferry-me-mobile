@@ -1,14 +1,14 @@
 webpackJsonp([7],{
 
-/***/ 730:
+/***/ 743:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotificationPageModule", function() { return NotificationPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OfferRidePageModule", function() { return OfferRidePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(91);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__notification__ = __webpack_require__(753);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__offer_ride__ = __webpack_require__(767);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,33 +18,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var NotificationPageModule = /** @class */ (function () {
-    function NotificationPageModule() {
+var OfferRidePageModule = /** @class */ (function () {
+    function OfferRidePageModule() {
     }
-    NotificationPageModule = __decorate([
+    OfferRidePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__notification__["a" /* NotificationPage */],
+                __WEBPACK_IMPORTED_MODULE_2__offer_ride__["a" /* OfferRidePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__notification__["a" /* NotificationPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__offer_ride__["a" /* OfferRidePage */]),
             ],
         })
-    ], NotificationPageModule);
-    return NotificationPageModule;
+    ], OfferRidePageModule);
+    return OfferRidePageModule;
 }());
 
-//# sourceMappingURL=notification.module.js.map
+//# sourceMappingURL=offer-ride.module.js.map
 
 /***/ }),
 
-/***/ 753:
+/***/ 767:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotificationPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OfferRidePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(93);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57,31 +57,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the NotificationPage page.
+ * Generated class for the OfferRidePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var NotificationPage = /** @class */ (function () {
-    function NotificationPage(navCtrl, viewCtrl) {
+var OfferRidePage = /** @class */ (function () {
+    function OfferRidePage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
-        this.viewCtrl = viewCtrl;
+        this.navParams = navParams;
     }
-    NotificationPage.prototype.ionViewDidLoad = function () {
+    OfferRidePage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad OfferRidePage');
     };
-    NotificationPage.prototype.dismiss = function () {
-        this.viewCtrl.dismiss();
-    };
-    NotificationPage = __decorate([
+    OfferRidePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-notification',template:/*ion-inline-start:"C:\Users\kolaw\Documents\freelance\ferryMe\modularApp\src\pages\notification\notification.html"*/'<ion-header class="jr_theme_color jr_header">\n  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>\n  <div class="jr_header_title">\n    <h4>Notifications</h4>\n  </div>\n  <button ion-button class="jr_right jr_header_btn jr_mail_icon"></button>\n  <button ion-button class="jr_right jr_header_btn jr_profile_icon"></button>\n  <div class="jr_clear"></div>\n</ion-header>\n\n\n<ion-content>\n  <div class="jr_profile_wrapper">\n    <div class="jr_profile_content">\n    <div class="jr_profile_tab_content">\n      <div class="jr_edit_row">\n        <h4>PUSH NOTIFICATIONS</h4>\n        <h6>Receive push notifications for the following actions</h6>\n        <div class="jr_notification">\n          <ul>\n            <li>\n              <div class="child1">\n                New co- traveller confirmed\n              </div>\n              <div class="child2">\n                <div class="jr_custom1">\n                    <input id="check1" type="checkbox" name="check" value="check1">\n                    <label for="check1"></label>\n                </div>\n              </div>\n              <div class="jr_clear"></div>\n            </li>\n            <li>\n              <div class="child1">\n                Messages Received\n              </div>\n              <div class="child2">\n                <div class="jr_custom1">\n                    <input id="check2" type="checkbox" name="check" value="check1">\n                    <label for="check2"></label>\n                </div>\n              </div>\n              <div class="jr_clear"></div>\n            </li>\n            <li>\n              <div class="child1">\n                Ratings\n              </div>\n              <div class="child2">\n                <div class="jr_custom1">\n                    <input id="check3" type="checkbox" name="check" value="check1">\n                    <label for="check3"></label>\n                </div>\n              </div>\n              <div class="jr_clear"></div>\n            </li>\n            <hr>\n          </ul>\n        </div>\n      </div>\n      <div class="jr_edit_row">\n        <h4 class="jr_paddingtop0">SMS</h4>\n        <h6>Receive a SMS at for the following actions</h6>\n        <div class="jr_notification">\n          <ul>\n            <li>\n              <div class="child1">\n              Messages from a new co- traveller\n              </div>\n              <div class="child2">\n                <div class="jr_custom1">\n                    <input id="check1" type="checkbox" name="check" value="check1">\n                    <label for="check1"></label>\n                </div>\n              </div>\n              <div class="jr_clear"></div>\n            </li>\n            <hr>\n          </ul>\n        </div>\n      </div>\n      <div class="jr_edit_row">\n        <h4 class="jr_paddingtop0">EMAIL</h4>\n        <h6>Receive an email for the following actions</h6>\n        <div class="jr_notification">\n          <ul>\n            <li>\n              <div class="child1">\n              Ride offer published\n              </div>\n              <div class="child2">\n                <div class="jr_custom1">\n                    <input id="check1" type="checkbox" name="check" value="check1">\n                    <label for="check1"></label>\n                </div>\n              </div>\n              <div class="jr_clear"></div>\n            </li>\n            <li>\n              <div class="child1">\n              Ride offer updated\n              </div>\n              <div class="child2">\n                <div class="jr_custom1">\n                    <input id="check1" type="checkbox" name="check" value="check1">\n                    <label for="check1"></label>\n                </div>\n              </div>\n              <div class="jr_clear"></div>\n            </li>\n            <li>\n              <div class="child1">\n              New message received\n              </div>\n              <div class="child2">\n                <div class="jr_custom1">\n                    <input id="check1" type="checkbox" name="check" value="check1">\n                    <label for="check1"></label>\n                </div>\n              </div>\n              <div class="jr_clear"></div>\n            </li>\n            <li>\n              <div class="child1">\n              Pending ratings after a ride taken\n              </div>\n              <div class="child2">\n                <div class="jr_custom1">\n                    <input id="check1" type="checkbox" name="check" value="check1">\n                    <label for="check1"></label>\n                </div>\n              </div>\n              <div class="jr_clear"></div>\n            </li>\n            <li>\n              <div class="child1">\n              New rating received\n              </div>\n              <div class="child2">\n                <div class="jr_custom1">\n                    <input id="check1" type="checkbox" name="check" value="check1">\n                    <label for="check1"></label>\n                </div>\n              </div>\n              <div class="jr_clear"></div>\n            </li>\n            <li>\n              <div class="child1">\n            Useful informations\n              </div>\n              <div class="child2">\n                <div class="jr_custom1">\n                    <input id="check1" type="checkbox" name="check" value="check1">\n                    <label for="check1"></label>\n                </div>\n              </div>\n              <div class="jr_clear"></div>\n            </li>\n            <hr>\n          </ul>\n        </div>\n      </div>\n    </div>\n  </div>\n\n    <div class="jr_bottom_button_bay">\n      <button ion-button class="jr_offer_ride5">Logout</button>\n    </div>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\kolaw\Documents\freelance\ferryMe\modularApp\src\pages\notification\notification.html"*/,
+            selector: 'page-offer-ride',template:/*ion-inline-start:"C:\Users\Administrator\Desktop\ferry-me-mobile\src\pages\offer-ride\offer-ride.html"*/'<!--\n\n  Generated template for the OfferRidePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>OfferRide</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Administrator\Desktop\ferry-me-mobile\src\pages\offer-ride\offer-ride.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */]])
-    ], NotificationPage);
-    return NotificationPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+    ], OfferRidePage);
+    return OfferRidePage;
 }());
 
-//# sourceMappingURL=notification.js.map
+//# sourceMappingURL=offer-ride.js.map
 
 /***/ })
 
