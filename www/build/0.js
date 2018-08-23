@@ -107,7 +107,10 @@ var PhonePage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(372);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__validators_email__ = __webpack_require__(774);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__phone_phone__ = __webpack_require__(753);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase__ = __webpack_require__(405);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_facebook__ = __webpack_require__(721);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__phone_phone__ = __webpack_require__(753);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -124,6 +127,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 /**
  * Generated class for the SignupPage page.
  *
@@ -131,13 +136,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var SignupPage = /** @class */ (function () {
-    function SignupPage(navParams, modalCtrl, navCtrl, authProvider, loadingCtrl, alertCtrl, formBuilder) {
+    function SignupPage(facebook, navParams, modalCtrl, navCtrl, authProvider, loadingCtrl, alertCtrl, formBuilder) {
+        this.facebook = facebook;
         this.navParams = navParams;
         this.modalCtrl = modalCtrl;
         this.navCtrl = navCtrl;
         this.authProvider = authProvider;
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
+        this.userProfile = null;
         this.signupForm = formBuilder.group({
             firstName: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required],
             lastName: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required],
@@ -169,7 +176,7 @@ var SignupPage = /** @class */ (function () {
                 .signupUser(this.signupForm.value.username, this.signupForm.value.firstName, this.signupForm.value.lastName, this.signupForm.value.email, this.signupForm.value.password)
                 .then(function () {
                 loading.dismiss().then(function () {
-                    _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__phone_phone__["a" /* PhonePage */]);
+                    _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_7__phone_phone__["a" /* PhonePage */]);
                 });
             }, function (error) {
                 loading.dismiss().then(function () {
@@ -179,6 +186,21 @@ var SignupPage = /** @class */ (function () {
         }
         loading.present();
     };
+    SignupPage.prototype.facebookLogin = function () {
+        var _this = this;
+        this.facebook.login(['email']).then(function (response) {
+            var facebookCredential = __WEBPACK_IMPORTED_MODULE_5_firebase___default.a.auth.FacebookAuthProvider
+                .credential(response.authResponse.accessToken);
+            __WEBPACK_IMPORTED_MODULE_5_firebase___default.a.auth().signInWithCredential(facebookCredential)
+                .then(function (success) {
+                console.log("Firebase success: " + JSON.stringify(success));
+                _this.userProfile = success;
+            })
+                .catch(function (error) {
+                console.log("Firebase failure: " + JSON.stringify(error));
+            });
+        }).catch(function (error) { console.log(error); });
+    };
     SignupPage.prototype.verification = function () {
         var modal = this.modalCtrl.create('VerificationPage');
         modal.present();
@@ -186,17 +208,12 @@ var SignupPage = /** @class */ (function () {
     SignupPage.prototype.goBack = function () {
         this.navCtrl.pop();
     };
+    var _a, _b, _c, _d, _e, _f, _g, _h;
     SignupPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-signup',template:/*ion-inline-start:"C:\Users\Administrator\Desktop\ferry-me-mobile\src\pages\signup\signup.html"*/'<ion-content class="jr_login_bg">\n\n  <div class="jr_profile_content">\n\n    <div class="jr_login_detail">\n\n      <h5>Your</h5>\n\n      <h4>journey starts here !</h4>\n\n      <p>Share your car journey with co- travellers just\n\n        <br> like you and cover all your fuel costs!</p>\n\n      <hr>\n\n      <form [formGroup]="signupForm" (submit)="login()" novalidate>\n\n        <ion-item class="jr_login_input1">\n\n          <ion-input formControlName="firstName" type="text" placeholder="First Name"></ion-input>\n\n        </ion-item>\n\n        <ion-item class="error-message" *ngIf="!signupForm.controls.firstName.valid &&\n\n        signupForm.controls.firstName.dirty">\n\n          <p>Hey, you need to enter your first name</p>\n\n        </ion-item>\n\n        <ion-item class="jr_login_input1">\n\n          <ion-input formControlName="lastName" type="text" placeholder="Last Name"></ion-input>\n\n        </ion-item>\n\n        <ion-item class="error-message" *ngIf="!signupForm.controls.lastName.valid &&\n\n        signupForm.controls.lastName.dirty">\n\n          <p>Hey, you need to enter your last name</p>\n\n        </ion-item>\n\n        <ion-item class="jr_login_input1">\n\n          <ion-input formControlName="username" type="text" placeholder="Username"></ion-input>\n\n        </ion-item>\n\n        <ion-item class="error-message" *ngIf="!signupForm.controls.username.valid &&\n\n        signupForm.controls.username.dirty">\n\n          <p>Hey, you need to enter a longer username of minlength of 6</p>\n\n        </ion-item>\n\n        <ion-item class="jr_login_input1">\n\n          <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>\n\n        </ion-item>\n\n        <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid &&\n\n        signupForm.controls.email.dirty">\n\n          <p>Please write a valid email.</p>\n\n        </ion-item>\n\n\n\n        <ion-item class="jr_login_input1">\n\n          <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>\n\n        </ion-item>\n\n        <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid &&\n\n        signupForm.controls.password.dirty">\n\n          <p>Your password needs more than 6 characters.</p>\n\n        </ion-item>\n\n        <button ion-button block type="submit" [disabled]="!signupForm.valid" class="jr_offer_ride3">SIGNUP</button>\n\n      </form>\n\n      <div class="jr_space"></div>\n\n      OR\n\n      <button ion-button full block>\n\n        Log In with Facebook\n\n      </button>\n\n    </div>\n\n    <!--     <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>\n\n      <ion-item>\n\n        <ion-label stacked>Email</ion-label>\n\n        <ion-input formControlName="email" type="email" placeholder="Your email address" [class.invalid]="!signupForm.controls.email.valid && blur">\n\n        </ion-input>\n\n      </ion-item>\n\n      <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid\n\n        && signupForm.controls.email.touched">\n\n        <p>Please enter a valid email.</p>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label stacked>Password</ion-label>\n\n        <ion-input formControlName="password" type="password" placeholder="Your password" [class.invalid]="!signupForm.controls.password.valid && blur">\n\n        </ion-input>\n\n      </ion-item>\n\n      <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid  &&\n\n        signupForm.controls.password.touched">\n\n        <p>Your password needs more than 6 characters.</p>\n\n      </ion-item>\n\n\n\n      <button ion-button block type="submit" [disabled]="!signupForm.valid">\n\n        Create an Account\n\n      </button>\n\n    </form> -->\n\n\n\n    <div class="jr_landing_btm">\n\n      <button ion-button class="jr_btm_btn2" (click)="goBack()">\n\n        <img src="../../assets/img/jr_arrow1.png">\n\n      </button>\n\n    </div>\n\n  </div>\n\n\n\n</ion-content>\n\n<ion-footer>\n\n\n\n</ion-footer>'/*ion-inline-end:"C:\Users\Administrator\Desktop\ferry-me-mobile\src\pages\signup\signup.html"*/,
+            selector: 'page-signup',template:/*ion-inline-start:"C:\Users\Administrator\Desktop\ferry-me-mobile\src\pages\signup\signup.html"*/'<ion-content class="jr_login_bg">\n\n  <div class="jr_profile_content">\n\n    <div class="jr_login_detail">\n\n      <h5>Your</h5>\n\n      <h4>journey starts here !</h4>\n\n      <p>Share your car journey with co- travellers just\n\n        <br> like you and cover all your fuel costs!</p>\n\n      <hr>\n\n      <form [formGroup]="signupForm" (submit)="login()" novalidate>\n\n        <ion-item class="jr_login_input1">\n\n          <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>\n\n        </ion-item>\n\n        <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid &&\n\n        signupForm.controls.email.dirty">\n\n          <p>Please write a valid email.</p>\n\n        </ion-item>\n\n\n\n        <ion-item class="jr_login_input1">\n\n          <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>\n\n        </ion-item>\n\n        <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid &&\n\n        signupForm.controls.password.dirty">\n\n          <p>Your password needs more than 6 characters.</p>\n\n        </ion-item>\n\n        <button ion-button block type="submit" [disabled]="!signupForm.valid" class="jr_offer_ride3">SIGNUP</button>\n\n      </form>\n\n      <hr>\n\n      <h5>OR</h5>\n\n      <button ion-button full block (click)="facebookLogin()">\n\n        Log In with Facebook\n\n      </button>\n\n      <button ion-button full block>\n\n        Log In with Google\n\n      </button>\n\n    </div>\n\n    <!--     <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>\n\n      <ion-item>\n\n        <ion-label stacked>Email</ion-label>\n\n        <ion-input formControlName="email" type="email" placeholder="Your email address" [class.invalid]="!signupForm.controls.email.valid && blur">\n\n        </ion-input>\n\n      </ion-item>\n\n      <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid\n\n        && signupForm.controls.email.touched">\n\n        <p>Please enter a valid email.</p>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label stacked>Password</ion-label>\n\n        <ion-input formControlName="password" type="password" placeholder="Your password" [class.invalid]="!signupForm.controls.password.valid && blur">\n\n        </ion-input>\n\n      </ion-item>\n\n      <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid  &&\n\n        signupForm.controls.password.touched">\n\n        <p>Your password needs more than 6 characters.</p>\n\n      </ion-item>\n\n\n\n      <button ion-button block type="submit" [disabled]="!signupForm.valid">\n\n        Create an Account\n\n      </button>\n\n    </form> -->\n\n\n\n    <div class="jr_landing_btm">\n\n      <button ion-button class="jr_btm_btn2" (click)="goBack()">\n\n        <img src="../../assets/img/jr_arrow1.png">\n\n      </button>\n\n    </div>\n\n  </div>\n\n\n\n</ion-content>\n\n<ion-footer>\n\n\n\n</ion-footer>'/*ion-inline-end:"C:\Users\Administrator\Desktop\ferry-me-mobile\src\pages\signup\signup.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_facebook__["a" /* Facebook */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_facebook__["a" /* Facebook */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]) === "function" && _h || Object])
     ], SignupPage);
     return SignupPage;
 }());

@@ -31,7 +31,7 @@ export class SignupPage {
   userProfile: any = null;
   public signupForm: FormGroup;
   public loading: Loading;
-  constructor(    
+  constructor(
     private facebook: Facebook,
     public navParams: NavParams,
     public modalCtrl: ModalController,
@@ -40,26 +40,26 @@ export class SignupPage {
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController,
     formBuilder: FormBuilder) {
-      this.signupForm = formBuilder.group({
-        firstName:['',Validators.required],
-        lastName:['',Validators.required],
-        username:['',Validators.compose([Validators.required,  Validators.required])],
-        email: [
-          "",
-          Validators.compose([Validators.required, EmailValidator.isValid])
-        ],
-        password: [
-          "",
-          Validators.compose([Validators.minLength(6), Validators.required])
-        ]
-      });
+    this.signupForm = formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      username: ['', Validators.compose([Validators.required, Validators.required])],
+      email: [
+        "",
+        Validators.compose([Validators.required, EmailValidator.isValid])
+      ],
+      password: [
+        "",
+        Validators.compose([Validators.minLength(6), Validators.required])
+      ]
+    });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignupPage');
   }
 
-  login2(){
+  login2() {
     console.log("Form Validation Passed")
   }
 
@@ -92,22 +92,24 @@ export class SignupPage {
     loading.present();
   }
 
-  facebookLogin(){
-    this.facebook.login(['email']).then( (response) => {
-        const facebookCredential = firebase.auth.FacebookAuthProvider
-            .credential(response.authResponse.accessToken);
+  facebookLogin() {
+    this.facebook.login(['email']).then((response) => {
+      const facebookCredential = firebase.auth.FacebookAuthProvider
+        .credential(response.authResponse.accessToken);
 
-        firebase.auth().signInWithCredential(facebookCredential)
+      firebase.auth().signInWithCredential(facebookCredential)
         .then((success) => {
-            console.log("Firebase success: " + JSON.stringify(success));
-            this.userProfile = success;
+          console.log("Firebase success: " + JSON.stringify(success));
+          this.userProfile = success;
         })
         .catch((error) => {
-            console.log("Firebase failure: " + JSON.stringify(error));
+          console.log("Firebase failure: " + JSON.stringify(error));
         });
 
     }).catch((error) => { console.log(error) });
-}
+  }
+
+  
   verification() {
     let modal = this.modalCtrl.create('VerificationPage');
     modal.present();

@@ -8,27 +8,6 @@
       <hr>
       <form [formGroup]="signupForm" (submit)="login()" novalidate>
         <ion-item class="jr_login_input1">
-          <ion-input formControlName="firstName" type="text" placeholder="First Name"></ion-input>
-        </ion-item>
-        <ion-item class="error-message" *ngIf="!signupForm.controls.firstName.valid &&
-        signupForm.controls.firstName.dirty">
-          <p>Hey, you need to enter your first name</p>
-        </ion-item>
-        <ion-item class="jr_login_input1">
-          <ion-input formControlName="lastName" type="text" placeholder="Last Name"></ion-input>
-        </ion-item>
-        <ion-item class="error-message" *ngIf="!signupForm.controls.lastName.valid &&
-        signupForm.controls.lastName.dirty">
-          <p>Hey, you need to enter your last name</p>
-        </ion-item>
-        <ion-item class="jr_login_input1">
-          <ion-input formControlName="username" type="text" placeholder="Username"></ion-input>
-        </ion-item>
-        <ion-item class="error-message" *ngIf="!signupForm.controls.username.valid &&
-        signupForm.controls.username.dirty">
-          <p>Hey, you need to enter a longer username of minlength of 6</p>
-        </ion-item>
-        <ion-item class="jr_login_input1">
           <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>
         </ion-item>
         <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid &&
@@ -45,10 +24,13 @@
         </ion-item>
         <button ion-button block type="submit" [disabled]="!signupForm.valid" class="jr_offer_ride3">SIGNUP</button>
       </form>
-      <div class="jr_space"></div>
-      OR
-      <button ion-button full block>
+      <hr>
+      <h5>OR</h5>
+      <button ion-button full block (click)="facebookLogin()">
         Log In with Facebook
+      </button>
+      <button ion-button full block>
+        Log In with Google
       </button>
     </div>
     <!--     <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
