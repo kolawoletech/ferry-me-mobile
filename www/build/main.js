@@ -317,10 +317,6 @@ var ProfileProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(139);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_plus__ = __webpack_require__(720);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_firestore__ = __webpack_require__(726);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase_app__ = __webpack_require__(138);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_firebase_app__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_credentials__ = __webpack_require__(723);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -330,54 +326,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-
-
-
 
 
 
 
 
 var AuthProvider = /** @class */ (function () {
-    function AuthProvider(afAuth, afDb, firestore, platform, googlePlus) {
+    function AuthProvider(afAuth, afDb, platform, googlePlus) {
         this.afAuth = afAuth;
         this.afDb = afDb;
-        this.firestore = firestore;
         this.platform = platform;
         this.googlePlus = googlePlus;
         console.log('Hello AuthProvider Provider');
@@ -409,110 +366,10 @@ var AuthProvider = /** @class */ (function () {
         return this.afAuth.auth.signOut();
         //afAuth.auth.unsubscribe();
     };
-    AuthProvider.prototype.loginUser2 = function (email, password) {
-        return this.afAuth.auth.signInWithEmailAndPassword(email, password);
-    };
-    AuthProvider.prototype.resetPassword2 = function (email) {
-        return this.afAuth.auth.sendPasswordResetEmail(email);
-    };
-    AuthProvider.prototype.logoutUser2 = function () {
-        return this.afAuth.auth.signOut();
-    };
-    AuthProvider.prototype.createUserWithEmailAndPassword = function (email, password, displayName) {
-        return __awaiter(this, void 0, Promise, function () {
-            var newUser, userProfileDocument, error_1;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 4, , 5]);
-                        return [4 /*yield*/, this.afAuth.auth.createUserWithEmailAndPassword(email, password)];
-                    case 1:
-                        newUser = _a.sent();
-                        return [4 /*yield*/, newUser.sendEmailVerification()];
-                    case 2:
-                        _a.sent();
-                        userProfileDocument = this.firestore.doc("userProfile/" + newUser.uid);
-                        return [4 /*yield*/, userProfileDocument.set({
-                                id: newUser.uid,
-                                email: email,
-                                displayName: displayName,
-                            })];
-                    case 3:
-                        _a.sent();
-                        return [2 /*return*/, newUser];
-                    case 4:
-                        error_1 = _a.sent();
-                        console.error(error_1);
-                        throw new Error();
-                    case 5: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    AuthProvider.prototype.googleSignIn = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var googleLogin, credential, newUser, userProfileDocument, error_2, provider, signInResult, newUser, userProfileDocument, error_3;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (!this.platform.is('cordova')) return [3 /*break*/, 7];
-                        _a.label = 1;
-                    case 1:
-                        _a.trys.push([1, 5, , 6]);
-                        return [4 /*yield*/, this.googlePlus.login({
-                                webClientId: __WEBPACK_IMPORTED_MODULE_7__app_credentials__["b" /* firebaseSdkConfig */].webClientId,
-                                offline: true,
-                            })];
-                    case 2:
-                        googleLogin = _a.sent();
-                        credential = __WEBPACK_IMPORTED_MODULE_6_firebase_app__["auth"].GoogleAuthProvider.credential(googleLogin.idToken);
-                        return [4 /*yield*/, this.afAuth.auth.signInWithCredential(credential)];
-                    case 3:
-                        newUser = _a.sent();
-                        userProfileDocument = this.firestore.doc("userProfile/" + newUser.uid);
-                        return [4 /*yield*/, userProfileDocument.set({
-                                id: newUser.uid,
-                                email: googleLogin.email,
-                                displayName: googleLogin.displayName,
-                                imageUrl: googleLogin.imageUrl,
-                            })];
-                    case 4:
-                        _a.sent();
-                        return [2 /*return*/, newUser];
-                    case 5:
-                        error_2 = _a.sent();
-                        console.error(error_2);
-                        return [3 /*break*/, 6];
-                    case 6: return [3 /*break*/, 11];
-                    case 7:
-                        _a.trys.push([7, 10, , 11]);
-                        provider = new __WEBPACK_IMPORTED_MODULE_6_firebase_app__["auth"].GoogleAuthProvider();
-                        return [4 /*yield*/, __WEBPACK_IMPORTED_MODULE_6_firebase_app__["auth"]().signInWithPopup(provider)];
-                    case 8:
-                        signInResult = _a.sent();
-                        newUser = signInResult.user;
-                        userProfileDocument = this.firestore.doc("userProfile/" + newUser.uid);
-                        return [4 /*yield*/, userProfileDocument.set({
-                                id: newUser.uid,
-                                email: newUser.email,
-                                displayName: newUser.displayName,
-                            })];
-                    case 9:
-                        _a.sent();
-                        return [2 /*return*/, newUser];
-                    case 10:
-                        error_3 = _a.sent();
-                        console.error(error_3);
-                        return [3 /*break*/, 11];
-                    case 11: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    var _a, _b, _c, _d, _e;
+    var _a, _b, _c, _d;
     AuthProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5_angularfire2_firestore__["a" /* AngularFirestore */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_angularfire2_firestore__["a" /* AngularFirestore */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* Platform */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_plus__["a" /* GooglePlus */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_plus__["a" /* GooglePlus */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* Platform */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_plus__["a" /* GooglePlus */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_plus__["a" /* GooglePlus */]) === "function" && _d || Object])
     ], AuthProvider);
     return AuthProvider;
 }());
@@ -711,16 +568,14 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_angularfire2__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_angularfire2_auth__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_angularfire2_database__ = __webpack_require__(139);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_angularfire2_firestore__ = __webpack_require__(726);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_profile_profile__ = __webpack_require__(371);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_imghandler_imghandler__ = __webpack_require__(373);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_profile_profile__ = __webpack_require__(371);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_imghandler_imghandler__ = __webpack_require__(373);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -784,10 +639,6 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_16_angularfire2__["a" /* AngularFireModule */].initializeApp(__WEBPACK_IMPORTED_MODULE_11__credentials__["a" /* firebaseConfig */]),
                 __WEBPACK_IMPORTED_MODULE_17_angularfire2_auth__["b" /* AngularFireAuthModule */],
                 __WEBPACK_IMPORTED_MODULE_18_angularfire2_database__["b" /* AngularFireDatabaseModule */],
-                __WEBPACK_IMPORTED_MODULE_19_angularfire2_firestore__["b" /* AngularFirestoreModule */],
-                __WEBPACK_IMPORTED_MODULE_16_angularfire2__["a" /* AngularFireModule */].initializeApp(__WEBPACK_IMPORTED_MODULE_11__credentials__["a" /* firebaseConfig */]),
-                __WEBPACK_IMPORTED_MODULE_17_angularfire2_auth__["b" /* AngularFireAuthModule */],
-                __WEBPACK_IMPORTED_MODULE_19_angularfire2_firestore__["b" /* AngularFirestoreModule */].enablePersistence(),
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
             entryComponents: [
@@ -805,8 +656,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_6__ionic_native_camera__["a" /* Camera */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
                 __WEBPACK_IMPORTED_MODULE_10__providers_auth_auth__["a" /* AuthProvider */],
-                __WEBPACK_IMPORTED_MODULE_20__providers_profile_profile__["a" /* ProfileProvider */],
-                __WEBPACK_IMPORTED_MODULE_21__providers_imghandler_imghandler__["a" /* ImghandlerProvider */],
+                __WEBPACK_IMPORTED_MODULE_19__providers_profile_profile__["a" /* ProfileProvider */],
+                __WEBPACK_IMPORTED_MODULE_20__providers_imghandler_imghandler__["a" /* ImghandlerProvider */],
             ]
         })
     ], AppModule);
@@ -878,7 +729,7 @@ var MyApp = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return firebaseConfig; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return firebaseSdkConfig; });
+/* unused harmony export firebaseSdkConfig */
 var firebaseConfig = {
     apiKey: "AIzaSyDOicS3PNywWR3JdO0RgmbOIYya4HClKqc",
     authDomain: "rgengineering-b394c.firebaseapp.com",

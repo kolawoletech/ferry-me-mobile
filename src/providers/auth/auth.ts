@@ -4,10 +4,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { GoogleAuthProvider, User, AuthCredential } from '@firebase/auth-types';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { Platform } from 'ionic-angular';
-import {
-  AngularFirestore,
-  AngularFirestoreDocument,
-} from 'angularfire2/firestore';
+
 import * as firebase from 'firebase/app';
 import { firebaseSdkConfig } from '../../app/credentials';
 
@@ -16,7 +13,7 @@ export class AuthProvider {
   constructor(
     public afAuth: AngularFireAuth,
     public afDb: AngularFireDatabase,
-    private firestore: AngularFirestore,
+
     public platform: Platform,
     private googlePlus: GooglePlus
   ) {
@@ -68,7 +65,7 @@ export class AuthProvider {
 
 
   
-  loginUser2(email: string, password: string): Promise<any> {
+ /*  loginUser2(email: string, password: string): Promise<any> {
     return this.afAuth.auth.signInWithEmailAndPassword(email,password);
   }
 
@@ -84,7 +81,7 @@ export class AuthProvider {
     email: string,
     password: string,
     displayName: string
-  ): Promise<User> {
+  ): Promise<void> {
     try {
       const newUser: User = await this.afAuth.auth.createUserWithEmailAndPassword(
         email,
@@ -163,5 +160,5 @@ export class AuthProvider {
         console.error(error);
       }
     }
-  }
+  } */
 }
