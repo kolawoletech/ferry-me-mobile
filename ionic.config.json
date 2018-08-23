@@ -1,6 +1,6 @@
 {
   "name": "Joyride beta",
-  "app_id": "19a38f81",
   "integrations": {},
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "pro_id": "19a38f81"
 }
