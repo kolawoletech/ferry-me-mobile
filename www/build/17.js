@@ -1,14 +1,14 @@
 webpackJsonp([17],{
 
-/***/ 733:
+/***/ 730:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditPhotoPageModule", function() { return EditPhotoPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_photo__ = __webpack_require__(757);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_photo__ = __webpack_require__(754);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,15 +38,15 @@ var EditPhotoPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 757:
+/***/ 754:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditPhotoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_imghandler_imghandler__ = __webpack_require__(373);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__ = __webpack_require__(371);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_imghandler_imghandler__ = __webpack_require__(368);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__ = __webpack_require__(366);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -118,7 +118,7 @@ var EditPhotoPage = /** @class */ (function () {
     };
     EditPhotoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-photo',template:/*ion-inline-start:"C:\Users\Administrator\Desktop\ferry-me-mobile\src\pages\edit-photo\edit-photo.html"*/'<ion-header class="jr_theme_color jr_header">\n\n  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>\n\n  <div class="jr_header_title">\n\n    <h4>Edit Photo</h4>\n\n  </div>\n\n  <button ion-button class="jr_right jr_header_btn"></button>\n\n  <div class="jr_clear"></div>\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <div class="jr_profile_wrapper">\n\n    <div class="jr_profile_banner">\n\n      <div class="jr_profile_photo">\n\n        <div class="jr_profile_photo_edit">\n\n          <img src="assets/img/jr_edit.png">\n\n        </div>\n\n      </div>\n\n    </div>\n\n    <div class="jr_profile_content">\n\n      <br>\n\n      <div class="jr_text_center">\n\n          <button ion-button class="jr_addcomment_btn">Choose Photo</button>\n\n      </div>\n\n <br>\n\n      <hr>\n\n      <div class="jr_text_center">\n\n        <div class="jr_edit_row jr_text_center">\n\n          <br>\n\n        <h3>Tips</h3>\n\n        <h4 class="jr_padding0 jr_margin0">to Take Better Photos</h4>\n\n      </div>\n\n        <div class="jr_edit_row ">\n\n        <p class="jr_text_center">\n\n          No sunglasses<br>\n\nFacing the camera<br>\n\nYou alone<br>\n\nClear and bright<br>\n\n\n\n\n\n        </p>\n\n      </div>\n\n      </div>\n\n    </div>\n\n  </div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Administrator\Desktop\ferry-me-mobile\src\pages\edit-photo\edit-photo.html"*/,
+            selector: 'page-edit-photo',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\edit-photo\edit-photo.html"*/'<ion-header class="jr_theme_color jr_header">\n\n  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>\n\n  <div class="jr_header_title">\n\n    <h4>Edit Photo</h4>\n\n  </div>\n\n  <button ion-button class="jr_right jr_header_btn"></button>\n\n  <div class="jr_clear"></div>\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <div class="jr_profile_wrapper">\n\n    <div class="jr_profile_banner">\n\n      <div class="jr_profile_photo">\n\n        <div class="jr_profile_photo_edit">\n\n          <img src="assets/img/jr_edit.png">\n\n        </div>\n\n      </div>\n\n    </div>\n\n    <div class="jr_profile_content">\n\n      <br>\n\n      <div class="jr_text_center">\n\n          <button ion-button class="jr_addcomment_btn">Choose Photo</button>\n\n      </div>\n\n <br>\n\n      <hr>\n\n      <div class="jr_text_center">\n\n        <div class="jr_edit_row jr_text_center">\n\n          <br>\n\n        <h3>Tips</h3>\n\n        <h4 class="jr_padding0 jr_margin0">to Take Better Photos</h4>\n\n      </div>\n\n        <div class="jr_edit_row ">\n\n        <p class="jr_text_center">\n\n          No sunglasses<br>\n\nFacing the camera<br>\n\nYou alone<br>\n\nClear and bright<br>\n\n\n\n\n\n        </p>\n\n      </div>\n\n      </div>\n\n    </div>\n\n  </div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\edit-photo\edit-photo.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_imghandler_imghandler__["a" /* ImghandlerProvider */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgZone */], __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__["a" /* ProfileProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */]])

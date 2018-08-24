@@ -1,14 +1,14 @@
 webpackJsonp([6],{
 
-/***/ 743:
+/***/ 734:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PasswordPageModule", function() { return PasswordPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__password__ = __webpack_require__(767);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__password__ = __webpack_require__(758);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,13 +38,13 @@ var PasswordPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 767:
+/***/ 758:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PasswordPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -74,7 +74,7 @@ var PasswordPage = /** @class */ (function () {
     };
     PasswordPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-password',template:/*ion-inline-start:"C:\Users\Administrator\Desktop\ferry-me-mobile\src\pages\password\password.html"*/'<ion-header class="jr_theme_color jr_header">\n  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>\n  <div class="jr_header_title">\n    <h4>Change Password</h4>\n  </div>\n  <div class="jr_clear"></div>\n</ion-header>\n<ion-content>\n  <div class="jr_profile_content jr_paddingbtm0">\n    <br>\n    <br>\n      <div class="jr_edit_row">\n        <h5><strong>CHANGE A PASSWORD</strong></h5>\n        <p style="margin-top: 5px;margin-bottom:5px;">Choose a High Security Password</p>\n      </div>\n      <div class="jr_edit_row">\n        <input class="jr_edit_profile_input" placeholder="Current Password">\n      </div>\n      <div class="jr_edit_row">\n        <input class="jr_edit_profile_input" placeholder="New Password">\n      </div>\n      <div class="jr_edit_row">\n        <input class="jr_edit_profile_input" placeholder="Confirm Password">\n      </div>\n      <div class="jr_edit_row">\n        <button ion-button class="jr_member_rate" (click)="dismiss()">Update</button>\n      </div>\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Administrator\Desktop\ferry-me-mobile\src\pages\password\password.html"*/,
+            selector: 'page-password',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\password\password.html"*/'<ion-header class="jr_theme_color jr_header">\n\n  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>\n\n  <div class="jr_header_title">\n\n    <h4>Change Password</h4>\n\n  </div>\n\n  <div class="jr_clear"></div>\n\n</ion-header>\n\n<ion-content>\n\n  <div class="jr_profile_content jr_paddingbtm0">\n\n    <br>\n\n    <br>\n\n      <div class="jr_edit_row">\n\n        <h5><strong>CHANGE A PASSWORD</strong></h5>\n\n        <p style="margin-top: 5px;margin-bottom:5px;">Choose a High Security Password</p>\n\n      </div>\n\n      <div class="jr_edit_row">\n\n        <input class="jr_edit_profile_input" placeholder="Current Password">\n\n      </div>\n\n      <div class="jr_edit_row">\n\n        <input class="jr_edit_profile_input" placeholder="New Password">\n\n      </div>\n\n      <div class="jr_edit_row">\n\n        <input class="jr_edit_profile_input" placeholder="Confirm Password">\n\n      </div>\n\n      <div class="jr_edit_row">\n\n        <button ion-button class="jr_member_rate" (click)="dismiss()">Update</button>\n\n      </div>\n\n  </div>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\password\password.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */]])
     ], PasswordPage);

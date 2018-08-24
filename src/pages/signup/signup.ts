@@ -14,6 +14,7 @@ import {
   NavController,
   ModalController
 } from "ionic-angular";
+
 import { PhonePage } from '../phone/phone';
 /**
  * Generated class for the SignupPage page.
