@@ -76,6 +76,8 @@ export class ProfileProvider {
       });
   }
 
+
+  
   updateimage(imageurl) {
     var promise = new Promise((resolve, reject) => {
       this.afAuth.auth.currentUser.updateProfile({

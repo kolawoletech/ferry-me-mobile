@@ -6,7 +6,14 @@
       <p>Share your car journey with co- travellers just
         <br> like you and cover all your fuel costs!</p>
       <hr>
-      <form [formGroup]="signupForm" (submit)="login()" novalidate>
+      <form [formGroup]="signupForm" (submit)="signup()" novalidate>
+          <ion-item class="jr_login_input1">
+              <ion-input formControlName="displayName" type="text" placeholder="Display Name"></ion-input>
+            </ion-item>
+            <ion-item class="error-message" *ngIf="!signupForm.controls.displayName.valid &&
+            signupForm.controls.displayName.dirty">
+              <p>Please select another.</p>
+            </ion-item>
         <ion-item class="jr_login_input1">
           <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>
         </ion-item>

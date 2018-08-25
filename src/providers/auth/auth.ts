@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { GoogleAuthProvider, User, AuthCredential } from '@firebase/auth-types';
+//import { GoogleAuthProvider, User, AuthCredential } from '@firebase/auth-types';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { Platform } from 'ionic-angular';
-
-import * as firebase from 'firebase/app';
-import { firebaseSdkConfig } from '../../app/credentials';
-
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
 @Injectable()
 export class AuthProvider {
   constructor(
@@ -21,8 +20,8 @@ export class AuthProvider {
   }
 
 
-  loginUser(email: string, password: string): Promise<any> {
-    return this.afAuth.auth.signInWithEmailAndPassword(email, password);
+  login(email: string, password: string): Promise<any> {
+    return firebase.auth().signInWithEmailAndPassword(email, password);
   }
 
   signupUser(
@@ -31,8 +30,8 @@ export class AuthProvider {
     lastName: string,
     email: string,
     password: string,
-    
-  
+
+
   ): Promise<any> {
     return this.afAuth.auth
       .createUserWithEmailAndPassword(email, password)
@@ -53,6 +52,26 @@ export class AuthProvider {
       );
   }
 
+  signupUser2(displayName: string, email: string, password: string): Promise<any> {
+    return firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(newUserCredential => {
+        firebase
+          .database()
+          .ref(`/userProfile/${newUserCredential.user.uid}`)
+          .set({
+            id: newUserCredential.user.uid,
+            email: email,
+            displayName: displayName,
+            photoURL: 'https://firebasestorage.googleapis.com/v0/b/myapp-4eadd.appspot.com/o/chatterplace.png?alt=media&token=e51fa887-bfc6-48ff-87c6-e2c61976534e' 
+          });
+      })
+      .catch(error => {
+        console.error(error);
+        throw new Error(error);
+      });
+  }
 
   resetPassword(email: string): Promise<void> {
     return this.afAuth.auth.sendPasswordResetEmail(email);
@@ -64,101 +83,101 @@ export class AuthProvider {
   }
 
 
-  
- /*  loginUser2(email: string, password: string): Promise<any> {
-    return this.afAuth.auth.signInWithEmailAndPassword(email,password);
-  }
 
-  resetPassword2(email: string): Promise<void> {
-    return this.afAuth.auth.sendPasswordResetEmail(email);
-  }
-
-  logoutUser2(): Promise<void> {
-    return this.afAuth.auth.signOut();
-  }
-
-  async createUserWithEmailAndPassword(
-    email: string,
-    password: string,
-    displayName: string
-  ): Promise<void> {
-    try {
-      const newUser: User = await this.afAuth.auth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
-
-      await newUser.sendEmailVerification();
-
-      const userProfileDocument: AngularFirestoreDocument<
-        any
-      > = this.firestore.doc(`userProfile/${newUser.uid}`);
-
-      await userProfileDocument.set({
-        id: newUser.uid,
-        email: email,
-        displayName: displayName,
-      });
-
-      return newUser;
-    } catch (error) {
-      console.error(error);
-      throw new Error();
-    }
-  }
-
-  async googleSignIn() {
-    if (this.platform.is('cordova')) {
-      try {
-        const googleLogin = await this.googlePlus.login({
-          webClientId: firebaseSdkConfig.webClientId,
-          offline: true,
-        });
-
-        const credential: AuthCredential = firebase.auth.GoogleAuthProvider.credential(
-          googleLogin.idToken
-        );
-
-        const newUser: User = await this.afAuth.auth.signInWithCredential(
-          credential
-        );
-
-        const userProfileDocument: AngularFirestoreDocument<
-          any
-        > = this.firestore.doc(`userProfile/${newUser.uid}`);
-
-        await userProfileDocument.set({
-          id: newUser.uid,
-          email: googleLogin.email,
-          displayName: googleLogin.displayName,
-          imageUrl: googleLogin.imageUrl,
-        });
-
-        return newUser;
-      } catch (error) {
-        console.error(error);
-      }
-    } else {
-      try {
-        const provider: GoogleAuthProvider = new firebase.auth.GoogleAuthProvider();
-        const signInResult = await firebase.auth().signInWithPopup(provider);
-
-        const newUser = signInResult.user;
-
-        const userProfileDocument: AngularFirestoreDocument<
-          any
-        > = this.firestore.doc(`userProfile/${newUser.uid}`);
-
-        await userProfileDocument.set({
-          id: newUser.uid,
-          email: newUser.email,
-          displayName: newUser.displayName,
-        });
-
-        return newUser;
-      } catch (error) {
-        console.error(error);
-      }
-    }
-  } */
+  /*  loginUser2(email: string, password: string): Promise<any> {
+     return this.afAuth.auth.signInWithEmailAndPassword(email,password);
+   }
+ 
+   resetPassword2(email: string): Promise<void> {
+     return this.afAuth.auth.sendPasswordResetEmail(email);
+   }
+ 
+   logoutUser2(): Promise<void> {
+     return this.afAuth.auth.signOut();
+   }
+ 
+   async createUserWithEmailAndPassword(
+     email: string,
+     password: string,
+     displayName: string
+   ): Promise<void> {
+     try {
+       const newUser: User = await this.afAuth.auth.createUserWithEmailAndPassword(
+         email,
+         password
+       );
+ 
+       await newUser.sendEmailVerification();
+ 
+       const userProfileDocument: AngularFirestoreDocument<
+         any
+       > = this.firestore.doc(`userProfile/${newUser.uid}`);
+ 
+       await userProfileDocument.set({
+         id: newUser.uid,
+         email: email,
+         displayName: displayName,
+       });
+ 
+       return newUser;
+     } catch (error) {
+       console.error(error);
+       throw new Error();
+     }
+   }
+ 
+   async googleSignIn() {
+     if (this.platform.is('cordova')) {
+       try {
+         const googleLogin = await this.googlePlus.login({
+           webClientId: firebaseSdkConfig.webClientId,
+           offline: true,
+         });
+ 
+         const credential: AuthCredential = firebase.auth.GoogleAuthProvider.credential(
+           googleLogin.idToken
+         );
+ 
+         const newUser: User = await this.afAuth.auth.signInWithCredential(
+           credential
+         );
+ 
+         const userProfileDocument: AngularFirestoreDocument<
+           any
+         > = this.firestore.doc(`userProfile/${newUser.uid}`);
+ 
+         await userProfileDocument.set({
+           id: newUser.uid,
+           email: googleLogin.email,
+           displayName: googleLogin.displayName,
+           imageUrl: googleLogin.imageUrl,
+         });
+ 
+         return newUser;
+       } catch (error) {
+         console.error(error);
+       }
+     } else {
+       try {
+         const provider: GoogleAuthProvider = new firebase.auth.GoogleAuthProvider();
+         const signInResult = await firebase.auth().signInWithPopup(provider);
+ 
+         const newUser = signInResult.user;
+ 
+         const userProfileDocument: AngularFirestoreDocument<
+           any
+         > = this.firestore.doc(`userProfile/${newUser.uid}`);
+ 
+         await userProfileDocument.set({
+           id: newUser.uid,
+           email: newUser.email,
+           displayName: newUser.displayName,
+         });
+ 
+         return newUser;
+       } catch (error) {
+         console.error(error);
+       }
+     }
+   } */
 }

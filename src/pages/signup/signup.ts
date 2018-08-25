@@ -6,6 +6,7 @@ import { EmailValidator } from "../../validators/email";
 import { HomePage } from "../../pages/home/home";
 import firebase from 'firebase';
 import { Facebook } from '@ionic-native/facebook';
+
 import {
   Alert,
   AlertController,
@@ -42,9 +43,8 @@ export class SignupPage {
     public alertCtrl: AlertController,
     formBuilder: FormBuilder) {
     this.signupForm = formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      username: ['', Validators.compose([Validators.required, Validators.required])],
+
+      displayName: ['', Validators.compose([Validators.required, Validators.required])],
       email: [
         "",
         Validators.compose([Validators.required, EmailValidator.isValid])
@@ -64,16 +64,14 @@ export class SignupPage {
     console.log("Form Validation Passed")
   }
 
-  login(): void {
+  signup(): void {
     const loading = this.loadingCtrl.create();
     if (!this.signupForm.valid) {
       console.log(this.signupForm.value);
     } else {
       this.authProvider
-        .signupUser(
-          this.signupForm.value.username,
-          this.signupForm.value.firstName,
-          this.signupForm.value.lastName,
+        .signupUser2(
+          this.signupForm.value.displayName,
           this.signupForm.value.email,
           this.signupForm.value.password
         )
@@ -110,7 +108,7 @@ export class SignupPage {
     }).catch((error) => { console.log(error) });
   }
 
-  
+
   verification() {
     let modal = this.modalCtrl.create('VerificationPage');
     modal.present();
