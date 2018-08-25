@@ -1,6 +1,6 @@
 webpackJsonp([1],{
 
-/***/ 733:
+/***/ 731:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(758);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(756);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -62,18 +62,19 @@ var EmailValidator = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 758:
+/***/ 756:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_home_home__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_home_home__ = __webpack_require__(163);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth__ = __webpack_require__(371);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__validators_email__ = __webpack_require__(745);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_facebook__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_google_plus__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_facebook__ = __webpack_require__(165);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -91,6 +92,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -98,7 +100,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var LoginPage = /** @class */ (function () {
-    function LoginPage(facebook, navParams, modalCtrl, navCtrl, authProvider, loadingCtrl, alertCtrl, formBuilder) {
+    function LoginPage(googlePlus, facebook, navParams, modalCtrl, navCtrl, authProvider, loadingCtrl, alertCtrl, formBuilder) {
+        this.googlePlus = googlePlus;
         this.facebook = facebook;
         this.navParams = navParams;
         this.modalCtrl = modalCtrl;
@@ -126,6 +129,16 @@ var LoginPage = /** @class */ (function () {
     LoginPage.prototype.goBack = function () {
         this.navCtrl.pop();
     };
+    LoginPage.prototype.loginWithFacebook = function () {
+        this.facebook.login(['public_profile', 'user_friends', 'email'])
+            .then(function (res) { return console.log('Logged into Facebook!', res); })
+            .catch(function (e) { return console.log('Error logging into Facebook', e); });
+    };
+    LoginPage.prototype.loginWithGoogle = function () {
+        this.googlePlus.login({})
+            .then(function (res) { return console.log(res); })
+            .catch(function (err) { return console.error(err); });
+    };
     LoginPage.prototype.login = function () {
         var _this = this;
         var loading = this.loadingCtrl.create();
@@ -151,11 +164,15 @@ var LoginPage = /** @class */ (function () {
         var modal = this.modalCtrl.create('PasswordPage');
         modal.present();
     };
+    LoginPage.prototype.resetPassword = function () {
+        this.navCtrl.push('ResetPasswordPage');
+    };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-login',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\login\login.html"*/'<ion-content class="jr_login_bg">\n\n  <div class="jr_profile_content">\n\n    <div class="jr_login_wrapper">\n\n      <div class="jr_logo">\n\n        <img src="../../assets/img/jr_logo1.png">\n\n      </div>\n\n      <div class="jr_login_detail">\n\n        <h5>Are you</h5>\n\n        <h4>ready to begin ?</h4>\n\n        <p>Share your car journey with co- travellers just<br> like you and cover all your fuel costs!</p>\n\n        <hr>\n\n        <form [formGroup]="loginForm" (submit)="login()" novalidate>\n\n\n\n          <ion-item class="jr_login_input1">\n\n            <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>\n\n          </ion-item>\n\n          <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid &&\n\n          loginForm.controls.email.dirty">\n\n            <p>Please write a valid email.</p>\n\n          </ion-item>\n\n\n\n          <ion-item class="jr_login_input1">\n\n            <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>\n\n          </ion-item>\n\n          <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid &&\n\n          loginForm.controls.password.dirty">\n\n            <p>Your password needs more than 6 characters.</p>\n\n          </ion-item>\n\n          <button ion-button block type="submit" [disabled]="!loginForm.valid" class="jr_offer_ride3">LOGIN</button>\n\n        </form>\n\n        <!-- <input class="jr_login_input" placeholder="Username">\n\n        <input class="jr_login_input" placeholder="Password">\n\n        <button ion-button class="jr_offer_ride2" (click)="home()">LOGIN</button> -->\n\n\n\n        <p (click)="password()"><i>Forgot Password ?</i></p>\n\n        <h5>OR</h5>\n\n        <button ion-button full block (click)="facebookLogin()">\n\n          <ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon>\n\n          Login with Facebook\n\n        </button>\n\n\n\n        <button ion-button block color="danger" (click)="loginUser()">\n\n          <ion-icon ios="logo-google" md="logo-google"></ion-icon>\n\n          Login with Google\n\n        </button>\n\n      </div>\n\n      <div class="jr_landing_btm">\n\n        <button ion-button class="jr_btm_btn1" (click)="goBack()">\n\n          <img src="assets/img/jr_arrow1.png">\n\n        </button>\n\n      </div>\n\n    </div>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\login\login.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6__ionic_native_facebook__["a" /* Facebook */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6__ionic_native_google_plus__["a" /* GooglePlus */],
+            __WEBPACK_IMPORTED_MODULE_7__ionic_native_facebook__["a" /* Facebook */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],

@@ -39,7 +39,7 @@ export class AuthProvider {
     return firebase.auth().signInWithEmailAndPassword(email, password);
   }
 
-  
+
   signupUser2(displayName: string, email: string, password: string): Promise<any> {
     return firebase
       .auth()
@@ -51,7 +51,7 @@ export class AuthProvider {
           .set({
             uid: newUserCredential.user.uid,
             email: email,
-            displayName: displayName 
+            displayName: displayName
           });
       })
       .catch(error => {
@@ -66,79 +66,58 @@ export class AuthProvider {
 
   logoutUser(): Promise<void> {
     return this.afAuth.auth.signOut();
-    //afAuth.auth.unsubscribe();
   }
 
 
-
-  /*  loginUser2(email: string, password: string): Promise<any> {
-     return this.afAuth.auth.signInWithEmailAndPassword(email,password);
-   }
- 
-   resetPassword2(email: string): Promise<void> {
-     return this.afAuth.auth.sendPasswordResetEmail(email);
-   }
- 
-   logoutUser2(): Promise<void> {
-     return this.afAuth.auth.signOut();
-   }
- 
-   async createUserWithEmailAndPassword(
-     email: string,
-     password: string,
-     displayName: string
-   ): Promise<void> {
-     try {
-       const newUser: User = await this.afAuth.auth.createUserWithEmailAndPassword(
-         email,
-         password
-       );
- 
-       await newUser.sendEmailVerification();
- 
-       const userProfileDocument: AngularFirestoreDocument<
-         any
-       > = this.firestore.doc(`userProfile/${newUser.uid}`);
- 
-       await userProfileDocument.set({
-         id: newUser.uid,
-         email: email,
-         displayName: displayName,
-       });
- 
-       return newUser;
-     } catch (error) {
-       console.error(error);
-       throw new Error();
-     }
-   }
- 
-  */
-
-   signUpWithFacebook(): Promise<any> {
+  signUpWithFacebook(): Promise<any> {
     if (this.platform.is('cordova')) {
       return this.facebook.login(['email'])
-      .then( response => {
-        const facebookCredential = firebase.auth.FacebookAuthProvider
-          .credential(response.authResponse.accessToken);
-  
-        firebase.auth().signInWithCredential(facebookCredential)
-          .then( success => { 
-            console.log("Firebase success: " + JSON.stringify(success)); 
-          }).catch((error) => {
-            console.log("Firebase failure: " + JSON.stringify(error));
-            alert('Network Error, Check Your Connection And Try Again')
-        });
-  
-      }).catch((error) => { console.log(error) });
+        .then(response => {
+          const facebookCredential = firebase.auth.FacebookAuthProvider
+            .credential(response.authResponse.accessToken);
+
+          firebase.auth().signInWithCredential(facebookCredential)
+            .then(success => {
+              console.log("Firebase success: " + JSON.stringify(success));
+            }).catch((error) => {
+              console.log("Firebase failure: " + JSON.stringify(error));
+              alert('Network Error, Check Your Connection And Try Again')
+            });
+
+        }).catch((error) => { console.log(error) });
     } else {
       return firebase.auth().signInWithPopup(new firebase.auth.FacebookAuthProvider()).then((success) => {
         console.log("Firebase success: " + JSON.stringify(success));
       })
-      .catch((error) => {
-        console.log("Firebase failure: " + JSON.stringify(error));
-        alert('Network Error, Check Your Connection And Try Again')
-    });
+        .catch((error) => {
+          console.log("Firebase failure: " + JSON.stringify(error));
+          alert('Network Error, Check Your Connection And Try Again')
+        });
+
+    }
+
+  }
+
+  signUpWithGoogle2(): Promise<any> {
+    if (this.platform.is('cordova')) {
+      return this.googlePlus.login({
+        'webClientId': '924137236064-766tk41oqe8ldu5p15g4gviujgsgv07e.apps.googleusercontent.com',
+        'offline': true,
+        'scopes': 'profile email'
+      }).then(response => {
+        this.afAuth.auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(response.gplusUser.idToken)).then(() => {
+          this.updateUserData(this.user);
+        }).then(success => {
+          alert("Firebase success: " + JSON.stringify(success));
+        }).catch((error) => {
+          console.log("Firebase failure: " + JSON.stringify(error));
+          alert('Network Error, Check Your Connection And Try Again')
+        });
+      }).catch((error) => { console.log(error) });
+    } else {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      const credential = this.afAuth.auth.signInWithPopup(provider);
+      this.updateUserData(this.user)
 
     }
 
@@ -146,63 +125,54 @@ export class AuthProvider {
 
   async nativeGoogleLogin(): Promise<any> {
     try {
-  
+
       const gplusUser = await this.googlePlus.login({
         'webClientId': '924137236064-766tk41oqe8ldu5p15g4gviujgsgv07e.apps.googleusercontent.com',
         'offline': true,
         'scopes': 'profile email'
       })
 
+
       //return await this.afAuth.auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.w))
-  
-      return await this.afAuth.auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken))
-  
-    } catch(err) {
+
+      return await this.afAuth.auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken)).then(() => {
+        this.updateUserData(this.user);
+      })
+
+    } catch (err) {
       console.log(err)
     }
   }
 
-  async webGoogleLogin(): Promise<void> {
+  async webGoogleLogin(): Promise<any> {
     try {
       const provider = new firebase.auth.GoogleAuthProvider();
       const credential = await this.afAuth.auth.signInWithPopup(provider);
       this.updateUserData(this.user)
-  
-    } catch(err) {
+
+    } catch (err) {
       console.log(err)
     }
-  
+
   }
 
-  signUpWithGoogle() {
+  signUpWithGoogle(): any {
     if (this.platform.is('cordova')) {
       this.nativeGoogleLogin();
     } else {
       this.webGoogleLogin();
     }
   }
-  
-  private updateUserData(user) {
+
+  updateUserData(user) {
     // Sets user data to firestore on login
-     console.log(firebase.auth().currentUser)
-     firebase.database()
-     .ref(`userProfile/${firebase.auth().currentUser.uid}`).set({
-      uid: firebase.auth().currentUser.uid,
-      email: firebase.auth().currentUser.email,
-      displayName: firebase.auth().currentUser.displayName,
-      photoURL: firebase.auth().currentUser.photoURL 
-    })
-
-    
-
-    const data: User = {
-      uid: user.uid,
-      email: user.email,
-      displayName: user.displayName,
-      photoURL: user.photoURL
-    }
-
-    console.log(data)
-
+    console.log(firebase.auth().currentUser)
+    firebase.database()
+      .ref(`userProfile/${firebase.auth().currentUser.uid}`).set({
+        uid: firebase.auth().currentUser.uid,
+        email: firebase.auth().currentUser.email,
+        displayName: firebase.auth().currentUser.displayName,
+        photoURL: firebase.auth().currentUser.photoURL
+      })
   }
 }

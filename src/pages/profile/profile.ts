@@ -275,8 +275,8 @@ export class ProfilePage {
   }
 
   logout() {
-    firebase.auth().signOut().then(() => {
-      this.navCtrl.parent.parent.setRoot('LoginPage');
+    this.authProvider.logoutUser().then(() => {
+      this.navCtrl.setRoot('LoginPage');
     })
   }
 }

@@ -7,10 +7,11 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AuthProvider } from "../../providers/auth/auth";
 import { EmailValidator } from "../../validators/email";
 
-import firebase from 'firebase';
-import { Facebook } from '@ionic-native/facebook';
+import { GooglePlus } from '@ionic-native/google-plus';
+
+import { Facebook,  FacebookLoginResponse} from '@ionic-native/facebook';
 import {
-  Alert,
+
   AlertController,
   Loading,
   LoadingController,
@@ -34,6 +35,7 @@ export class LoginPage {
   public loading: Loading;
 
   constructor(
+    private googlePlus: GooglePlus,
     private facebook: Facebook,
     public navParams: NavParams,
     public modalCtrl: ModalController,
@@ -41,18 +43,18 @@ export class LoginPage {
     public authProvider: AuthProvider,
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController,
-    formBuilder: FormBuilder) { 
-      this.loginForm = formBuilder.group({
-        email: [
-          "",
-          Validators.compose([Validators.required, EmailValidator.isValid])
-        ],
-        password: [
-          "",
-          Validators.compose([Validators.minLength(6), Validators.required])
-        ]
-      });
-    }
+    formBuilder: FormBuilder) {
+    this.loginForm = formBuilder.group({
+      email: [
+        "",
+        Validators.compose([Validators.required, EmailValidator.isValid])
+      ],
+      password: [
+        "",
+        Validators.compose([Validators.minLength(6), Validators.required])
+      ]
+    });
+  }
 
   ionViewDidLoad() {
   }
@@ -65,7 +67,21 @@ export class LoginPage {
     this.navCtrl.pop();
   }
 
+  loginWithFacebook() {
+    this.facebook.login(['public_profile', 'user_friends', 'email'])
+    .then((res: FacebookLoginResponse) => console.log('Logged into Facebook!', res))
+    .then(() =>this.navCtrl.setRoot(HomePage))
+    .catch(e => console.log('Error logging into Facebook', e));
+  }
 
+  loginWithGoogle() {
+    this.googlePlus.login({})
+    .then(res => console.log(res))
+    .then(() =>this.navCtrl.setRoot(HomePage))
+    .catch(err => console.error(err));
+  }
+
+  
   login(): void {
     const loading = this.loadingCtrl.create();
     if (!this.loginForm.valid) {
@@ -97,4 +113,8 @@ export class LoginPage {
     modal.present();
   }
 
+
+  resetPassword() {
+    this.navCtrl.push('ResetPasswordPage');
+  }
 }

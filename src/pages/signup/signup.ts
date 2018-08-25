@@ -3,10 +3,6 @@ import { IonicPage, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AuthProvider } from "../../providers/auth/auth";
 import { EmailValidator } from "../../validators/email";
-import { HomePage } from "../../pages/home/home";
-import firebase from 'firebase';
-import { Facebook } from '@ionic-native/facebook';
-import { Platform } from 'ionic-angular';
 
 import {
   Alert,
@@ -17,7 +13,6 @@ import {
   ModalController
 } from "ionic-angular";
 
-import { PhonePage } from '../phone/phone';
 /**
  * Generated class for the SignupPage page.
  *
@@ -35,8 +30,7 @@ export class SignupPage {
   public signupForm: FormGroup;
   public loading: Loading;
   constructor(
-    private platform: Platform,
-    private facebook: Facebook,
+
     public navParams: NavParams,
     public modalCtrl: ModalController,
     public navCtrl: NavController,
@@ -85,7 +79,7 @@ export class SignupPage {
           },
           error => {
             loading.dismiss().then(() => {
-              console.log(error);
+              alert(error);
             });
           }
         );
@@ -94,13 +88,41 @@ export class SignupPage {
   }
 
   signUpWithFacebook() {
-    this.authProvider.signUpWithFacebook();
+    const loading = this.loadingCtrl.create();
+    this.authProvider.signUpWithFacebook().then(
+      () => {
+        loading.dismiss().then(() => {
+          alert("Hello")
+
+        }).then(() => {
+          this.navCtrl.setRoot('PhonePage');
+        });
+      },
+      error => {
+        loading.dismiss().then(() => {
+          alert(error)
+          console.log(error);
+        });
+      });
   }
 
-  signUpWithGoogle() {
-    this.authProvider.signUpWithGoogle();
-  }
 
+  signUpWithGoogle2() {
+    const loading = this.loadingCtrl.create();
+    this.authProvider.signUpWithGoogle().then(
+      () => {
+        loading.dismiss().then(() => {
+          this.navCtrl.setRoot('PhonePage');
+        })
+      },
+      error => {
+        loading.dismiss().then(() => {
+          alert(error);
+        });
+      }
+    );
+    loading.present();
+  }
 
   verification() {
     let modal = this.modalCtrl.create('VerificationPage');
