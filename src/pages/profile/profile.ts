@@ -26,6 +26,7 @@ export class ProfilePage {
   avatar: string;
   displayName: string;
   email: string;
+  phoneNumber: string;
 
   constructor(
     public alertCtrl: AlertController,
@@ -198,6 +199,7 @@ export class ProfilePage {
       console.log(res)
       this.displayName = res.displayName;
       this.email = res.email
+      this.phoneNumber = res.phoneNumber;
       this.zone.run(() => {
         this.avatar = res.photoURL;
       })

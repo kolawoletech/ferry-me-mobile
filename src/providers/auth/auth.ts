@@ -6,17 +6,24 @@ import { GooglePlus } from '@ionic-native/google-plus';
 import { Platform } from 'ionic-angular';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+
 import 'firebase/database';
+import { Facebook } from '@ionic-native/facebook';
+import { Observable } from 'rxjs/Observable';
+
 @Injectable()
 export class AuthProvider {
+  //private user: firebase.User;
+  user: Observable<firebase.User>;
   constructor(
     public afAuth: AngularFireAuth,
     public afDb: AngularFireDatabase,
-
+    private facebook: Facebook,
     public platform: Platform,
     private googlePlus: GooglePlus
   ) {
     console.log('Hello AuthProvider Provider');
+    this.user = this.afAuth.authState;
   }
 
 
@@ -125,58 +132,98 @@ export class AuthProvider {
      }
    }
  
-   async googleSignIn() {
-     if (this.platform.is('cordova')) {
-       try {
-         const googleLogin = await this.googlePlus.login({
-           webClientId: firebaseSdkConfig.webClientId,
-           offline: true,
-         });
- 
-         const credential: AuthCredential = firebase.auth.GoogleAuthProvider.credential(
-           googleLogin.idToken
-         );
- 
-         const newUser: User = await this.afAuth.auth.signInWithCredential(
-           credential
-         );
- 
-         const userProfileDocument: AngularFirestoreDocument<
-           any
-         > = this.firestore.doc(`userProfile/${newUser.uid}`);
- 
-         await userProfileDocument.set({
-           id: newUser.uid,
-           email: googleLogin.email,
-           displayName: googleLogin.displayName,
-           imageUrl: googleLogin.imageUrl,
-         });
- 
-         return newUser;
-       } catch (error) {
-         console.error(error);
-       }
-     } else {
-       try {
-         const provider: GoogleAuthProvider = new firebase.auth.GoogleAuthProvider();
-         const signInResult = await firebase.auth().signInWithPopup(provider);
- 
-         const newUser = signInResult.user;
- 
-         const userProfileDocument: AngularFirestoreDocument<
-           any
-         > = this.firestore.doc(`userProfile/${newUser.uid}`);
- 
-         await userProfileDocument.set({
-           id: newUser.uid,
-           email: newUser.email,
-           displayName: newUser.displayName,
-         });
- 
-         return newUser;
-       } catch (error) {
-         console.error(error);
-       }
-     }
-   } */
+  */
+
+   signUpWithFacebook(): Promise<any> {
+    if (this.platform.is('cordova')) {
+      return this.facebook.login(['email'])
+      .then( response => {
+        const facebookCredential = firebase.auth.FacebookAuthProvider
+          .credential(response.authResponse.accessToken);
+  
+        firebase.auth().signInWithCredential(facebookCredential)
+          .then( success => { 
+            console.log("Firebase success: " + JSON.stringify(success)); 
+          }).catch((error) => {
+            console.log("Firebase failure: " + JSON.stringify(error));
+            alert('Network Error, Check Your Connection And Try Again')
+        });
+  
+      }).catch((error) => { console.log(error) });
+    } else {
+      return firebase.auth().signInWithPopup(new firebase.auth.FacebookAuthProvider()).then((success) => {
+        console.log("Firebase success: " + JSON.stringify(success));
+      })
+      .catch((error) => {
+        console.log("Firebase failure: " + JSON.stringify(error));
+        alert('Network Error, Check Your Connection And Try Again')
+    });
+
+    }
+
+  }
+
+ /*  signInWithGoogle() {
+		console.log('Sign in with google');
+		return this.oauthSignIn(new firebase.auth.GoogleAuthProvider());
+	}
+
+	private oauthSignIn(provider: GoogleAuthProvider) {
+		if (!(<any>window).cordova) {
+			return this.afAuth.auth.signInWithPopup(provider);
+		} else {
+			return this.afAuth.auth.signInWithRedirect(provider)
+			.then(() => {
+				return this.afAuth.auth.getRedirectResult().then( result => {
+					// This gives you a Google Access Token.
+					// You can use it to access the Google API.
+				//	let token = result.credential.accessToken;
+					// The signed-in user info.
+					let user = result.user;
+				//	console.log(token, user);
+				}).catch(function(error) {
+					// Handle Errors here.
+					alert(error.message);
+				});
+			});
+		}
+  } */
+  
+  async nativeGoogleLogin(): Promise<any> {
+    try {
+  
+      const gplusUser = await this.googlePlus.login({
+        'webClientId': '924137236064-766tk41oqe8ldu5p15g4gviujgsgv07e.apps.googleusercontent.com',
+        'offline': true,
+        'scopes': 'profile email'
+      })
+
+      //return await this.afAuth.auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.w))
+  
+      return await this.afAuth.auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken))
+  
+    } catch(err) {
+      console.log(err)
+    }
+  }
+
+  async webGoogleLogin(): Promise<void> {
+    try {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      const credential = await this.afAuth.auth.signInWithPopup(provider);
+  
+    } catch(err) {
+      console.log(err)
+    }
+  
+  }
+
+  signUpWithGoogle() {
+    if (this.platform.is('cordova')) {
+      this.nativeGoogleLogin();
+    } else {
+      this.webGoogleLogin();
+    }
+  }
+  
 }

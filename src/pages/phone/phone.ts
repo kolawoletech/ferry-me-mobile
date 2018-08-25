@@ -31,7 +31,7 @@ export class PhonePage {
         console.log(phone)
         this.number =phone.phoneNumber;
         this.profileProvider.updateNumber(phone.phoneNumber);
-        this.navCtrl.setRoot('HomePage');
+        this.navCtrl.setRoot('ProfilePage');
       })
       }, (err) => {
         alert(err);

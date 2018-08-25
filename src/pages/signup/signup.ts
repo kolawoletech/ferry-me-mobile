@@ -6,6 +6,7 @@ import { EmailValidator } from "../../validators/email";
 import { HomePage } from "../../pages/home/home";
 import firebase from 'firebase';
 import { Facebook } from '@ionic-native/facebook';
+import { Platform } from 'ionic-angular';
 
 import {
   Alert,
@@ -34,6 +35,7 @@ export class SignupPage {
   public signupForm: FormGroup;
   public loading: Loading;
   constructor(
+    private platform: Platform,
     private facebook: Facebook,
     public navParams: NavParams,
     public modalCtrl: ModalController,
@@ -78,7 +80,7 @@ export class SignupPage {
         .then(
           () => {
             loading.dismiss().then(() => {
-              this.navCtrl.setRoot('ProfilePicPage');
+              this.navCtrl.setRoot('PhonePage');
             });
           },
           error => {
@@ -91,21 +93,12 @@ export class SignupPage {
     loading.present();
   }
 
-  facebookLogin() {
-    this.facebook.login(['email']).then((response) => {
-      const facebookCredential = firebase.auth.FacebookAuthProvider
-        .credential(response.authResponse.accessToken);
+  signUpWithFacebook() {
+    this.authProvider.signUpWithFacebook();
+  }
 
-      firebase.auth().signInWithCredential(facebookCredential)
-        .then((success) => {
-          console.log("Firebase success: " + JSON.stringify(success));
-          this.userProfile = success;
-        })
-        .catch((error) => {
-          console.log("Firebase failure: " + JSON.stringify(error));
-        });
-
-    }).catch((error) => { console.log(error) });
+  signUpWithGoogle() {
+    this.authProvider.signUpWithGoogle();
   }
 
 

@@ -48,15 +48,16 @@
       <div class="jr_profile_tab_content" [hidden]="tab=='inactive'">
         <h4>ABOUT YOU</h4>
         <ul>
-          <li>{{userProfile?.username}}</li>
-          <li (click)="editbio()">Write my Biography</li>
+          
+          <li (click)="editbio()">Your Details</li>
           <li (click)="editpreference()">Add my Preferences</li>
         </ul>
         <hr>
         <h4>VERIFICATION</h4>
         <ul>
           <li (click)="editid()">Verify my ID</li>
-          <li (click)="addnumber()">Add my Phone</li>
+          <!-- <li class="verified">Facebook Verified</li> -->
+          <li  (click)="addnumber()"> Phone : {{phoneNumber}}</li>
           <li class="verified"> Email: {{email}}</li>
           <!-- <li class="verified">Facebook Verified</li> -->
         </ul>

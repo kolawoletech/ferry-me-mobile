@@ -26,6 +26,7 @@ export class ProfileProvider {
   public phone: number;
 
   constructor(
+  
     public afAuth: AngularFireAuth,
     public afDb: AngularFireDatabase,
     public imgservice: ImghandlerProvider) {

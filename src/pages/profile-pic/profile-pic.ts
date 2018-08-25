@@ -1,5 +1,5 @@
-import { Component, NgZone } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { Component, NgZone, ChangeDetectorRef } from '@angular/core';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController} from 'ionic-angular';
 import { ImghandlerProvider } from '../../providers/imghandler/imghandler';
 import { ProfileProvider} from '../../providers/profile/profile'
 /**
@@ -17,8 +17,8 @@ import { ProfileProvider} from '../../providers/profile/profile'
 export class ProfilePicPage {
   imgurl = 'https://firebasestorage.googleapis.com/v0/b/myapp-4eadd.appspot.com/o/chatterplace.png?alt=media&token=e51fa887-bfc6-48ff-87c6-e2c61976534e';
   moveon: boolean = true;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public imgservice: ImghandlerProvider,
-    public zone: NgZone, public profileProvider: ProfileProvider, public loadingCtrl: LoadingController) {
+  constructor(public cdr: ChangeDetectorRef, public navCtrl: NavController, public navParams: NavParams, public imgservice: ImghandlerProvider,
+    public zone: NgZone, public profileProvider: ProfileProvider, public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -30,15 +30,18 @@ export class ProfilePicPage {
     let loader = this.loadingCtrl.create({
       content: 'Please wait'
     })
+ 
     loader.present();
-    this.imgservice.uploadimage().then((uploadedurl: any) => {
-      loader.dismiss();
-      this.zone.run(() => {
-        this.imgurl = uploadedurl;
+    
+    this.imgservice.uploadimage().then((url: any) => {
+      this.cdr.detectChanges();
+ 
+        this.imgurl = url;
         this.moveon = false;
-      })
+        console.log("isBluetoothConnected---", this.imgurl );
+
     })
-    loader.dismiss();
+  
   }
 
   updateproceed() {
