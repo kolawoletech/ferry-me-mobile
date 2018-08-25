@@ -11,6 +11,14 @@ import 'firebase/database';
 import { Facebook } from '@ionic-native/facebook';
 import { Observable } from 'rxjs/Observable';
 
+interface User {
+  uid: string;
+  email: string;
+  photoURL?: string;
+  displayName?: string;
+  phoneNumber?: string;
+}
+
 @Injectable()
 export class AuthProvider {
   //private user: firebase.User;
@@ -31,34 +39,7 @@ export class AuthProvider {
     return firebase.auth().signInWithEmailAndPassword(email, password);
   }
 
-  signupUser(
-    username: string,
-    firstName: string,
-    lastName: string,
-    email: string,
-    password: string,
-
-
-  ): Promise<any> {
-    return this.afAuth.auth
-      .createUserWithEmailAndPassword(email, password)
-      .then(
-        newUser => {
-          this.afDb
-            .object(`/userProfile/${newUser.user.uid}`)
-            .set({
-              email,
-              username,
-              firstName,
-              lastName
-            })
-        },
-        error => {
-          console.error(error);
-        }
-      );
-  }
-
+  
   signupUser2(displayName: string, email: string, password: string): Promise<any> {
     return firebase
       .auth()
@@ -163,32 +144,6 @@ export class AuthProvider {
 
   }
 
- /*  signInWithGoogle() {
-		console.log('Sign in with google');
-		return this.oauthSignIn(new firebase.auth.GoogleAuthProvider());
-	}
-
-	private oauthSignIn(provider: GoogleAuthProvider) {
-		if (!(<any>window).cordova) {
-			return this.afAuth.auth.signInWithPopup(provider);
-		} else {
-			return this.afAuth.auth.signInWithRedirect(provider)
-			.then(() => {
-				return this.afAuth.auth.getRedirectResult().then( result => {
-					// This gives you a Google Access Token.
-					// You can use it to access the Google API.
-				//	let token = result.credential.accessToken;
-					// The signed-in user info.
-					let user = result.user;
-				//	console.log(token, user);
-				}).catch(function(error) {
-					// Handle Errors here.
-					alert(error.message);
-				});
-			});
-		}
-  } */
-  
   async nativeGoogleLogin(): Promise<any> {
     try {
   
@@ -211,6 +166,7 @@ export class AuthProvider {
     try {
       const provider = new firebase.auth.GoogleAuthProvider();
       const credential = await this.afAuth.auth.signInWithPopup(provider);
+      this.updateUserData(this.user)
   
     } catch(err) {
       console.log(err)
@@ -226,4 +182,27 @@ export class AuthProvider {
     }
   }
   
+  private updateUserData(user) {
+    // Sets user data to firestore on login
+     console.log(firebase.auth().currentUser)
+     firebase.database()
+     .ref(`userProfile/${firebase.auth().currentUser.uid}`).set({
+      uid: firebase.auth().currentUser.uid,
+      email: firebase.auth().currentUser.email,
+      displayName: firebase.auth().currentUser.displayName,
+      photoURL: firebase.auth().currentUser.photoURL 
+    })
+
+    
+
+    const data: User = {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName,
+      photoURL: user.photoURL
+    }
+
+    console.log(data)
+
+  }
 }

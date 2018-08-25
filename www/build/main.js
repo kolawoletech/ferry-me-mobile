@@ -234,75 +234,75 @@ webpackEmptyAsyncContext.id = 176;
 
 var map = {
 	"../pages/add-car-photo/add-car-photo.module": [
-		727,
+		721,
 		23
 	],
 	"../pages/add-car/add-car.module": [
-		721,
+		722,
 		22
 	],
 	"../pages/edit-bio/edit-bio.module": [
-		722,
+		723,
 		21
 	],
 	"../pages/edit-car/edit-car.module": [
-		723,
+		724,
 		20
 	],
 	"../pages/edit-id/edit-id.module": [
-		724,
+		725,
 		19
 	],
 	"../pages/edit-photo/edit-photo.module": [
-		729,
+		726,
 		18
 	],
 	"../pages/edit-preference/edit-preference.module": [
-		731,
+		727,
 		17
 	],
 	"../pages/edit-profile/edit-profile.module": [
-		725,
+		728,
 		16
 	],
 	"../pages/find-ride/find-ride.module": [
-		726,
+		729,
 		15
 	],
 	"../pages/idedit/idedit.module": [
-		728,
+		730,
 		14
 	],
 	"../pages/idupload/idupload.module": [
-		730,
+		731,
 		13
 	],
 	"../pages/landing/landing.module": [
-		735,
+		732,
 		12
 	],
 	"../pages/login/login.module": [
-		732,
+		733,
 		1
 	],
 	"../pages/message/message.module": [
-		736,
+		734,
 		11
 	],
 	"../pages/notification/notification.module": [
-		738,
+		735,
 		10
 	],
 	"../pages/offer-ride/offer-ride.module": [
-		733,
+		736,
 		9
 	],
 	"../pages/password/password.module": [
-		734,
+		737,
 		8
 	],
 	"../pages/phone/phone.module": [
-		740,
+		738,
 		7
 	],
 	"../pages/pop-over-more/pop-over-more.module": [
@@ -310,7 +310,7 @@ var map = {
 		6
 	],
 	"../pages/pop-over/pop-over.module": [
-		737,
+		740,
 		5
 	],
 	"../pages/profile-pic/profile-pic.module": [
@@ -578,23 +578,6 @@ var AuthProvider = /** @class */ (function () {
     AuthProvider.prototype.login = function (email, password) {
         return __WEBPACK_IMPORTED_MODULE_5_firebase_app___default.a.auth().signInWithEmailAndPassword(email, password);
     };
-    AuthProvider.prototype.signupUser = function (username, firstName, lastName, email, password) {
-        var _this = this;
-        return this.afAuth.auth
-            .createUserWithEmailAndPassword(email, password)
-            .then(function (newUser) {
-            _this.afDb
-                .object("/userProfile/" + newUser.user.uid)
-                .set({
-                email: email,
-                username: username,
-                firstName: firstName,
-                lastName: lastName
-            });
-        }, function (error) {
-            console.error(error);
-        });
-    };
     AuthProvider.prototype.signupUser2 = function (displayName, email, password) {
         return __WEBPACK_IMPORTED_MODULE_5_firebase_app___default.a
             .auth()
@@ -689,33 +672,8 @@ var AuthProvider = /** @class */ (function () {
             });
         }
     };
-    /*  signInWithGoogle() {
-           console.log('Sign in with google');
-           return this.oauthSignIn(new firebase.auth.GoogleAuthProvider());
-       }
-   
-       private oauthSignIn(provider: GoogleAuthProvider) {
-           if (!(<any>window).cordova) {
-               return this.afAuth.auth.signInWithPopup(provider);
-           } else {
-               return this.afAuth.auth.signInWithRedirect(provider)
-               .then(() => {
-                   return this.afAuth.auth.getRedirectResult().then( result => {
-                       // This gives you a Google Access Token.
-                       // You can use it to access the Google API.
-                   //	let token = result.credential.accessToken;
-                       // The signed-in user info.
-                       let user = result.user;
-                   //	console.log(token, user);
-                   }).catch(function(error) {
-                       // Handle Errors here.
-                       alert(error.message);
-                   });
-               });
-           }
-     } */
     AuthProvider.prototype.nativeGoogleLogin = function () {
-        return __awaiter(this, void 0, void 0, function () {
+        return __awaiter(this, void 0, Promise, function () {
             var gplusUser, err_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -744,7 +702,7 @@ var AuthProvider = /** @class */ (function () {
         });
     };
     AuthProvider.prototype.webGoogleLogin = function () {
-        return __awaiter(this, void 0, void 0, function () {
+        return __awaiter(this, void 0, Promise, function () {
             var provider, credential, err_2;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -754,6 +712,7 @@ var AuthProvider = /** @class */ (function () {
                         return [4 /*yield*/, this.afAuth.auth.signInWithPopup(provider)];
                     case 1:
                         credential = _a.sent();
+                        this.updateUserData(this.user);
                         return [3 /*break*/, 3];
                     case 2:
                         err_2 = _a.sent();
@@ -772,13 +731,28 @@ var AuthProvider = /** @class */ (function () {
             this.webGoogleLogin();
         }
     };
+    AuthProvider.prototype.updateUserData = function (user) {
+        // Sets user data to firestore on login
+        console.log(__WEBPACK_IMPORTED_MODULE_5_firebase_app___default.a.auth().currentUser);
+        __WEBPACK_IMPORTED_MODULE_5_firebase_app___default.a.database()
+            .ref("userProfile/" + __WEBPACK_IMPORTED_MODULE_5_firebase_app___default.a.auth().currentUser.uid).set({
+            uid: __WEBPACK_IMPORTED_MODULE_5_firebase_app___default.a.auth().currentUser.uid,
+            email: __WEBPACK_IMPORTED_MODULE_5_firebase_app___default.a.auth().currentUser.email,
+            displayName: __WEBPACK_IMPORTED_MODULE_5_firebase_app___default.a.auth().currentUser.displayName,
+            photoURL: __WEBPACK_IMPORTED_MODULE_5_firebase_app___default.a.auth().currentUser.photoURL
+        });
+        var data = {
+            uid: user.uid,
+            email: user.email,
+            displayName: user.displayName,
+            photoURL: user.photoURL
+        };
+        console.log(data);
+    };
+    var _a, _b, _c, _d, _e;
     AuthProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */],
-            __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */],
-            __WEBPACK_IMPORTED_MODULE_8__ionic_native_facebook__["a" /* Facebook */],
-            __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_plus__["a" /* GooglePlus */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_8__ionic_native_facebook__["a" /* Facebook */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__ionic_native_facebook__["a" /* Facebook */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* Platform */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_plus__["a" /* GooglePlus */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_plus__["a" /* GooglePlus */]) === "function" && _e || Object])
     ], AuthProvider);
     return AuthProvider;
 }());
@@ -869,26 +843,26 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */], {}, {
                     links: [
+                        { loadChildren: '../pages/add-car-photo/add-car-photo.module#AddCarPhotoPageModule', name: 'AddCarPhotoPage', segment: 'add-car-photo', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/add-car/add-car.module#AddCarPageModule', name: 'AddCarPage', segment: 'add-car', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-bio/edit-bio.module#EditBioPageModule', name: 'EditBioPage', segment: 'edit-bio', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-car/edit-car.module#EditCarPageModule', name: 'EditCarPage', segment: 'edit-car', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-id/edit-id.module#EditIdPageModule', name: 'EditIdPage', segment: 'edit-id', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/edit-photo/edit-photo.module#EditPhotoPageModule', name: 'EditPhotoPage', segment: 'edit-photo', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/edit-preference/edit-preference.module#EditPreferencePageModule', name: 'EditPreferencePage', segment: 'edit-preference', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-profile/edit-profile.module#EditProfilePageModule', name: 'EditProfilePage', segment: 'edit-profile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/find-ride/find-ride.module#FindRidePageModule', name: 'FindRidePage', segment: 'find-ride', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/add-car-photo/add-car-photo.module#AddCarPhotoPageModule', name: 'AddCarPhotoPage', segment: 'add-car-photo', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/idedit/idedit.module#IdeditPageModule', name: 'IdeditPage', segment: 'idedit', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/edit-photo/edit-photo.module#EditPhotoPageModule', name: 'EditPhotoPage', segment: 'edit-photo', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/idupload/idupload.module#IduploadPageModule', name: 'IduploadPage', segment: 'idupload', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/edit-preference/edit-preference.module#EditPreferencePageModule', name: 'EditPreferencePage', segment: 'edit-preference', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/landing/landing.module#LandingPageModule', name: 'LandingPage', segment: 'landing', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/message/message.module#MessagePageModule', name: 'MessagePage', segment: 'message', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/notification/notification.module#NotificationPageModule', name: 'NotificationPage', segment: 'notification', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/offer-ride/offer-ride.module#OfferRidePageModule', name: 'OfferRidePage', segment: 'offer-ride', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/password/password.module#PasswordPageModule', name: 'PasswordPage', segment: 'password', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/landing/landing.module#LandingPageModule', name: 'LandingPage', segment: 'landing', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/message/message.module#MessagePageModule', name: 'MessagePage', segment: 'message', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/pop-over/pop-over.module#PopOverPageModule', name: 'PopOverPage', segment: 'pop-over', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/notification/notification.module#NotificationPageModule', name: 'NotificationPage', segment: 'notification', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/pop-over-more/pop-over-more.module#PopOverMorePageModule', name: 'PopOverMorePage', segment: 'pop-over-more', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/phone/phone.module#PhonePageModule', name: 'PhonePage', segment: 'phone', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/pop-over-more/pop-over-more.module#PopOverMorePageModule', name: 'PopOverMorePage', segment: 'pop-over-more', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/pop-over/pop-over.module#PopOverPageModule', name: 'PopOverPage', segment: 'pop-over', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profile-pic/profile-pic.module#ProfilePicPageModule', name: 'ProfilePicPage', segment: 'profile-pic', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/public-profile/public-profile.module#PublicProfilePageModule', name: 'PublicProfilePage', segment: 'public-profile', priority: 'low', defaultHistory: [] },
