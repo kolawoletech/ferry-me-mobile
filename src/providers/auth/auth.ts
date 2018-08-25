@@ -61,10 +61,9 @@ export class AuthProvider {
           .database()
           .ref(`/userProfile/${newUserCredential.user.uid}`)
           .set({
-            id: newUserCredential.user.uid,
+            uid: newUserCredential.user.uid,
             email: email,
-            displayName: displayName,
-            photoURL: 'https://firebasestorage.googleapis.com/v0/b/myapp-4eadd.appspot.com/o/chatterplace.png?alt=media&token=e51fa887-bfc6-48ff-87c6-e2c61976534e' 
+            displayName: displayName 
           });
       })
       .catch(error => {

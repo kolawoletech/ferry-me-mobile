@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { ProfileProvider } from '../../providers/profile/profile'
 /**
  * Generated class for the PhonePage page.
  *
@@ -14,8 +14,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'phone.html',
 })
 export class PhonePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  number: "not set"
+  constructor(public navCtrl: NavController, public navParams: NavParams, public profileProvider: ProfileProvider) {
   }
 
   ionViewDidLoad() {
@@ -28,7 +28,9 @@ export class PhonePage {
 	    facebookNotificationsEnabled: true
     }, (successdata) => {
       (<any>window).AccountKitPlugin.getAccount((phone) => {
-        
+        console.log(phone)
+        this.number =phone.phoneNumber;
+        this.profileProvider.updateNumber(phone.phoneNumber);
         this.navCtrl.setRoot('HomePage');
       })
       }, (err) => {

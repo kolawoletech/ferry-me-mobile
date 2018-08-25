@@ -38,6 +38,7 @@ export class ProfilePicPage {
         this.moveon = false;
       })
     })
+    loader.dismiss();
   }
 
   updateproceed() {
@@ -48,15 +49,16 @@ export class ProfilePicPage {
     this.profileProvider.updateimage(this.imgurl).then((res: any) => {
       loader.dismiss();
       if (res.success) {
-        this.navCtrl.setRoot('ProfilePage');
+        this.navCtrl.setRoot('PhonePage');
       }
       else {
         alert(res);
       }
     })
+    loader.dismiss();
   }
 
   proceed() {
-    this.navCtrl.setRoot('ProfilePage');
+    this.navCtrl.setRoot('PhonePage');
   }
 }

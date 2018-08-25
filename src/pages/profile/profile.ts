@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
-import { Alert,IonicPage, NavController, NavParams, AlertController,PopoverController,ModalController} from 'ionic-angular';
+import { Component, NgZone } from '@angular/core';
+import { Alert, IonicPage, NavController, NavParams, AlertController, PopoverController, ModalController } from 'ionic-angular';
 import { ProfileProvider } from "../../providers/profile/profile";
 import { AuthProvider } from "../../providers/auth/auth";
 import { Camera } from '@ionic-native/camera';
+import firebase from 'firebase';
+import { ImghandlerProvider } from '../../providers/imghandler/imghandler';
 
 /**
  * Generated class for the ProfilePage page.
@@ -17,29 +19,36 @@ import { Camera } from '@ionic-native/camera';
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
-  public userProfile: any;
-  public birthDate: string;
-  public profilePic: string = null;
+
+
   tab: any;
+
+  avatar: string;
+  displayName: string;
+  email: string;
+
   constructor(
     public alertCtrl: AlertController,
     public navCtrl: NavController,
     public navParams: NavParams,
     public authProvider: AuthProvider,
     public profileProvider: ProfileProvider,
-    public popoverCtrl: PopoverController, 
+    public popoverCtrl: PopoverController,
     public cameraPlugin: Camera,
-    public modalCtrl: ModalController) {
+    public modalCtrl: ModalController,
+    public zone: NgZone,
+    public imgservice: ImghandlerProvider) {
   }
 
-  ionViewDidLoad() {
-    this.tab = "active";
-    this.profileProvider.getUserProfile().on("value", userProfileSnapshot => {
-      this.userProfile = userProfileSnapshot.val();
-      this.profilePic = null;
-      //this.birthDate = userProfileSnapshot.val().birthDate;
-    });
+  ionViewWillEnter() {
+    this.loaduserdetails();
   }
+
+
+
+
+
+
 
   logOut(): void {
     this.authProvider.logoutUser().then(() => {
@@ -47,33 +56,7 @@ export class ProfilePage {
     });
   }
 
-  updateName(): void {
-    const alert: Alert = this.alertCtrl.create({
-      message: "Your first name & last name",
-      inputs: [
-        {
-          name: "firstName",
-          placeholder: "Your first name",
-          value: this.userProfile.firstName
-        },
-        {
-          name: "lastName",
-          placeholder: "Your last name",
-          value: this.userProfile.lastName
-        }
-      ],
-      buttons: [
-        { text: "Cancel" },
-        {
-          text: "Save",
-          handler: data => {
-            this.profileProvider.updateName(data.firstName, data.lastName);
-          }
-        }
-      ]
-    });
-    alert.present();
-  }
+
 
   takePicture(): void {
     this.cameraPlugin
@@ -87,7 +70,7 @@ export class ProfilePage {
       })
       .then(
         imageData => {
-          this.profilePic = imageData;
+          this.avatar = imageData;
         },
         error => {
           console.log("ERROR -> " + JSON.stringify(error));
@@ -101,13 +84,15 @@ export class ProfilePage {
       { name: 'password', placeholder: 'Your password', type: 'password' }],
       buttons: [
         { text: 'Cancel' },
-        { text: 'Save',
+        {
+          text: 'Save',
           handler: data => {
             this.profileProvider
               .updateEmail(data.newEmail, data.password)
               .then(() => { console.log('Email Changed Successfully'); })
               .catch(error => { console.log('ERROR: ' + error.message); });
-        }}]
+          }
+        }]
     });
     alert.present();
   }
@@ -119,7 +104,8 @@ export class ProfilePage {
         { name: 'oldPassword', placeholder: 'Old password', type: 'password' }],
       buttons: [
         { text: 'Cancel' },
-        { text: 'Save',
+        {
+          text: 'Save',
           handler: data => {
             this.profileProvider.updatePassword(
               data.newPassword,
@@ -205,5 +191,90 @@ export class ProfilePage {
 
   message() {
     this.navCtrl.push('MessagePage');
+  }
+
+  loaduserdetails() {
+    this.profileProvider.getuserdetails().then((res: any) => {
+      console.log(res)
+      this.displayName = res.displayName;
+      this.email = res.email
+      this.zone.run(() => {
+        this.avatar = res.photoURL;
+      })
+    })
+  }
+
+  editimage() {
+    let statusalert = this.alertCtrl.create({
+      buttons: ['okay']
+    });
+    this.imgservice.uploadimage().then((url: any) => {
+      this.profileProvider.updateimage(url).then((res: any) => {
+        if (res.success) {
+          statusalert.setTitle('Updated');
+          statusalert.setSubTitle('Your profile pic has been changed successfully!!');
+          statusalert.present();
+          this.zone.run(() => {
+            this.avatar = url;
+          })
+        }
+      }).catch((err) => {
+        statusalert.setTitle('Failed');
+        statusalert.setSubTitle('Your profile pic was not changed');
+        statusalert.present();
+      })
+    })
+  }
+
+  editname() {
+    let statusalert = this.alertCtrl.create({
+      buttons: ['okay']
+    });
+    let alert = this.alertCtrl.create({
+      title: 'Edit Nickname',
+      inputs: [{
+        name: 'nickname',
+        placeholder: 'Nickname'
+      }],
+      buttons: [{
+        text: 'Cancel',
+        role: 'cancel',
+        handler: data => {
+
+        }
+      },
+      {
+        text: 'Edit',
+        handler: data => {
+          if (data.nickname) {
+            this.profileProvider.updatedisplayname(data.nickname).then((res: any) => {
+              if (res.success) {
+                statusalert.setTitle('Updated');
+                statusalert.setSubTitle('Your nickname has been changed successfully!!');
+                statusalert.present();
+                this.zone.run(() => {
+                  this.displayName = data.nickname;
+                })
+              }
+
+              else {
+                statusalert.setTitle('Failed');
+                statusalert.setSubTitle('Your nickname was not changed');
+                statusalert.present();
+              }
+
+            })
+          }
+        }
+
+      }]
+    });
+    alert.present();
+  }
+
+  logout() {
+    firebase.auth().signOut().then(() => {
+      this.navCtrl.parent.parent.setRoot('LoginPage');
+    })
   }
 }
