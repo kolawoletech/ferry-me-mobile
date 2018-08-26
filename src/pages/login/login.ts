@@ -9,7 +9,7 @@ import { EmailValidator } from "../../validators/email";
 
 import { GooglePlus } from '@ionic-native/google-plus';
 
-import { Facebook,  FacebookLoginResponse} from '@ionic-native/facebook';
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import {
 
   AlertController,
@@ -69,19 +69,18 @@ export class LoginPage {
 
   loginWithFacebook() {
     this.facebook.login(['public_profile', 'user_friends', 'email'])
-    .then((res: FacebookLoginResponse) => console.log('Logged into Facebook!', res))
-    .then(() =>this.navCtrl.setRoot(HomePage))
-    .catch(e => console.log('Error logging into Facebook', e));
+      .then((res: FacebookLoginResponse) => console.log('Logged into Facebook!', res))
+      .then(() => this.navCtrl.setRoot(HomePage))
+      .catch(e => console.log('Error logging into Facebook', e));
   }
 
   loginWithGoogle() {
-    this.googlePlus.login({})
-    .then(res => console.log(res))
-    .then(() =>this.navCtrl.setRoot(HomePage))
-    .catch(err => console.error(err));
+    this.authProvider.googleLogin()
+    this.navCtrl.setRoot(HomePage)
+
   }
 
-  
+
   login(): void {
     const loading = this.loadingCtrl.create();
     if (!this.loginForm.valid) {
@@ -109,8 +108,8 @@ export class LoginPage {
   }
 
   password() {
-    let modal = this.modalCtrl.create('PasswordPage');
-    modal.present();
+    this.navCtrl.push('ResetPasswordPage');
+
   }
 
 

@@ -164,6 +164,8 @@ export class AuthProvider {
     }
   }
 
+
+  
   updateUserData(user) {
     // Sets user data to firestore on login
     console.log(firebase.auth().currentUser)
@@ -175,4 +177,33 @@ export class AuthProvider {
         photoURL: firebase.auth().currentUser.photoURL
       })
   }
+
+  googleLogin() {
+    if (this.platform.is("cordova")) {
+      this.nativeGoogleLogin2();
+    } else {
+      this.webGoogleLogin();
+    }
+  }
+
+  async nativeGoogleLogin2(): Promise<any> {
+    try {
+
+      const gplusUser = await this.googlePlus.login({
+        'webClientId': '924137236064-766tk41oqe8ldu5p15g4gviujgsgv07e.apps.googleusercontent.com',
+        'offline': true,
+        'scopes': 'profile email'
+      })
+
+
+      //return await this.afAuth.auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.w))
+
+      return await this.afAuth.auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken))
+    
+
+    } catch (err) {
+      console.log(err)
+    }
+  }
 }
+
