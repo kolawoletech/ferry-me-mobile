@@ -12,9 +12,10 @@
     <button class="jr_more_pop_up" (click)="presentPopover($event)">
       <img src="assets/img/jr_more.png">
     </button>
-    <div>
-        <img class="jr_profile_banner" src="{{avatar}}">
-      <div class="jr_profile_photo">
+    <div class="jr_profile_banner">
+       
+      <div>
+          <img  class="jr_profile_photo" src="{{avatar}}">
         <div class="jr_profile_photo_edit" (click)="editimage()">
             <img src="assets/img/jr_edit.png">
 
@@ -38,7 +39,7 @@
     </ion-item> -->
 
     <div class="jr_profile_content">
-      <h4 (click)="updateName()"> Test {{displayName}}</h4>
+      <h4 (click)="updateName()"> {{displayName}}</h4>
       <hr>
       <br>
       <div class="jr_profile_tab_bay">
