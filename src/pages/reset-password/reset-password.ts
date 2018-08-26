@@ -44,4 +44,9 @@ export class ResetPasswordPage {
       this.navCtrl.push('LoginPage');
     });
   }
+
+  goBack() {
+    this.navCtrl.pop();
+  }
+
 }
