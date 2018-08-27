@@ -12,18 +12,21 @@
     <button class="jr_more_pop_up" (click)="presentPopover($event)">
       <img src="assets/img/jr_more.png">
     </button>
+
     <div class="jr_profile_banner">
-       
-      <div>
-          <img  class="jr_profile_photo" src="{{avatar}}">
+
+
+      <div class="jr_profile_photo">
+        <img src="{{avatar}}">
         <div class="jr_profile_photo_edit" (click)="editimage()">
-            <img src="assets/img/jr_edit.png">
+          <img src="assets/img/jr_edit.png">
 
 
         </div>
       </div>
+
     </div>
-  
+
     <!--     <ion-item (click)="updateName()">
       <ion-grid class="jr_profile_content">
         <ion-row>
@@ -50,7 +53,7 @@
       <div class="jr_profile_tab_content" [hidden]="tab=='inactive'">
         <h4>ABOUT YOU</h4>
         <ul>
-          
+
           <li (click)="editbio()">Your Details</li>
           <li (click)="editpreference()">Add my Preferences</li>
         </ul>
@@ -59,7 +62,7 @@
         <ul>
           <li (click)="editid()">Verify my ID</li>
           <!-- <li class="verified">Facebook Verified</li> -->
-          <li  (click)="addnumber()"> Phone : {{phoneNumber}}</li>
+          <li (click)="addnumber()"> Phone : {{phoneNumber}}</li>
           <li class="verified"> Email: {{email}}</li>
           <!-- <li class="verified">Facebook Verified</li> -->
         </ul>

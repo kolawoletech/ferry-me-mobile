@@ -7,17 +7,107 @@
   <div class="jr_clear"></div>
 </ion-header>
 <ion-content>
-  <div class="jr_offerride_details">
-    <ul>
-      <li>
-        <h4><img src="assets/img/jr_pr.png">YOUR BIOGRAPHY</h4>
-        <textarea class="jr_input_comment" placeholder="Type here" rows="5"></textarea>
-      </li>
-    </ul>
-    <div class="jr_bottom_button_bay">
-      <div class="jr_tick" (click)="dismiss()">
-        <img src="assets/img/jr_tick.png">
-      </div>
-    </div>
+  <div>
+    <form class="jr_offerride_details" [formGroup]="bioForm" (submit)="saveBio()" novalidate>
+
+      <ion-item class="jr_input_comment">
+        <ion-label>First Name</ion-label>
+        <ion-input formControlName="firstName" type="text" placeholder="First Name"></ion-input>
+      </ion-item>
+      <ion-item class="error-message" *ngIf="!bioForm.controls.firstName.valid &&
+            bioForm.controls.firstName.dirty">
+        <p>Please enter your first name</p>
+
+      </ion-item>
+      <ion-item class="jr_input_comment">
+        <ion-label>Last Name</ion-label>
+        <ion-input formControlName="lastName" type="text" placeholder="Last Name"></ion-input>
+      </ion-item>
+      <ion-item class="error-message" *ngIf="!bioForm.controls.lastName.valid &&
+              bioForm.controls.lastName.dirty">
+        <p>Please enter your last name</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Sex</ion-label>
+        <ion-select formControlName="sex" required>
+          <ion-option value="Male">Male</ion-option>
+          <ion-option value="Female">Female</ion-option>
+          <ion-option value="Prefer Not To Say">Prefer Not to Say</ion-option>
+        </ion-select>
+
+      </ion-item>
+      <ion-item class="error-message" *ngIf="!bioForm.controls.sex.valid &&
+      bioForm.controls.sex.dirty">
+        <p>Please select an option</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Birth Date</ion-label>
+        <ion-datetime formControlName="dob" required displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY"></ion-datetime>
+      </ion-item>
+      <ion-item class="error-message" *ngIf="!bioForm.controls.dob.valid &&
+      bioForm.controls.dob.dirty">
+        <p>Please select an option</p>
+      </ion-item>
+
+      <h4 text-center>Address Details</h4>
+
+      <ion-item>
+        <ion-label>Address Line 1</ion-label>
+        <ion-input formControlName="addressLineOne"></ion-input>
+      </ion-item>
+      <ion-item class="error-message" *ngIf="!bioForm.controls.addressLineOne.valid &&
+      bioForm.controls.addressLineOne.dirty">
+        <p>Please Enter Your Street Address</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Address Line 2</ion-label>
+        <ion-input formControlName="addressLineTwo" placeholder="You can leave it blank"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>City/Town</ion-label>
+        <ion-input formControlName="city"></ion-input>
+      </ion-item>
+      <ion-item class="error-message" *ngIf="!bioForm.controls.city.valid &&
+          bioForm.controls.city.dirty">
+        <p>Enter Your City/Town name</p>
+      </ion-item>
+      <ion-item>
+        <ion-label>Sex</ion-label>
+        <ion-select formControlName="province" required>
+          <ion-option value="Eastern Cape">Eastern Cape</ion-option>
+          <ion-option value="Free State">Free State</ion-option>
+          <ion-option value="Gauteng">Gauteng</ion-option>
+          <ion-option value="KwaZulu-Natal">KwaZulu-Natal</ion-option>
+          <ion-option value="Limpopo">Limpopo</ion-option>
+          <ion-option value="Mpumalanga">Mpumalanga</ion-option>
+          <ion-option value="Western Cape">Western Cape</ion-option>
+          <ion-option value="North West">North West</ion-option>
+          <ion-option value="Northern Cape">Northern Cape</ion-option>
+        </ion-select>
+
+      </ion-item>
+      <ion-item class="error-message" *ngIf="!bioForm.controls.province.valid &&
+        bioForm.controls.province.dirty">
+        <p>Please select an option</p>
+      </ion-item>
+      <ion-item>
+          <ion-label>Zip</ion-label>
+          <ion-input formControlName="zip"></ion-input>
+        </ion-item>
+        <ion-item class="error-message" *ngIf="!bioForm.controls.zip.valid &&
+            bioForm.controls.zip.dirty">
+          <p>Enter Your A Zip Code</p>
+        </ion-item>
+        <div class="jr_bottom_button_bay">
+            <button  [disabled]="!bioForm.valid" ion-button block type="submit" class="jr_tick" >
+              <img src="assets/img/jr_tick.png">
+            </button>
+          </div>
+    </form>
   </div>
+
 </ion-content>

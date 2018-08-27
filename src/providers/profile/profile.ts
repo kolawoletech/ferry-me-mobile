@@ -26,7 +26,7 @@ export class ProfileProvider {
   public phone: number;
 
   constructor(
-  
+
     public afAuth: AngularFireAuth,
     public afDb: AngularFireDatabase,
     public imgservice: ImghandlerProvider) {
@@ -84,14 +84,14 @@ export class ProfileProvider {
       phoneNumber: number,
     });
   }
-  
+
   updateimage(imageurl) {
     var promise = new Promise((resolve, reject) => {
       this.afAuth.auth.currentUser.updateProfile({
         displayName: this.afAuth.auth.currentUser.displayName,
         photoURL: imageurl
       }).then(() => {
-        firebase.database().ref('userProfile/'+firebase.auth().currentUser.uid).update({
+        firebase.database().ref('userProfile/' + firebase.auth().currentUser.uid).update({
           displayName: this.afAuth.auth.currentUser.displayName,
           photoURL: imageurl,
           uid: firebase.auth().currentUser.uid
@@ -109,10 +109,10 @@ export class ProfileProvider {
 
   getuserdetails() {
     var promise = new Promise((resolve, reject) => {
-    this.firedata.child(firebase.auth().currentUser.uid).once('value', (snapshot) => {
-      resolve(snapshot.val());
-    }).catch((err) => {
-      reject(err);
+      this.firedata.child(firebase.auth().currentUser.uid).once('value', (snapshot) => {
+        resolve(snapshot.val());
+      }).catch((err) => {
+        reject(err);
       })
     })
     return promise;
@@ -121,22 +121,26 @@ export class ProfileProvider {
   updatedisplayname(newname) {
     var promise = new Promise((resolve, reject) => {
       this.afAuth.auth.currentUser.updateProfile({
-      displayName: newname,
-      photoURL: this.afAuth.auth.currentUser.photoURL
-    }).then(() => {
-      this.firedata.child(firebase.auth().currentUser.uid).update({
         displayName: newname,
-        photoURL: this.afAuth.auth.currentUser.photoURL,
-        uid: this.afAuth.auth.currentUser.uid
+        photoURL: this.afAuth.auth.currentUser.photoURL
       }).then(() => {
-        resolve({ success: true });
+        this.firedata.child(firebase.auth().currentUser.uid).update({
+          displayName: newname,
+          photoURL: this.afAuth.auth.currentUser.photoURL,
+          uid: this.afAuth.auth.currentUser.uid
+        }).then(() => {
+          resolve({ success: true });
+        }).catch((err) => {
+          reject(err);
+        })
       }).catch((err) => {
         reject(err);
       })
-      }).catch((err) => {
-        reject(err);
-    })
     })
     return promise;
+  }
+
+  setBio(){
+    
   }
 }
