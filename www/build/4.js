@@ -1,6 +1,6 @@
 webpackJsonp([4],{
 
-/***/ 743:
+/***/ 742:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfilePageModule", function() { return ProfilePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile__ = __webpack_require__(769);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile__ = __webpack_require__(768);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var ProfilePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 769:
+/***/ 768:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -216,6 +216,7 @@ var ProfilePage = /** @class */ (function () {
             _this.phoneNumber = res.phoneNumber;
             _this.zone.run(function () {
                 _this.avatar = res.photoURL;
+                _this.birthday = res.birthday;
             });
         });
     };
@@ -293,18 +294,10 @@ var ProfilePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-profile',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\profile\profile.html"*/'<ion-header class="jr_theme_color jr_header">\n\n  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="goBack()"></button>\n\n  <div class="jr_header_title">\n\n    <h4>Profile</h4>\n\n  </div>\n\n  <button ion-button class="jr_right jr_header_btn jr_mail_icon" (click)="message()"></button>\n\n  <button ion-button class="jr_right jr_header_btn jr_profile_icon"></button>\n\n  <div class="jr_clear"></div>\n\n</ion-header>\n\n<ion-content>\n\n  <div class="jr_profile_wrapper">\n\n    <button class="jr_more_pop_up" (click)="presentPopover($event)">\n\n      <img src="assets/img/jr_more.png">\n\n    </button>\n\n\n\n    <div class="jr_profile_banner">\n\n\n\n\n\n      <div class="jr_profile_photo">\n\n        <img src="{{avatar}}">\n\n        <div class="jr_profile_photo_edit" (click)="editimage()">\n\n          <img src="assets/img/jr_edit.png">\n\n\n\n\n\n        </div>\n\n      </div>\n\n\n\n    </div>\n\n\n\n    <!--     <ion-item (click)="updateName()">\n\n      <ion-grid class="jr_profile_content">\n\n        <ion-row>\n\n          <ion-col col-6> Name </ion-col>\n\n          <ion-col col-6 *ngIf="userProfile?.firstName || userProfile?.lastName">\n\n            {{userProfile?.firstName}} {{userProfile?.lastName}}\n\n          </ion-col>\n\n          <ion-col col-6 class="placeholder-profile" *ngIf="!userProfile?.firstName">\n\n            <span> Tap here to edit. </span>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n    </ion-item> -->\n\n\n\n    <div class="jr_profile_content">\n\n      <h4 (click)="updateName()"> {{displayName}}</h4>\n\n      <hr>\n\n      <br>\n\n      <div class="jr_profile_tab_bay">\n\n        <li [class.active]="tab==\'active\'" (click)="tab_swap(\'active\')">Details</li>\n\n        <li [class.active]="tab==\'inactive\'" (click)="tab_swap(\'inactive\')">Accounts</li>\n\n        <div class="jr_clear"></div>\n\n      </div>\n\n      <div class="jr_profile_tab_content" [hidden]="tab==\'inactive\'">\n\n        <h4>ABOUT YOU</h4>\n\n        <ul>\n\n\n\n          <li (click)="editbio()">Your Details</li>\n\n          <li (click)="editpreference()">Add my Preferences</li>\n\n        </ul>\n\n        <hr>\n\n        <h4>VERIFICATION</h4>\n\n        <ul>\n\n          <li (click)="editid()">Verify my ID</li>\n\n          <!-- <li class="verified">Facebook Verified</li> -->\n\n          <li (click)="addnumber()"> Phone : {{phoneNumber}}</li>\n\n          <li class="verified"> Email: {{email}}</li>\n\n          <!-- <li class="verified">Facebook Verified</li> -->\n\n        </ul>\n\n        <hr>\n\n        <h4>CAR</h4>\n\n        <ul>\n\n          <li (click)="addcar()">Add my Car</li>\n\n          <br>\n\n          <li>\n\n            <!--           <div class="jr_car_pic">\n\n              <div class="jr_edit1" (click)="addcarphoto()">\n\n                <img src="assets/img/jr_edit1.png">\n\n              </div>\n\n            </div>\n\n             <div class="jr_car_name" (click)="editcar()">\n\n              <h5>BMW M5</h5>\n\n              <p>Cherry Red</p>\n\n            </div> -->\n\n            <div class="jr_clear"></div>\n\n          </li>\n\n          <br>\n\n          <br>\n\n        </ul>\n\n        <div class="jr_bottom_button_bay">\n\n          <button ion-button class="jr_offer_ride4" (click)="publicprofile()">See my public profile</button>\n\n        </div>\n\n      </div>\n\n      <div class="jr_profile_tab_content" [hidden]="tab==\'active\'">\n\n        <h4>PREFERENCES</h4>\n\n        <ul>\n\n          <li (click)="notification()">Notifications</li>\n\n        </ul>\n\n        <hr>\n\n        <h4>ABOUT</h4>\n\n        <ul>\n\n          <li>Help</li>\n\n          <li>Terms & Conditions</li>\n\n          <li>Privacy Policy</li>\n\n          <li>Licenses</li>\n\n        </ul>\n\n        <div class="jr_bottom_button_bay">\n\n          <button (click)="logout()" ion-button class="jr_offer_ride5">Logout</button>\n\n        </div>\n\n\n\n      </div>\n\n    </div>\n\n  </div>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\profile\profile.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_profile_profile__["a" /* ProfileProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* PopoverController */],
-            __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgZone */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_imghandler_imghandler__["a" /* ImghandlerProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__providers_profile_profile__["a" /* ProfileProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_profile_profile__["a" /* ProfileProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* PopoverController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* PopoverController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgZone */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_5__providers_imghandler_imghandler__["a" /* ImghandlerProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_imghandler_imghandler__["a" /* ImghandlerProvider */]) === "function" && _k || Object])
     ], ProfilePage);
     return ProfilePage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 }());
 
 //# sourceMappingURL=profile.js.map

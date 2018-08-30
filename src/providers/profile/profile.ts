@@ -39,7 +39,13 @@ export class ProfileProvider {
   }
 
 
+  getUserProfile(): firebase.database.Reference {
+    return this.userProfile;
+  }
 
+  updateDOB(birthDate:string): Promise<any> {
+    return this.userProfile.update({ birthDate });
+  }
 
   updateEmail(newEmail: string, password: string): Promise<any> {
     const credential: firebase.auth.AuthCredential = firebase.auth.

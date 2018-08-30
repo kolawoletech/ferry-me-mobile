@@ -27,7 +27,10 @@ import {
   templateUrl: 'edit-bio.html',
 })
 export class EditBioPage {
-  userProfile: any = null;
+
+
+  public userProfile: any;
+  public birthDate: string;
   public bioForm: FormGroup;
   public loading: Loading;
 
@@ -39,16 +42,13 @@ export class EditBioPage {
     public viewCtrl: ViewController,
     public navParams: NavParams,
     formBuilder: FormBuilder,
+    public profileProvider: ProfileProvider,
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController,
   ) {
     this.bioForm = formBuilder.group({
 
-      firstName: [''],
-      lastName: [''],
-      sex: [''],
-      dob: [''],
-      bio: [''],
+
       addressLineOne: [''],
       addressLineTwo: [''],
       city: [''],
@@ -59,6 +59,10 @@ export class EditBioPage {
   }
 
   ionViewDidLoad() {
+    this.profileProvider.getUserProfile().on("value", userProfileSnapshot => {
+      this.userProfile = userProfileSnapshot.val();
+      this.birthDate = userProfileSnapshot.val().birthDate;
+    });
   }
 
   dismiss() {
@@ -79,12 +83,46 @@ export class EditBioPage {
     return ((currentTime - birthdate) / 31556952000).toFixed(0);
   }
 
+  test(){
+ /*    firstName: [''],
+    lastName: [''],
+    sex: [''],
+    dob: [''],
+    bio: [''], */
+  }
+
   saveBio(): void {
     const loading = this.loadingCtrl.create();
     if (!this.bioForm.valid) {
       console.log(this.bioForm.value);
     } else {
-    
+       this.profileProvider.setBio();
     }
   }
+
+
+  updateDOB(birthDate:string):void {
+    this.profileProvider.updateDOB(birthDate);
+  }
+
+  updatePassword(): void {
+    let alert: Alert = this.alertCtrl.create({
+      inputs: [
+        { name: 'newPassword', placeholder: 'New password', type: 'password' },
+        { name: 'oldPassword', placeholder: 'Old password', type: 'password' }],
+      buttons: [
+        { text: 'Cancel' },
+        { text: 'Save',
+          handler: data => {
+            this.profileProvider.updatePassword(
+              data.newPassword,
+              data.oldPassword
+            );
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
 }

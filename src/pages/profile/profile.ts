@@ -27,6 +27,7 @@ export class ProfilePage {
   displayName: string;
   email: string;
   phoneNumber: string;
+  birthday: string
 
   constructor(
     public alertCtrl: AlertController,
@@ -198,10 +199,12 @@ export class ProfilePage {
     this.profileProvider.getuserdetails().then((res: any) => {
       console.log(res)
       this.displayName = res.displayName;
-      this.email = res.email
+      this.email = res.email;
       this.phoneNumber = res.phoneNumber;
+      
       this.zone.run(() => {
         this.avatar = res.photoURL;
+        this.birthday = res.birthday;
       })
     })
   }
