@@ -1,14 +1,14 @@
 webpackJsonp([4],{
 
-/***/ 743:
+/***/ 748:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PublicProfilePageModule", function() { return PublicProfilePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchResultPageModule", function() { return SearchResultPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__public_profile__ = __webpack_require__(771);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_result__ = __webpack_require__(779);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,37 +18,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var PublicProfilePageModule = /** @class */ (function () {
-    function PublicProfilePageModule() {
+var SearchResultPageModule = /** @class */ (function () {
+    function SearchResultPageModule() {
     }
-    PublicProfilePageModule = __decorate([
+    SearchResultPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__public_profile__["a" /* PublicProfilePage */],
+                __WEBPACK_IMPORTED_MODULE_2__search_result__["a" /* SearchResultPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__public_profile__["a" /* PublicProfilePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__search_result__["a" /* SearchResultPage */]),
             ],
         })
-    ], PublicProfilePageModule);
-    return PublicProfilePageModule;
+    ], SearchResultPageModule);
+    return SearchResultPageModule;
 }());
 
-//# sourceMappingURL=public-profile.module.js.map
+//# sourceMappingURL=search-result.module.js.map
 
 /***/ }),
 
-/***/ 771:
+/***/ 779:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PublicProfilePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchResultPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_profile_profile__ = __webpack_require__(369);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(370);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__ = __webpack_require__(372);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_imghandler_imghandler__ = __webpack_require__(162);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -60,81 +56,43 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-
-
-
 /**
- * Generated class for the PublicProfilePage page.
+ * Generated class for the SearchResultPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var PublicProfilePage = /** @class */ (function () {
-    function PublicProfilePage(alertCtrl, navCtrl, viewCtrl, navParams, authProvider, profileProvider, popoverCtrl, cameraPlugin, modalCtrl, zone, imgservice) {
-        this.alertCtrl = alertCtrl;
+var SearchResultPage = /** @class */ (function () {
+    function SearchResultPage(navCtrl, modalCtrl) {
         this.navCtrl = navCtrl;
-        this.viewCtrl = viewCtrl;
-        this.navParams = navParams;
-        this.authProvider = authProvider;
-        this.profileProvider = profileProvider;
-        this.popoverCtrl = popoverCtrl;
-        this.cameraPlugin = cameraPlugin;
         this.modalCtrl = modalCtrl;
-        this.zone = zone;
-        this.imgservice = imgservice;
     }
-    PublicProfilePage.prototype.ionViewDidLoad = function () {
-        var _this = this;
-        this.loaduserdetails();
-        this.profileProvider.getUserProfile().on("value", function (userProfileSnapshot) {
-            _this.userProfile = userProfileSnapshot.val();
-            _this.birthDate = userProfileSnapshot.val().birthDate;
-        });
+    SearchResultPage.prototype.ionViewDidLoad = function () {
     };
-    PublicProfilePage.prototype.getAge = function (birthDate) {
-        var currentTime = new Date().getTime();
-        console.log(birthDate);
-        this.currentAge = ((currentTime - this.birthDate) / 31556952000).toFixed(0);
-        return this.currentAge;
+    SearchResultPage.prototype.goBack = function () {
+        this.navCtrl.pop();
     };
-    PublicProfilePage.prototype.dismiss = function () {
-        this.viewCtrl.dismiss();
+    SearchResultPage.prototype.filter = function () {
+        var modal = this.modalCtrl.create('Filter');
+        modal.present();
     };
-    PublicProfilePage.prototype.loaduserdetails = function () {
-        var _this = this;
-        this.profileProvider.getuserdetails().then(function (res) {
-            console.log(res);
-            _this.displayName = res.displayName;
-            _this.email = res.email;
-            _this.age = res.age;
-            _this.phoneNumber = res.phoneNumber;
-            _this.zone.run(function () {
-                _this.avatar = res.photoURL;
-                _this.birthDate = res.birthDate;
-            });
-        });
+    SearchResultPage.prototype.alert = function () {
+        var modal = this.modalCtrl.create('Alert');
+        modal.present();
     };
-    PublicProfilePage = __decorate([
+    SearchResultPage.prototype.searchmain = function () {
+        this.navCtrl.push('SearchMainPage');
+    };
+    SearchResultPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-public-profile',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\public-profile\public-profile.html"*/'<ion-header class="jr_theme_color jr_header">\n\n  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>\n\n  <div class="jr_header_title">\n\n    <h4>My public profile</h4>\n\n  </div>\n\n  <button ion-button class="jr_right jr_header_btn jr_mail_icon"></button>\n\n  <button ion-button class="jr_right jr_header_btn jr_profile_icon"></button>\n\n  <div class="jr_clear"></div>\n\n</ion-header>\n\n<ion-content>\n\n  <div class="jr_profile_wrapper">\n\n    <div class="jr_profile_banner1">\n\n      <div class="jr_profile_photo1">\n\n          <img src="{{avatar}}">\n\n      </div>\n\n    </div>\n\n    <div class="jr_profile_content">\n\n      <h4> {{displayName}}</h4>\n\n      <p class="jr_age1"> {{birthDate}}</p>\n\n     \n\n      <hr>\n\n\n\n    <div class="jr_profile_tab_content">\n\n      <div class="jr_edit_row">\n\n<!--       <h4>ABOUT YOU</h4>\n\n      <p>\n\n        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered\n\n      </p> -->\n\n\n\n    <h4>VERIFICATION</h4>\n\n    <ul>\n\n      <li class="verified">Email</li>\n\n      <li class="verified">Phone Verified</li>\n\n    </ul>\n\n    <h4>LAST SEEN</h4>\n\n    <ul>\n\n      <li class="jr_bg_none">Last Seen&nbsp;:&nbsp;Today</li>\n\n      <li class="jr_bg_none">Member Since&nbsp;:&nbsp;August 2018</li>\n\n    </ul>\n\n    </div>\n\n    </div>\n\n    </div>\n\n  </div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\public-profile\public-profile.html"*/,
+            selector: 'page-search-result',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\search-result\search-result.html"*/'<ion-header class="jr_theme_color jr_header">\n    <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="goBack()"></button>\n    <div class="jr_header_title">\n      <h4> Cape Town to Durban</h4>\n    </div>\n    <button ion-button class="jr_right jr_header_btn jr_alert_icon" (click)="alert()"></button>\n    <div class="jr_clear"></div>\n  </ion-header>\n  <ion-content>\n    <div class="jr_profile_content" style="width:90%;">\n  \n      <!-- <div class="jr_no_ride">\n        <div class="jr_profile_content">\n        <div class="jr_text_center">\n          <div class="jr_edit_row jr_text_center">\n            <br><br>\n                <h3 class="jr_margintop0">No Rides</h3>\n          <h4 class="jr_padding0 jr_margin0">matching your search</h4>\n          <hr>\n          </div>\n          <div class="jr_offer_bg">\n            <img src="assets/img/jr_noride_bg.png">\n          </div>\n          <p>Create an alert to be notified of new rides or<br> offer a rides and get co- travellers</p>\n          </div>\n        </div>\n        <div class="jr_bottom_button_bay">\n          <button ion-button class="jr_offer_ride2" (click)="alert()">Create a ride alert</button>\n        </div>\n      </div> -->\n  \n      <div class="jr_duration">\n        <div class="jr_avg_duration">\n          <p>Average Duration</p>\n          <h4>06 hrs 50 mins</h4>\n        </div>\n        <div class="jr_avg_price">\n          <p>from</p>\n          <h4><strong>₹ 495.00</strong></h4>\n        </div>\n        <div class="jr_clear"></div>\n      </div>\n      <div class="jr_search_main">\n        <h5>TODAY</h5>\n        <ul>\n          <li (click)="searchmain()">\n            <div class="jr_search_top_bay">\n              <div class="jr_search_top_bay_left">\n                <h6>09:00<strong>Cape Town</strong></h6>\n                <h6>18:00<strong>Durban</strong></h6>\n              </div>\n              <div class="jr_search_top_bay_right">\n                <h6>₹ 600</h6>\n              </div>\n              <div class="jr_clear"></div>\n            </div>\n            <div class="jr_search_bottom_bay">\n              <div class="jr_search_profile">\n                <div class="jr_search_verified"><img src="assets/img/jr_verified_prof.png"></div>\n                <img src="assets/img/e_img14.png">\n              </div>\n              <div class="jr_search_profile_detail">\n                <h6>CREZANDRA BOTHA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;37 Y/O</h6>\n                <span class="jr_star_ratting"><img src="assets/img/jr_star.png"><strong>3/5</strong>1 Rattings</span>\n                <ul>\n                  <li><span>04s</span></li>\n                  <li><span>12h</span></li>\n                </ul>\n              </div>\n              <div class="jr_clear"></div>\n            </div>\n          </li>\n        \n          <li>\n            <div class="jr_search_top_bay">\n              <div class="jr_search_top_bay_left">\n                <h6>09:00<strong>Cape Town</strong></h6>\n                <h6>18:00<strong>Durban</strong></h6>\n              </div>\n              <div class="jr_search_top_bay_right">\n                <h6>₹ 600</h6>\n              </div>\n              <div class="jr_clear"></div>\n            </div>\n            <div class="jr_search_bottom_bay">\n              <div class="jr_search_profile">\n                <div class="jr_search_verified"><img src="assets/img/jr_verified_prof.png"></div>\n                <img src="assets/img/e_img14.png">\n              </div>\n              <div class="jr_search_profile_detail">\n                <h6>MARIA JONES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;37 Y/O</h6>\n                <span class="jr_star_ratting"><img src="assets/img/jr_star.png"><strong>3/5</strong>1 Rattings</span>\n                <ul>\n                  <li><span>04s</span></li>\n                  <li><span>12h</span></li>\n                </ul>\n              </div>\n              <div class="jr_clear"></div>\n            </div>\n          </li>\n        </ul>\n      </div>\n    </div>\n    <button ion-button class="jr_filter_icon" (click)="filter()">\n    </button>\n  </ion-content>'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\search-result\search-result.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_profile_profile__["a" /* ProfileProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* PopoverController */],
-            __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgZone */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_imghandler_imghandler__["a" /* ImghandlerProvider */]])
-    ], PublicProfilePage);
-    return PublicProfilePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]])
+    ], SearchResultPage);
+    return SearchResultPage;
 }());
 
-//# sourceMappingURL=public-profile.js.map
+//# sourceMappingURL=search-result.js.map
 
 /***/ })
 

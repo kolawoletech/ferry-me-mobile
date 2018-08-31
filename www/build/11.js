@@ -1,14 +1,14 @@
 webpackJsonp([11],{
 
-/***/ 734:
+/***/ 740:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OfferRidePageModule", function() { return OfferRidePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PhonePageModule", function() { return PhonePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__offer_ride__ = __webpack_require__(762);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__phone__ = __webpack_require__(771);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,33 +18,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var OfferRidePageModule = /** @class */ (function () {
-    function OfferRidePageModule() {
+var PhonePageModule = /** @class */ (function () {
+    function PhonePageModule() {
     }
-    OfferRidePageModule = __decorate([
+    PhonePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__offer_ride__["a" /* OfferRidePage */],
+                __WEBPACK_IMPORTED_MODULE_2__phone__["a" /* PhonePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__offer_ride__["a" /* OfferRidePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__phone__["a" /* PhonePage */]),
             ],
         })
-    ], OfferRidePageModule);
-    return OfferRidePageModule;
+    ], PhonePageModule);
+    return PhonePageModule;
 }());
 
-//# sourceMappingURL=offer-ride.module.js.map
+//# sourceMappingURL=phone.module.js.map
 
 /***/ }),
 
-/***/ 762:
+/***/ 771:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OfferRidePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PhonePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_profile_profile__ = __webpack_require__(369);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -56,30 +57,51 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 /**
- * Generated class for the OfferRidePage page.
+ * Generated class for the PhonePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var OfferRidePage = /** @class */ (function () {
-    function OfferRidePage(navCtrl, navParams) {
+var PhonePage = /** @class */ (function () {
+    function PhonePage(navCtrl, navParams, profileProvider) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.profileProvider = profileProvider;
     }
-    OfferRidePage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad OfferRidePage');
+    PhonePage.prototype.ionViewDidLoad = function () {
+        this.confirmPhone();
     };
-    OfferRidePage = __decorate([
+    PhonePage.prototype.confirmPhone = function () {
+        var _this = this;
+        window.AccountKitPlugin.loginWithPhoneNumber({
+            useAccessToken: true,
+            defaultCountryCode: "ZA",
+            facebookNotificationsEnabled: true
+        }, function (successdata) {
+            window.AccountKitPlugin.getAccount(function (phone) {
+                console.log(phone);
+                _this.number = phone.phoneNumber;
+                _this.profileProvider.updateNumber(phone.phoneNumber);
+                _this.navCtrl.setRoot('TabsPage').then(function () {
+                    _this.navCtrl.setRoot('ProfilePage');
+                });
+            });
+        }, function (err) {
+            alert(err);
+        });
+    };
+    PhonePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-offer-ride',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\offer-ride\offer-ride.html"*/'<!--\n\n  Generated template for the OfferRidePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>OfferRide</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\offer-ride\offer-ride.html"*/,
+            selector: 'page-phone',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\phone\phone.html"*/'<!--\n\n  Generated template for the PhonePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Phone</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <h2>Set Phone Now</h2>\n\n  <h3> {{number}}</h3>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\phone\phone.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
-    ], OfferRidePage);
-    return OfferRidePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_profile_profile__["a" /* ProfileProvider */]])
+    ], PhonePage);
+    return PhonePage;
 }());
 
-//# sourceMappingURL=offer-ride.js.map
+//# sourceMappingURL=phone.js.map
 
 /***/ })
 

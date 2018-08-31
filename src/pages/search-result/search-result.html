@@ -1,0 +1,106 @@
+<ion-header class="jr_theme_color jr_header">
+    <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="goBack()"></button>
+    <div class="jr_header_title">
+      <h4> Cape Town to Durban</h4>
+    </div>
+    <button ion-button class="jr_right jr_header_btn jr_alert_icon" (click)="alert()"></button>
+    <div class="jr_clear"></div>
+  </ion-header>
+  <ion-content>
+    <div class="jr_profile_content" style="width:90%;">
+  
+      <!-- <div class="jr_no_ride">
+        <div class="jr_profile_content">
+        <div class="jr_text_center">
+          <div class="jr_edit_row jr_text_center">
+            <br><br>
+                <h3 class="jr_margintop0">No Rides</h3>
+          <h4 class="jr_padding0 jr_margin0">matching your search</h4>
+          <hr>
+          </div>
+          <div class="jr_offer_bg">
+            <img src="assets/img/jr_noride_bg.png">
+          </div>
+          <p>Create an alert to be notified of new rides or<br> offer a rides and get co- travellers</p>
+          </div>
+        </div>
+        <div class="jr_bottom_button_bay">
+          <button ion-button class="jr_offer_ride2" (click)="alert()">Create a ride alert</button>
+        </div>
+      </div> -->
+  
+      <div class="jr_duration">
+        <div class="jr_avg_duration">
+          <p>Average Duration</p>
+          <h4>06 hrs 50 mins</h4>
+        </div>
+        <div class="jr_avg_price">
+          <p>from</p>
+          <h4><strong>₹ 495.00</strong></h4>
+        </div>
+        <div class="jr_clear"></div>
+      </div>
+      <div class="jr_search_main">
+        <h5>TODAY</h5>
+        <ul>
+          <li (click)="searchmain()">
+            <div class="jr_search_top_bay">
+              <div class="jr_search_top_bay_left">
+                <h6>09:00<strong>Cape Town</strong></h6>
+                <h6>18:00<strong>Durban</strong></h6>
+              </div>
+              <div class="jr_search_top_bay_right">
+                <h6>₹ 600</h6>
+              </div>
+              <div class="jr_clear"></div>
+            </div>
+            <div class="jr_search_bottom_bay">
+              <div class="jr_search_profile">
+                <div class="jr_search_verified"><img src="assets/img/jr_verified_prof.png"></div>
+                <img src="assets/img/e_img14.png">
+              </div>
+              <div class="jr_search_profile_detail">
+                <h6>CREZANDRA BOTHA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;37 Y/O</h6>
+                <span class="jr_star_ratting"><img src="assets/img/jr_star.png"><strong>3/5</strong>1 Rattings</span>
+                <ul>
+                  <li><span>04s</span></li>
+                  <li><span>12h</span></li>
+                </ul>
+              </div>
+              <div class="jr_clear"></div>
+            </div>
+          </li>
+        
+          <li>
+            <div class="jr_search_top_bay">
+              <div class="jr_search_top_bay_left">
+                <h6>09:00<strong>Cape Town</strong></h6>
+                <h6>18:00<strong>Durban</strong></h6>
+              </div>
+              <div class="jr_search_top_bay_right">
+                <h6>₹ 600</h6>
+              </div>
+              <div class="jr_clear"></div>
+            </div>
+            <div class="jr_search_bottom_bay">
+              <div class="jr_search_profile">
+                <div class="jr_search_verified"><img src="assets/img/jr_verified_prof.png"></div>
+                <img src="assets/img/e_img14.png">
+              </div>
+              <div class="jr_search_profile_detail">
+                <h6>MARIA JONES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;37 Y/O</h6>
+                <span class="jr_star_ratting"><img src="assets/img/jr_star.png"><strong>3/5</strong>1 Rattings</span>
+                <ul>
+                  <li><span>04s</span></li>
+                  <li><span>12h</span></li>
+                </ul>
+              </div>
+              <div class="jr_clear"></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <button ion-button class="jr_filter_icon" (click)="filter()">
+    </button>
+  </ion-content>

@@ -15,11 +15,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class OfferRidePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+
+  constructor(public navCtrl: NavController) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad OfferRidePage');
   }
+
+  public event = {
+      month: '2016-11-01',
+      timeStarts: '07:43',
+      timeEnds: '2050-02-20'
+    }
+  goBack(){
+     this.navCtrl.pop();
+   }
+
+   offerridedetail() {
+   this.navCtrl.push('OfferRideDetailPage');
+ }
 
 }

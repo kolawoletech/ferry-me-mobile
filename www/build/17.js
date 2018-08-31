@@ -1,14 +1,14 @@
 webpackJsonp([17],{
 
-/***/ 727:
+/***/ 733:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HelpPageModule", function() { return HelpPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LandingPageModule", function() { return LandingPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__help__ = __webpack_require__(755);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__landing__ = __webpack_require__(764);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,31 +18,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var HelpPageModule = /** @class */ (function () {
-    function HelpPageModule() {
+var LandingPageModule = /** @class */ (function () {
+    function LandingPageModule() {
     }
-    HelpPageModule = __decorate([
+    LandingPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__help__["a" /* HelpPage */],
+                __WEBPACK_IMPORTED_MODULE_2__landing__["a" /* LandingPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__help__["a" /* HelpPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__landing__["a" /* LandingPage */]),
             ],
         })
-    ], HelpPageModule);
-    return HelpPageModule;
+    ], LandingPageModule);
+    return LandingPageModule;
 }());
 
-//# sourceMappingURL=help.module.js.map
+//# sourceMappingURL=landing.module.js.map
 
 /***/ }),
 
-/***/ 755:
+/***/ 764:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HelpPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LandingPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57,39 +57,56 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the HelpPage page.
+ * Generated class for the LandingPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var HelpPage = /** @class */ (function () {
-    function HelpPage(navCtrl, viewCtrl) {
+var LandingPage = /** @class */ (function () {
+    function LandingPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
-        this.viewCtrl = viewCtrl;
+        this.navParams = navParams;
+        this.showPrev = true;
+        this.showNext = false;
+        this.currentIndex = 0;
     }
-    HelpPage.prototype.ionViewDidLoad = function () {
-        this.tab = "active";
+    LandingPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad LandingPage');
     };
-    HelpPage.prototype.tab_swap = function (type) {
-        this.tab = type;
+    LandingPage.prototype.goToNextSlide = function () {
+        this.slider.slideNext();
     };
-    HelpPage.prototype.dismiss = function () {
-        this.viewCtrl.dismiss();
+    LandingPage.prototype.goToPrevSlide = function () {
+        this.slider.slidePrev();
     };
-    HelpPage.prototype.profile = function () {
-        this.navCtrl.push('ProfilePage');
+    LandingPage.prototype.onSlideChanged = function () {
+        this.showPrev = this.slider.isBeginning();
+        this.showNext = this.slider.isEnd();
+        this.currentIndex = this.slider.getActiveIndex();
     };
-    HelpPage = __decorate([
+    /*   home() {
+        this.navCtrl.push(HomePage);
+      } */
+    LandingPage.prototype.login = function () {
+        this.navCtrl.push('LoginPage');
+    };
+    LandingPage.prototype.signup = function () {
+        this.navCtrl.push('SignupPage');
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('mySlider'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Slides */])
+    ], LandingPage.prototype, "slider", void 0);
+    LandingPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-help',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\help\help.html"*/'<ion-header class="jr_theme_color jr_header">\n  <!--   <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>\n     -->\n  <div class="jr_header_title">\n    <h4>Help</h4>\n  </div>\n  <img class="jr_right jr_header_btn " alt="logo" src="../../assets/icon/ico-trans.png">\n\n  <div class="jr_clear"></div>\n  <div class="jr_home_tab_bay1">\n    <ul>\n      <li [class.active]="tab==\'active\'" (click)="tab_swap(\'active\')">HELP</li>\n      <li [class.active]="tab==\'inactive\'" (click)="tab_swap(\'inactive\')">FAQs</li>\n      <div class="jr_clear"></div>\n    </ul>\n  </div>\n</ion-header>\n<ion-content class="jr_body_wrapper">\n  <div class="jr_message_wrapper">\n    <div class="jr_home_tab_content" [hidden]="tab==\'inactive\'">\n      <div class="jr_profile_content">\n        <div class="jr_no_msg">\n          <div class="jr_offer_bg">\n            <img src="assets/img/jr_nomsg.png">\n          </div>\n          <div class="jr_text_center">\n            <div class="jr_edit_row jr_text_center">\n              <br><br>\n              <hr>\n              <br><br>\n              <h4 class="jr_padding0 jr_margin0">Hello and Welcome to Our</h4>\n              <h3 class="jr_margintop0">Support Centre</h3>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class="jr_home_tab_content" [hidden]="tab==\'active\'">\n      <div class="jr_profile_content">\n        <div class="jr_no_msg">\n          <div class="jr_offer_bg">\n            <img src="assets/img/jr_no_not.png">\n          </div>\n          <div class="jr_text_center">\n            <div class="jr_edit_row jr_text_center">\n              <br><br>\n              <hr>\n              <br><br>\n              <h4 class="jr_padding0 jr_margin0">currently you have</h4>\n              <h3 class="jr_margintop0">no Requests</h3>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\help\help.html"*/,
+            selector: 'page-landing',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\landing\landing.html"*/'\n\n\n\n<ion-content class="jr_landing_bg">\n\n  <ion-slides  pager="true" #mySlider  (ionSlideDidChange)="onSlideChanged()">\n\n    <ion-slide class="jr_slide jr_landing_overlay">\n\n      <div class="jr_slider_inner">\n\n        <h4>Welcome to</h4>\n\n        <h3><strong>FerryMe</strong></h3>\n\n        <h4> Rides</h4>\n\n        <hr>\n\n        <p>instantly find a traveling partner for short and long distance trips<br> as well as connect passengers and drivers for events related trip<br> to share journeys.</p>\n\n        <div class="jr_space"></div>\n\n     </div>\n\n    </ion-slide>\n\n    <ion-slide class="jr_slide jr_landing_overlay">\n\n      <div class="jr_slider_inner">\n\n        <h4>You can</h4>\n\n        <h3><strong>Offer a Ride</strong></h3>\n\n        <hr>\n\n        <p>Share your car journey with co- travellers just like you and cover all your fuel costs!</p>\n\n        <div class="jr_space"></div>\n\n     </div>\n\n    </ion-slide>\n\n    <ion-slide class="jr_slide jr_landing_overlay">\n\n      <div class="jr_slider_inner">\n\n        <h4>or</h4>\n\n        <h3><strong>Find a Ride</strong></h3>\n\n        <hr>\n\n        <p>Joyfull and comfortable travel, share your journey with all like you</p>\n\n        <div class="jr_space"></div>\n\n     </div>\n\n    </ion-slide>\n\n    <ion-slide class="jr_slide jr_landing_overlay1 animate fadeIn">\n\n      <div class="jr_slider_inner">\n\n        <h4>Choose a trusted people</h4>\n\n        <h3><strong>to travel with you</strong></h3>\n\n        <hr>\n\n        <div class="jr_icon_bar">\n\n          <span><img src="assets/img/jr_verified.png"></span>\n\n          <span><img src="assets/img/jr_ratting.png"></span>\n\n          <span><img src="assets/img/jr_phone.png"></span>\n\n         </div>\n\n        <p>Trusted Profiles<br>\n\n        Ratting<br>\n\n      Verified Contact</p>\n\n        <div class="jr_space" style="height:200px;"></div>\n\n     </div>\n\n    </ion-slide>\n\n  </ion-slides>\n\n    <div class="jr_landing_btm">\n\n      <button ion-button class="jr_btm_btn" [hidden] ="currentIndex != 0"  (click)="goToNextSlide()">\n\n        Know how\n\n      </button>\n\n      <button ion-button class="jr_btm_btn animate fadeInLeft" style="width:40px;height:40px;border-radius:50%;padding: 10px;" [hidden]="currentIndex == 0 || currentIndex == 3"  (click)="goToNextSlide()">\n\n        <img src="assets/img/jr_arrow.png">\n\n      </button>\n\n      <div class="clear"></div>\n\n      <div class="jr_last_slide_btn_bar" [hidden] ="currentIndex != 3"  >\n\n        <!-- <button ion-button class="jr_strtd_btn" (click)="home()">GET STARTED</button> -->\n\n        <div class="jr_sign_bar">\n\n          <ul>\n\n           \n\n            <li ion-button (click)="signup()">GET STARTED</li>\n\n          </ul>\n\n        </div>\n\n      </div>\n\n    </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\landing\landing.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */]) === "function" && _b || Object])
-    ], HelpPage);
-    return HelpPage;
-    var _a, _b;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+    ], LandingPage);
+    return LandingPage;
 }());
 
-//# sourceMappingURL=help.js.map
+//# sourceMappingURL=landing.js.map
 
 /***/ })
 

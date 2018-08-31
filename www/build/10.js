@@ -1,14 +1,14 @@
 webpackJsonp([10],{
 
-/***/ 735:
+/***/ 741:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PasswordPageModule", function() { return PasswordPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PopOverMorePageModule", function() { return PopOverMorePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__password__ = __webpack_require__(763);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pop_over_more__ = __webpack_require__(772);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,31 +18,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var PasswordPageModule = /** @class */ (function () {
-    function PasswordPageModule() {
+var PopOverMorePageModule = /** @class */ (function () {
+    function PopOverMorePageModule() {
     }
-    PasswordPageModule = __decorate([
+    PopOverMorePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__password__["a" /* PasswordPage */],
+                __WEBPACK_IMPORTED_MODULE_2__pop_over_more__["a" /* PopOverMorePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__password__["a" /* PasswordPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__pop_over_more__["a" /* PopOverMorePage */]),
             ],
         })
-    ], PasswordPageModule);
-    return PasswordPageModule;
+    ], PopOverMorePageModule);
+    return PopOverMorePageModule;
 }());
 
-//# sourceMappingURL=password.module.js.map
+//# sourceMappingURL=pop-over-more.module.js.map
 
 /***/ }),
 
-/***/ 763:
+/***/ 772:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PasswordPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PopOverMorePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57,31 +57,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the PasswordPage page.
+ * Generated class for the PopOverMorePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var PasswordPage = /** @class */ (function () {
-    function PasswordPage(navCtrl, viewCtrl) {
+var PopOverMorePage = /** @class */ (function () {
+    function PopOverMorePage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
-        this.viewCtrl = viewCtrl;
+        this.navParams = navParams;
     }
-    PasswordPage.prototype.ionViewDidLoad = function () {
+    PopOverMorePage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad PopOverMorePage');
     };
-    PasswordPage.prototype.dismiss = function () {
-        this.viewCtrl.dismiss();
-    };
-    PasswordPage = __decorate([
+    PopOverMorePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-password',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\password\password.html"*/'<ion-header class="jr_theme_color jr_header">\n\n  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>\n\n  <div class="jr_header_title">\n\n    <h4>Change Password</h4>\n\n  </div>\n\n  <div class="jr_clear"></div>\n\n</ion-header>\n\n<ion-content>\n\n  <div class="jr_profile_content jr_paddingbtm0">\n\n    <br>\n\n    <br>\n\n      <div class="jr_edit_row">\n\n        <h5><strong>CHANGE A PASSWORD</strong></h5>\n\n        <p style="margin-top: 5px;margin-bottom:5px;">Choose a High Security Password</p>\n\n      </div>\n\n      <div class="jr_edit_row">\n\n        <input class="jr_edit_profile_input" placeholder="Current Password">\n\n      </div>\n\n      <div class="jr_edit_row">\n\n        <input class="jr_edit_profile_input" placeholder="New Password">\n\n      </div>\n\n      <div class="jr_edit_row">\n\n        <input class="jr_edit_profile_input" placeholder="Confirm Password">\n\n      </div>\n\n      <div class="jr_edit_row">\n\n        <button ion-button class="jr_member_rate" (click)="dismiss()">Update</button>\n\n      </div>\n\n  </div>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\password\password.html"*/,
+            selector: 'page-pop-over-more',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\pop-over-more\pop-over-more.html"*/'<!--\n\n  Generated template for the PopOverMorePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>PopOverMore</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\pop-over-more\pop-over-more.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */]])
-    ], PasswordPage);
-    return PasswordPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+    ], PopOverMorePage);
+    return PopOverMorePage;
 }());
 
-//# sourceMappingURL=password.js.map
+//# sourceMappingURL=pop-over-more.js.map
 
 /***/ })
 

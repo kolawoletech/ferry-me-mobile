@@ -1,14 +1,14 @@
 webpackJsonp([22],{
 
-/***/ 723:
+/***/ 728:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditIdPageModule", function() { return EditIdPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditProfilePageModule", function() { return EditProfilePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_id__ = __webpack_require__(751);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_profile__ = __webpack_require__(759);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,31 +18,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var EditIdPageModule = /** @class */ (function () {
-    function EditIdPageModule() {
+var EditProfilePageModule = /** @class */ (function () {
+    function EditProfilePageModule() {
     }
-    EditIdPageModule = __decorate([
+    EditProfilePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__edit_id__["a" /* EditIdPage */],
+                __WEBPACK_IMPORTED_MODULE_2__edit_profile__["a" /* EditProfilePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__edit_id__["a" /* EditIdPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__edit_profile__["a" /* EditProfilePage */]),
             ],
         })
-    ], EditIdPageModule);
-    return EditIdPageModule;
+    ], EditProfilePageModule);
+    return EditProfilePageModule;
 }());
 
-//# sourceMappingURL=edit-id.module.js.map
+//# sourceMappingURL=edit-profile.module.js.map
 
 /***/ }),
 
-/***/ 751:
+/***/ 759:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditIdPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditProfilePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57,34 +57,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the EditIdPage page.
+ * Generated class for the EditProfilePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var EditIdPage = /** @class */ (function () {
-    function EditIdPage(navCtrl, viewCtrl) {
+var EditProfilePage = /** @class */ (function () {
+    function EditProfilePage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
-        this.viewCtrl = viewCtrl;
+        this.navParams = navParams;
     }
-    EditIdPage.prototype.ionViewDidLoad = function () {
+    EditProfilePage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad EditProfilePage');
     };
-    EditIdPage.prototype.idupload = function () {
-        this.navCtrl.push('IduploadPage');
-    };
-    EditIdPage.prototype.dismiss = function () {
-        this.viewCtrl.dismiss();
-    };
-    EditIdPage = __decorate([
+    EditProfilePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-id',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\edit-id\edit-id.html"*/'<ion-header class="jr_theme_color jr_header">\n\n  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>\n\n  <div class="jr_header_title">\n\n    <h4>Choose your Govt ID</h4>\n\n  </div>\n\n  <button ion-button class="jr_right jr_header_btn"></button>\n\n  <div class="jr_clear"></div>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <div class="jr_profile_wrapper">\n\n    <div class="jr_profile_banner">\n\n        <img src="assets/img/jr_chooseid.png" class="jr_chooseid">\n\n    </div>\n\n    <div class="jr_profile_content">\n\n      <div class="jr_text_center">\n\n        <div class="jr_edit_row jr_text_center">\n\n        <h4 class="jr_padding0 jr_margin0">Choose the type of </h4>\n\n        <h3 class="jr_margintop0">Govt. ID</h3>\n\n        <hr>\n\n      </div>\n\n        <div class="jr_edit_row ">\n\n          <div class="jr_proofs_list">\n\n            <li><ion-radio ng-model="choice1" ng-value="\'A\'" class="jr_radio_id"></ion-radio><p>Passport</p><div class="jr_clear"></div></li>\n\n            <li><ion-radio ng-model="choice2" ng-value="\'B\'" class="jr_radio_id"></ion-radio><p>Driver\'s License</p><div class="jr_clear"></div></li>\n\n            <li><ion-radio ng-model="choice3" ng-value="\'C\'" class="jr_radio_id"></ion-radio><p>Other</p><div class="jr_clear"></div></li>\n\n          </div>\n\n      </div>\n\n      </div>\n\n      <div class="jr_confidential">\n\n        <div class="jr_confidential_left">\n\n          <img src="assets/img/jr_confidentional.png" >\n\n        </div>\n\n        <div class="jr_confidential_right">\n\n          <p>Your ID card will be kept strictly\n\nconfidential</p>\n\n        </div>\n\n        <div class="jr_clear"></div>\n\n      </div>\n\n    </div>\n\n    <hr>\n\n\n\n    <div class="jr_bottom_button_bay">\n\n      <button ion-button class="jr_offer_ride2" (click)="idupload()">Continue</button>\n\n    </div>\n\n  </div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\edit-id\edit-id.html"*/,
+            selector: 'page-edit-profile',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\edit-profile\edit-profile.html"*/'<!--\n\n  Generated template for the EditProfilePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>EditProfile</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\edit-profile\edit-profile.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */]])
-    ], EditIdPage);
-    return EditIdPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+    ], EditProfilePage);
+    return EditProfilePage;
 }());
 
-//# sourceMappingURL=edit-id.js.map
+//# sourceMappingURL=edit-profile.js.map
 
 /***/ })
 

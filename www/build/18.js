@@ -1,14 +1,14 @@
 webpackJsonp([18],{
 
-/***/ 726:
+/***/ 732:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FindRidePageModule", function() { return FindRidePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IduploadPageModule", function() { return IduploadPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__find_ride__ = __webpack_require__(754);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__idupload__ = __webpack_require__(763);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,31 +18,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var FindRidePageModule = /** @class */ (function () {
-    function FindRidePageModule() {
+var IduploadPageModule = /** @class */ (function () {
+    function IduploadPageModule() {
     }
-    FindRidePageModule = __decorate([
+    IduploadPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__find_ride__["a" /* FindRidePage */],
+                __WEBPACK_IMPORTED_MODULE_2__idupload__["a" /* IduploadPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__find_ride__["a" /* FindRidePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__idupload__["a" /* IduploadPage */]),
             ],
         })
-    ], FindRidePageModule);
-    return FindRidePageModule;
+    ], IduploadPageModule);
+    return IduploadPageModule;
 }());
 
-//# sourceMappingURL=find-ride.module.js.map
+//# sourceMappingURL=idupload.module.js.map
 
 /***/ }),
 
-/***/ 754:
+/***/ 763:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FindRidePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IduploadPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57,29 +57,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the FindRidePage page.
+ * Generated class for the IduploadPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var FindRidePage = /** @class */ (function () {
-    function FindRidePage(navCtrl, navParams) {
+var IduploadPage = /** @class */ (function () {
+    function IduploadPage(navCtrl, viewCtrl) {
         this.navCtrl = navCtrl;
-        this.navParams = navParams;
+        this.viewCtrl = viewCtrl;
     }
-    FindRidePage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad FindRidePage');
+    IduploadPage.prototype.ionViewDidLoad = function () {
     };
-    FindRidePage = __decorate([
+    IduploadPage.prototype.idedit = function () {
+        this.navCtrl.push('IdeditPage');
+    };
+    IduploadPage.prototype.dismiss = function () {
+        this.viewCtrl.dismiss();
+    };
+    IduploadPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-find-ride',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\find-ride\find-ride.html"*/'<!--\n\n  Generated template for the FindRidePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>FindRide</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\find-ride\find-ride.html"*/,
+            selector: 'page-idupload',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\idupload\idupload.html"*/'<ion-header class="jr_theme_color jr_header">\n\n  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>\n\n  <div class="jr_header_title">\n\n    <h4>Upload your Govt ID</h4>\n\n  </div>\n\n  <button ion-button class="jr_right jr_header_btn"></button>\n\n  <div class="jr_clear"></div>\n\n</ion-header>\n\n<ion-content>\n\n  <div class="jr_profile_content">\n\n    <div class="jr_text_center">\n\n      <div class="jr_edit_row jr_text_center">\n\n        <br><br>\n\n      <h4 class="jr_padding0 jr_margin0">Upload good quality copy of your </h4>\n\n      <h3 class="jr_margintop0">identity document</h3>\n\n      <hr>\n\n    </div>\n\n    <div class="jr_upload_img">\n\n      <br>\n\n      <img src="assets/img/jr_upload.png" >\n\n    </div>\n\n  </div>\n\n\n\n  <div class="jr_bottom_button_bay">\n\n    <button ion-button class="jr_offer_ride2" (click)="idedit()">Upload</button>\n\n  </div>\n\n</div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\idupload\idupload.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
-    ], FindRidePage);
-    return FindRidePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */]])
+    ], IduploadPage);
+    return IduploadPage;
 }());
 
-//# sourceMappingURL=find-ride.js.map
+//# sourceMappingURL=idupload.js.map
 
 /***/ })
 

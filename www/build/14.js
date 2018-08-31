@@ -1,14 +1,14 @@
 webpackJsonp([14],{
 
-/***/ 736:
+/***/ 737:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LandingPageModule", function() { return LandingPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OfferRideDetailPageModule", function() { return OfferRideDetailPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__landing__ = __webpack_require__(764);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__offer_ride_detail__ = __webpack_require__(768);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,31 +18,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var LandingPageModule = /** @class */ (function () {
-    function LandingPageModule() {
+var OfferRideDetailPageModule = /** @class */ (function () {
+    function OfferRideDetailPageModule() {
     }
-    LandingPageModule = __decorate([
+    OfferRideDetailPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__landing__["a" /* LandingPage */],
+                __WEBPACK_IMPORTED_MODULE_2__offer_ride_detail__["a" /* OfferRideDetailPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__landing__["a" /* LandingPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__offer_ride_detail__["a" /* OfferRideDetailPage */]),
             ],
         })
-    ], LandingPageModule);
-    return LandingPageModule;
+    ], OfferRideDetailPageModule);
+    return OfferRideDetailPageModule;
 }());
 
-//# sourceMappingURL=landing.module.js.map
+//# sourceMappingURL=offer-ride-detail.module.js.map
 
 /***/ }),
 
-/***/ 764:
+/***/ 768:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LandingPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OfferRideDetailPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57,56 +57,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the LandingPage page.
+ * Generated class for the OfferRideDetailPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var LandingPage = /** @class */ (function () {
-    function LandingPage(navCtrl, navParams) {
+var OfferRideDetailPage = /** @class */ (function () {
+    function OfferRideDetailPage(navCtrl, modalCtrl) {
         this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.showPrev = true;
-        this.showNext = false;
-        this.currentIndex = 0;
+        this.modalCtrl = modalCtrl;
     }
-    LandingPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad LandingPage');
+    OfferRideDetailPage.prototype.ionViewDidLoad = function () {
     };
-    LandingPage.prototype.goToNextSlide = function () {
-        this.slider.slideNext();
+    OfferRideDetailPage.prototype.addcomment = function () {
+        var modal = this.modalCtrl.create('Addcomment');
+        modal.present();
     };
-    LandingPage.prototype.goToPrevSlide = function () {
-        this.slider.slidePrev();
+    OfferRideDetailPage.prototype.loginpop = function () {
+        var modal = this.modalCtrl.create('Loginpop');
+        modal.present();
     };
-    LandingPage.prototype.onSlideChanged = function () {
-        this.showPrev = this.slider.isBeginning();
-        this.showNext = this.slider.isEnd();
-        this.currentIndex = this.slider.getActiveIndex();
+    OfferRideDetailPage.prototype.goBack = function () {
+        this.navCtrl.pop();
     };
-    /*   home() {
-        this.navCtrl.push(HomePage);
-      } */
-    LandingPage.prototype.login = function () {
-        this.navCtrl.push('LoginPage');
-    };
-    LandingPage.prototype.signup = function () {
-        this.navCtrl.push('SignupPage');
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('mySlider'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Slides */])
-    ], LandingPage.prototype, "slider", void 0);
-    LandingPage = __decorate([
+    OfferRideDetailPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-landing',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\landing\landing.html"*/'\n\n\n\n<ion-content class="jr_landing_bg">\n\n  <ion-slides  pager="true" #mySlider  (ionSlideDidChange)="onSlideChanged()">\n\n    <ion-slide class="jr_slide jr_landing_overlay">\n\n      <div class="jr_slider_inner">\n\n        <h4>Welcome to</h4>\n\n        <h3><strong>FerryMe</strong></h3>\n\n        <h4> Rides</h4>\n\n        <hr>\n\n        <p>instantly find a traveling partner for short and long distance trips<br> as well as connect passengers and drivers for events related trip<br> to share journeys.</p>\n\n        <div class="jr_space"></div>\n\n     </div>\n\n    </ion-slide>\n\n    <ion-slide class="jr_slide jr_landing_overlay">\n\n      <div class="jr_slider_inner">\n\n        <h4>You can</h4>\n\n        <h3><strong>Offer a Ride</strong></h3>\n\n        <hr>\n\n        <p>Share your car journey with co- travellers just like you and cover all your fuel costs!</p>\n\n        <div class="jr_space"></div>\n\n     </div>\n\n    </ion-slide>\n\n    <ion-slide class="jr_slide jr_landing_overlay">\n\n      <div class="jr_slider_inner">\n\n        <h4>or</h4>\n\n        <h3><strong>Find a Ride</strong></h3>\n\n        <hr>\n\n        <p>Joyfull and comfortable travel, share your journey with all like you</p>\n\n        <div class="jr_space"></div>\n\n     </div>\n\n    </ion-slide>\n\n    <ion-slide class="jr_slide jr_landing_overlay1 animate fadeIn">\n\n      <div class="jr_slider_inner">\n\n        <h4>Choose a trusted people</h4>\n\n        <h3><strong>to travel with you</strong></h3>\n\n        <hr>\n\n        <div class="jr_icon_bar">\n\n          <span><img src="assets/img/jr_verified.png"></span>\n\n          <span><img src="assets/img/jr_ratting.png"></span>\n\n          <span><img src="assets/img/jr_phone.png"></span>\n\n         </div>\n\n        <p>Trusted Profiles<br>\n\n        Ratting<br>\n\n      Verified Contact</p>\n\n        <div class="jr_space" style="height:200px;"></div>\n\n     </div>\n\n    </ion-slide>\n\n  </ion-slides>\n\n    <div class="jr_landing_btm">\n\n      <button ion-button class="jr_btm_btn" [hidden] ="currentIndex != 0"  (click)="goToNextSlide()">\n\n        Know how\n\n      </button>\n\n      <button ion-button class="jr_btm_btn animate fadeInLeft" style="width:40px;height:40px;border-radius:50%;padding: 10px;" [hidden]="currentIndex == 0 || currentIndex == 3"  (click)="goToNextSlide()">\n\n        <img src="assets/img/jr_arrow.png">\n\n      </button>\n\n      <div class="clear"></div>\n\n      <div class="jr_last_slide_btn_bar" [hidden] ="currentIndex != 3"  >\n\n        <!-- <button ion-button class="jr_strtd_btn" (click)="home()">GET STARTED</button> -->\n\n        <div class="jr_sign_bar">\n\n          <ul>\n\n           \n\n            <li ion-button (click)="signup()">GET STARTED</li>\n\n          </ul>\n\n        </div>\n\n      </div>\n\n    </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\landing\landing.html"*/,
+            selector: 'page-offer-ride-detail',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\offer-ride-detail\offer-ride-detail.html"*/'<ion-header class="jr_theme_color jr_header">\n    <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="goBack()"></button>\n    <div class="jr_header_title">\n      <h4>Offer a ride</h4>\n    </div>\n    <button ion-button class="jr_right jr_header_btn"></button>\n    <div class="jr_clear"></div>\n  </ion-header>\n  <ion-content>\n    <div class="jr_offerride_details">\n      <ul>\n        <li>\n          <h4>R Price</h4>\n          <div class="jr_offerride_detail_content">\n            <div class="jr_offerride_detail_content_left">\n              <div class="jr_destination">\n                <span><img src="assets/img/jr_departure.png">Durban</span><br>\n                <span><img src="assets/img/jr_arrival.png">Cape Town</span>\n              </div>\n            </div>\n            <div class="jr_offerride_detail_content_right">\n              <div class="jr_offerride_price_tag">\n                <span><img src="assets/img/jr_sub.png"></span>\n                <span class="jr_offer_price">60</span>\n                <span><img src="assets/img/jr_add.png"></span>\n              </div>\n            </div>\n            <div class="jr_clear"></div>\n          </div>\n        </li>\n        <li>\n          <div class="jr_offerride_detail_content">\n            <div class="jr_offerride_detail_content_left">\n              <h4><img src="assets/img/jr_seat.png">Avialable Seats</h4>\n            </div>\n            <div class="jr_offerride_detail_content_right">\n              <div class="jr_offerride_price_tag">\n                <span><img src="assets/img/jr_sub.png"></span>\n                <span class="jr_offer_price" style="color:#717171;">04</span>\n                <span><img src="assets/img/jr_add.png"></span>\n              </div>\n            </div>\n            <div class="jr_clear"></div>\n          </div>\n        </li>\n        <li>\n          <h4><img src="assets/img/jr_comment.png">Ride Comments</h4>\n          <h5>Write your ride  comments here</h5>\n          <p>Please add further details about your ride. It will save you answering lots of questions from co- travellers<br>\n            <button ion-button class="jr_addcomment_btn" (click)="addcomment()">Add Comments</button>\n          </p>\n        </li>\n        <li>\n          <div>\n          <h4 class="jr_left"><img src="assets/img/jr_seat.png">Max. 2 in the back seat</h4>\n          <div class="jr_custom jr_right jr_padding0" style="position: relative;top: 19px;">\n            <input id="check1" name="check" type="checkbox" value="check1">\n            <label for="check1"></label>\n          </div>\n          <div class="jr_clear"></div>\n          </div>\n          <p>Guarantee max. 2 people in the back of the car</p>\n        </li>\n        <li>\n          <h4><img src="assets/img/jr_detail.png">Details</h4>\n          <p class="jr_marginbtm0">Max. Luggage</p>\n          <div class="jr_select_offer_outter">\n          <select class="jr_select_offer">\n            <option>Medium</option>\n          </select>\n          </div>\n          <p class="jr_marginbtm0">Pickup flexibility</p>\n          <div class="jr_select_offer_outter">\n          <select class="jr_select_offer">\n            <option>Right on time</option>\n          </select>\n          </div>\n          <p class="jr_marginbtm0">Detour</p>\n          <div class="jr_select_offer_outter">\n          <select class="jr_select_offer">\n            <option>15 Minutes Detour max.</option>\n          </select>\n          </div>\n          <div class="jr_custom">\n              <input id="check1" type="checkbox" name="check" value="check1">\n              <label for="check1">I accept the T&Cs and Privacy Policy.</label>\n          </div>\n        </li>\n      </ul>\n      <div class="jr_bottom_button_bay">\n        <button ion-button class="jr_offer_ride2" (click)="loginpop()">Publish</button>\n      </div>\n    </div>\n  </ion-content>'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\offer-ride-detail\offer-ride-detail.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
-    ], LandingPage);
-    return LandingPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]])
+    ], OfferRideDetailPage);
+    return OfferRideDetailPage;
 }());
 
-//# sourceMappingURL=landing.js.map
+//# sourceMappingURL=offer-ride-detail.js.map
 
 /***/ })
 

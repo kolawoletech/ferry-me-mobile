@@ -1,0 +1,94 @@
+<ion-header class="jr_theme_color jr_header">
+    <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="goBack()"></button>
+    <div class="jr_header_title">
+      <h4>Offer a ride</h4>
+    </div>
+    <button ion-button class="jr_right jr_header_btn"></button>
+    <div class="jr_clear"></div>
+  </ion-header>
+  <ion-content>
+    <div class="jr_offerride_details">
+      <ul>
+        <li>
+          <h4>R Price</h4>
+          <div class="jr_offerride_detail_content">
+            <div class="jr_offerride_detail_content_left">
+              <div class="jr_destination">
+                <span><img src="assets/img/jr_departure.png">Durban</span><br>
+                <span><img src="assets/img/jr_arrival.png">Cape Town</span>
+              </div>
+            </div>
+            <div class="jr_offerride_detail_content_right">
+              <div class="jr_offerride_price_tag">
+                <span><img src="assets/img/jr_sub.png"></span>
+                <span class="jr_offer_price">60</span>
+                <span><img src="assets/img/jr_add.png"></span>
+              </div>
+            </div>
+            <div class="jr_clear"></div>
+          </div>
+        </li>
+        <li>
+          <div class="jr_offerride_detail_content">
+            <div class="jr_offerride_detail_content_left">
+              <h4><img src="assets/img/jr_seat.png">Avialable Seats</h4>
+            </div>
+            <div class="jr_offerride_detail_content_right">
+              <div class="jr_offerride_price_tag">
+                <span><img src="assets/img/jr_sub.png"></span>
+                <span class="jr_offer_price" style="color:#717171;">04</span>
+                <span><img src="assets/img/jr_add.png"></span>
+              </div>
+            </div>
+            <div class="jr_clear"></div>
+          </div>
+        </li>
+        <li>
+          <h4><img src="assets/img/jr_comment.png">Ride Comments</h4>
+          <h5>Write your ride  comments here</h5>
+          <p>Please add further details about your ride. It will save you answering lots of questions from co- travellers<br>
+            <button ion-button class="jr_addcomment_btn" (click)="addcomment()">Add Comments</button>
+          </p>
+        </li>
+        <li>
+          <div>
+          <h4 class="jr_left"><img src="assets/img/jr_seat.png">Max. 2 in the back seat</h4>
+          <div class="jr_custom jr_right jr_padding0" style="position: relative;top: 19px;">
+            <input id="check1" name="check" type="checkbox" value="check1">
+            <label for="check1"></label>
+          </div>
+          <div class="jr_clear"></div>
+          </div>
+          <p>Guarantee max. 2 people in the back of the car</p>
+        </li>
+        <li>
+          <h4><img src="assets/img/jr_detail.png">Details</h4>
+          <p class="jr_marginbtm0">Max. Luggage</p>
+          <div class="jr_select_offer_outter">
+          <select class="jr_select_offer">
+            <option>Medium</option>
+          </select>
+          </div>
+          <p class="jr_marginbtm0">Pickup flexibility</p>
+          <div class="jr_select_offer_outter">
+          <select class="jr_select_offer">
+            <option>Right on time</option>
+          </select>
+          </div>
+          <p class="jr_marginbtm0">Detour</p>
+          <div class="jr_select_offer_outter">
+          <select class="jr_select_offer">
+            <option>15 Minutes Detour max.</option>
+          </select>
+          </div>
+          <div class="jr_custom">
+              <input id="check1" type="checkbox" name="check" value="check1">
+              <label for="check1">I accept the T&Cs and Privacy Policy.</label>
+          </div>
+        </li>
+      </ul>
+      <div class="jr_bottom_button_bay">
+        <button ion-button class="jr_offer_ride2" (click)="loginpop()">Publish</button>
+      </div>
+    </div>
+  </ion-content>

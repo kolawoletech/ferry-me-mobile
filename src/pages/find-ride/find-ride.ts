@@ -15,11 +15,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class FindRidePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+
+  constructor(public navCtrl: NavController) { }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FindRidePage');
   }
 
+  searchresult() {
+    this.navCtrl.push('SearchResultPage');
+  }
+
+
+  goBack() {
+    this.navCtrl.pop();
+  }
 }
