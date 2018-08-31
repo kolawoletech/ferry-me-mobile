@@ -173,51 +173,51 @@ webpackEmptyAsyncContext.id = 175;
 
 var map = {
 	"../pages/add-car-photo/add-car-photo.module": [
-		724,
+		721,
 		29
 	],
 	"../pages/add-car/add-car.module": [
-		721,
+		722,
 		28
 	],
 	"../pages/edit-bio/edit-bio.module": [
-		726,
+		723,
 		27
 	],
 	"../pages/edit-car/edit-car.module": [
-		722,
+		724,
 		26
 	],
 	"../pages/edit-id/edit-id.module": [
-		723,
+		725,
 		25
 	],
 	"../pages/edit-photo/edit-photo.module": [
-		728,
+		726,
 		24
 	],
 	"../pages/edit-preference/edit-preference.module": [
-		731,
+		727,
 		23
 	],
 	"../pages/edit-profile/edit-profile.module": [
-		725,
+		728,
 		22
 	],
 	"../pages/find-ride/find-ride.module": [
-		732,
+		729,
 		21
 	],
 	"../pages/help/help.module": [
-		727,
+		730,
 		20
 	],
 	"../pages/idedit/idedit.module": [
-		729,
+		731,
 		19
 	],
 	"../pages/idupload/idupload.module": [
-		730,
+		732,
 		18
 	],
 	"../pages/landing/landing.module": [
@@ -229,27 +229,27 @@ var map = {
 		2
 	],
 	"../pages/message/message.module": [
-		737,
+		736,
 		16
 	],
 	"../pages/notification/notification.module": [
-		739,
+		735,
 		15
 	],
 	"../pages/offer-ride-detail/offer-ride-detail.module": [
-		735,
+		748,
 		14
 	],
 	"../pages/offer-ride/offer-ride.module": [
-		742,
+		737,
 		13
 	],
 	"../pages/password/password.module": [
-		736,
+		738,
 		12
 	],
 	"../pages/phone/phone.module": [
-		741,
+		739,
 		11
 	],
 	"../pages/pop-over-more/pop-over-more.module": [
@@ -257,19 +257,19 @@ var map = {
 		10
 	],
 	"../pages/pop-over/pop-over.module": [
-		738,
+		741,
 		9
 	],
 	"../pages/profile-pic/profile-pic.module": [
-		743,
+		742,
 		8
 	],
 	"../pages/profile/profile.module": [
-		744,
+		743,
 		7
 	],
 	"../pages/public-profile/public-profile.module": [
-		747,
+		744,
 		6
 	],
 	"../pages/reset-password/reset-password.module": [
@@ -277,19 +277,19 @@ var map = {
 		1
 	],
 	"../pages/search-main/search-main.module": [
-		746,
+		750,
 		5
 	],
 	"../pages/search-result/search-result.module": [
-		750,
+		749,
 		4
 	],
 	"../pages/signup/signup.module": [
-		748,
+		746,
 		0
 	],
 	"../pages/tabs/tabs.module": [
-		749,
+		747,
 		3
 	]
 };
@@ -887,36 +887,36 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */], {}, {
                     links: [
+                        { loadChildren: '../pages/add-car-photo/add-car-photo.module#AddCarPhotoPageModule', name: 'AddCarPhotoPage', segment: 'add-car-photo', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/add-car/add-car.module#AddCarPageModule', name: 'AddCarPage', segment: 'add-car', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/edit-bio/edit-bio.module#EditBioPageModule', name: 'EditBioPage', segment: 'edit-bio', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-car/edit-car.module#EditCarPageModule', name: 'EditCarPage', segment: 'edit-car', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-id/edit-id.module#EditIdPageModule', name: 'EditIdPage', segment: 'edit-id', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/add-car-photo/add-car-photo.module#AddCarPhotoPageModule', name: 'AddCarPhotoPage', segment: 'add-car-photo', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/edit-profile/edit-profile.module#EditProfilePageModule', name: 'EditProfilePage', segment: 'edit-profile', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/edit-bio/edit-bio.module#EditBioPageModule', name: 'EditBioPage', segment: 'edit-bio', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/help/help.module#HelpPageModule', name: 'HelpPage', segment: 'help', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-photo/edit-photo.module#EditPhotoPageModule', name: 'EditPhotoPage', segment: 'edit-photo', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/edit-preference/edit-preference.module#EditPreferencePageModule', name: 'EditPreferencePage', segment: 'edit-preference', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/edit-profile/edit-profile.module#EditProfilePageModule', name: 'EditProfilePage', segment: 'edit-profile', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/find-ride/find-ride.module#FindRidePageModule', name: 'FindRidePage', segment: 'find-ride', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/help/help.module#HelpPageModule', name: 'HelpPage', segment: 'help', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/idedit/idedit.module#IdeditPageModule', name: 'IdeditPage', segment: 'idedit', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/idupload/idupload.module#IduploadPageModule', name: 'IduploadPage', segment: 'idupload', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/edit-preference/edit-preference.module#EditPreferencePageModule', name: 'EditPreferencePage', segment: 'edit-preference', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/find-ride/find-ride.module#FindRidePageModule', name: 'FindRidePage', segment: 'find-ride', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/landing/landing.module#LandingPageModule', name: 'LandingPage', segment: 'landing', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/offer-ride-detail/offer-ride-detail.module#OfferRideDetailPageModule', name: 'OfferRideDetailPage', segment: 'offer-ride-detail', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/password/password.module#PasswordPageModule', name: 'PasswordPage', segment: 'password', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/message/message.module#MessagePageModule', name: 'MessagePage', segment: 'message', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/pop-over/pop-over.module#PopOverPageModule', name: 'PopOverPage', segment: 'pop-over', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/notification/notification.module#NotificationPageModule', name: 'NotificationPage', segment: 'notification', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/pop-over-more/pop-over-more.module#PopOverMorePageModule', name: 'PopOverMorePage', segment: 'pop-over-more', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/phone/phone.module#PhonePageModule', name: 'PhonePage', segment: 'phone', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/message/message.module#MessagePageModule', name: 'MessagePage', segment: 'message', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/offer-ride/offer-ride.module#OfferRidePageModule', name: 'OfferRidePage', segment: 'offer-ride', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/password/password.module#PasswordPageModule', name: 'PasswordPage', segment: 'password', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/phone/phone.module#PhonePageModule', name: 'PhonePage', segment: 'phone', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/pop-over-more/pop-over-more.module#PopOverMorePageModule', name: 'PopOverMorePage', segment: 'pop-over-more', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/pop-over/pop-over.module#PopOverPageModule', name: 'PopOverPage', segment: 'pop-over', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profile-pic/profile-pic.module#ProfilePicPageModule', name: 'ProfilePicPage', segment: 'profile-pic', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/reset-password/reset-password.module#ResetPasswordPageModule', name: 'ResetPasswordPage', segment: 'reset-password', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/search-main/search-main.module#SearchMainPageModule', name: 'SearchMainPage', segment: 'search-main', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/public-profile/public-profile.module#PublicProfilePageModule', name: 'PublicProfilePage', segment: 'public-profile', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/reset-password/reset-password.module#ResetPasswordPageModule', name: 'ResetPasswordPage', segment: 'reset-password', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/search-result/search-result.module#SearchResultPageModule', name: 'SearchResultPage', segment: 'search-result', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/offer-ride-detail/offer-ride-detail.module#OfferRideDetailPageModule', name: 'OfferRideDetailPage', segment: 'offer-ride-detail', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/search-result/search-result.module#SearchResultPageModule', name: 'SearchResultPage', segment: 'search-result', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/search-main/search-main.module#SearchMainPageModule', name: 'SearchMainPage', segment: 'search-main', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_16_angularfire2__["a" /* AngularFireModule */].initializeApp(__WEBPACK_IMPORTED_MODULE_11__credentials__["a" /* firebaseConfig */]),
