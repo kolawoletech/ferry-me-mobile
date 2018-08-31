@@ -79,7 +79,7 @@ export class SignupPage {
           },
           error => {
             loading.dismiss().then(() => {
-              alert(error);
+            
             });
           }
         );
@@ -92,7 +92,6 @@ export class SignupPage {
     this.authProvider.signUpWithFacebook().then(
       () => {
         loading.dismiss().then(() => {
-          alert("Hello")
 
         }).then(() => {
           this.navCtrl.setRoot('PhonePage');
@@ -100,7 +99,6 @@ export class SignupPage {
       },
       error => {
         loading.dismiss().then(() => {
-          alert(error)
           console.log(error);
         });
       });
@@ -117,7 +115,6 @@ export class SignupPage {
       },
       error => {
         loading.dismiss().then(() => {
-          alert(error);
         });
       }
     );

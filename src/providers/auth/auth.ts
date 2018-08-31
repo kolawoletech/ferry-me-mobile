@@ -81,7 +81,6 @@ export class AuthProvider {
               console.log("Firebase success: " + JSON.stringify(success));
             }).catch((error) => {
               console.log("Firebase failure: " + JSON.stringify(error));
-              alert('Network Error, Check Your Connection And Try Again')
             });
 
         }).catch((error) => { console.log(error) });
@@ -91,7 +90,6 @@ export class AuthProvider {
       })
         .catch((error) => {
           console.log("Firebase failure: " + JSON.stringify(error));
-          alert('Network Error, Check Your Connection And Try Again')
         });
 
     }
@@ -108,10 +106,8 @@ export class AuthProvider {
         this.afAuth.auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(response.gplusUser.idToken)).then(() => {
           this.updateUserData(this.user);
         }).then(success => {
-          alert("Firebase success: " + JSON.stringify(success));
         }).catch((error) => {
           console.log("Firebase failure: " + JSON.stringify(error));
-          alert('Network Error, Check Your Connection And Try Again')
         });
       }).catch((error) => { console.log(error) });
     } else {
