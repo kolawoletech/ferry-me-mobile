@@ -1,14 +1,14 @@
 webpackJsonp([17],{
 
-/***/ 725:
+/***/ 727:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditProfilePageModule", function() { return EditProfilePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HelpPageModule", function() { return HelpPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_profile__ = __webpack_require__(751);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__help__ = __webpack_require__(755);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,31 +18,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var EditProfilePageModule = /** @class */ (function () {
-    function EditProfilePageModule() {
+var HelpPageModule = /** @class */ (function () {
+    function HelpPageModule() {
     }
-    EditProfilePageModule = __decorate([
+    HelpPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__edit_profile__["a" /* EditProfilePage */],
+                __WEBPACK_IMPORTED_MODULE_2__help__["a" /* HelpPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__edit_profile__["a" /* EditProfilePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__help__["a" /* HelpPage */]),
             ],
         })
-    ], EditProfilePageModule);
-    return EditProfilePageModule;
+    ], HelpPageModule);
+    return HelpPageModule;
 }());
 
-//# sourceMappingURL=edit-profile.module.js.map
+//# sourceMappingURL=help.module.js.map
 
 /***/ }),
 
-/***/ 751:
+/***/ 755:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditProfilePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HelpPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57,29 +57,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the EditProfilePage page.
+ * Generated class for the HelpPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var EditProfilePage = /** @class */ (function () {
-    function EditProfilePage(navCtrl, navParams) {
+var HelpPage = /** @class */ (function () {
+    function HelpPage(navCtrl, viewCtrl) {
         this.navCtrl = navCtrl;
-        this.navParams = navParams;
+        this.viewCtrl = viewCtrl;
     }
-    EditProfilePage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad EditProfilePage');
+    HelpPage.prototype.ionViewDidLoad = function () {
+        this.tab = "active";
     };
-    EditProfilePage = __decorate([
+    HelpPage.prototype.tab_swap = function (type) {
+        this.tab = type;
+    };
+    HelpPage.prototype.dismiss = function () {
+        this.viewCtrl.dismiss();
+    };
+    HelpPage.prototype.profile = function () {
+        this.navCtrl.push('ProfilePage');
+    };
+    HelpPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-profile',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\edit-profile\edit-profile.html"*/'<!--\n\n  Generated template for the EditProfilePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>EditProfile</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\edit-profile\edit-profile.html"*/,
+            selector: 'page-help',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\help\help.html"*/'<ion-header class="jr_theme_color jr_header">\n  <!--   <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>\n     -->\n  <div class="jr_header_title">\n    <h4>Help</h4>\n  </div>\n  <img class="jr_right jr_header_btn " alt="logo" src="../../assets/icon/ico-trans.png">\n\n  <div class="jr_clear"></div>\n  <div class="jr_home_tab_bay1">\n    <ul>\n      <li [class.active]="tab==\'active\'" (click)="tab_swap(\'active\')">HELP</li>\n      <li [class.active]="tab==\'inactive\'" (click)="tab_swap(\'inactive\')">FAQs</li>\n      <div class="jr_clear"></div>\n    </ul>\n  </div>\n</ion-header>\n<ion-content class="jr_body_wrapper">\n  <div class="jr_message_wrapper">\n    <div class="jr_home_tab_content" [hidden]="tab==\'inactive\'">\n      <div class="jr_profile_content">\n        <div class="jr_no_msg">\n          <div class="jr_offer_bg">\n            <img src="assets/img/jr_nomsg.png">\n          </div>\n          <div class="jr_text_center">\n            <div class="jr_edit_row jr_text_center">\n              <br><br>\n              <hr>\n              <br><br>\n              <h4 class="jr_padding0 jr_margin0">Hello and Welcome to Our</h4>\n              <h3 class="jr_margintop0">Support Centre</h3>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class="jr_home_tab_content" [hidden]="tab==\'active\'">\n      <div class="jr_profile_content">\n        <div class="jr_no_msg">\n          <div class="jr_offer_bg">\n            <img src="assets/img/jr_no_not.png">\n          </div>\n          <div class="jr_text_center">\n            <div class="jr_edit_row jr_text_center">\n              <br><br>\n              <hr>\n              <br><br>\n              <h4 class="jr_padding0 jr_margin0">currently you have</h4>\n              <h3 class="jr_margintop0">no Requests</h3>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\help\help.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
-    ], EditProfilePage);
-    return EditProfilePage;
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */]) === "function" && _b || Object])
+    ], HelpPage);
+    return HelpPage;
+    var _a, _b;
 }());
 
-//# sourceMappingURL=edit-profile.js.map
+//# sourceMappingURL=help.js.map
 
 /***/ })
 

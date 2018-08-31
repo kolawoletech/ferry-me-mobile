@@ -60,23 +60,27 @@ export class LoginPage {
   }
 
   home() {
-    this.navCtrl.push('HomePage');
+    this.navCtrl.push('TabsPage');
   }
 
   goBack() {
     this.navCtrl.pop();
   }
+  register() {
+    this.navCtrl.push('LandingPage')
+  }
+
 
   loginWithFacebook() {
     this.facebook.login(['public_profile', 'user_friends', 'email'])
       .then((res: FacebookLoginResponse) => console.log('Logged into Facebook!', res))
-      .then(() => this.navCtrl.setRoot(HomePage))
+      .then(() => this.navCtrl.setRoot('TabsPage'))
       .catch(e => console.log('Error logging into Facebook', e));
   }
 
   loginWithGoogle() {
     this.authProvider.googleLogin()
-    this.navCtrl.setRoot(HomePage)
+    this.navCtrl.setRoot('TabsPage');
 
   }
 

@@ -1,0 +1,58 @@
+<ion-header class="jr_theme_color jr_header">
+  <!--   <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>
+     -->
+  <div class="jr_header_title">
+    <h4>Help</h4>
+  </div>
+  <img class="jr_right jr_header_btn " alt="logo" src="../../assets/icon/ico-trans.png">
+
+  <div class="jr_clear"></div>
+  <div class="jr_home_tab_bay1">
+    <ul>
+      <li [class.active]="tab=='active'" (click)="tab_swap('active')">HELP</li>
+      <li [class.active]="tab=='inactive'" (click)="tab_swap('inactive')">FAQs</li>
+      <div class="jr_clear"></div>
+    </ul>
+  </div>
+</ion-header>
+<ion-content class="jr_body_wrapper">
+  <div class="jr_message_wrapper">
+    <div class="jr_home_tab_content" [hidden]="tab=='inactive'">
+      <div class="jr_profile_content">
+        <div class="jr_no_msg">
+          <div class="jr_offer_bg">
+            <img src="assets/img/jr_nomsg.png">
+          </div>
+          <div class="jr_text_center">
+            <div class="jr_edit_row jr_text_center">
+              <br><br>
+              <hr>
+              <br><br>
+              <h4 class="jr_padding0 jr_margin0">Hello and Welcome to Our</h4>
+              <h3 class="jr_margintop0">Support Centre</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="jr_home_tab_content" [hidden]="tab=='active'">
+      <div class="jr_profile_content">
+        <div class="jr_no_msg">
+          <div class="jr_offer_bg">
+            <img src="assets/img/jr_no_not.png">
+          </div>
+          <div class="jr_text_center">
+            <div class="jr_edit_row jr_text_center">
+              <br><br>
+              <hr>
+              <br><br>
+              <h4 class="jr_padding0 jr_margin0">currently you have</h4>
+              <h3 class="jr_margintop0">no Requests</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

@@ -56,8 +56,8 @@ export class SignupPage {
     console.log('ionViewDidLoad SignupPage');
   }
 
-  login2() {
-    console.log("Form Validation Passed")
+  login() {
+   this.navCtrl.push('LoginPage')
   }
 
   signup(): void {

@@ -1,14 +1,14 @@
 webpackJsonp([3],{
 
-/***/ 743:
+/***/ 744:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PublicProfilePageModule", function() { return PublicProfilePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TabsPageModule", function() { return TabsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__public_profile__ = __webpack_require__(769);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs__ = __webpack_require__(772);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,37 +18,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var PublicProfilePageModule = /** @class */ (function () {
-    function PublicProfilePageModule() {
+var TabsPageModule = /** @class */ (function () {
+    function TabsPageModule() {
     }
-    PublicProfilePageModule = __decorate([
+    TabsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__public_profile__["a" /* PublicProfilePage */],
+                __WEBPACK_IMPORTED_MODULE_2__tabs__["a" /* TabsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__public_profile__["a" /* PublicProfilePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__tabs__["a" /* TabsPage */]),
             ],
         })
-    ], PublicProfilePageModule);
-    return PublicProfilePageModule;
+    ], TabsPageModule);
+    return TabsPageModule;
 }());
 
-//# sourceMappingURL=public-profile.module.js.map
+//# sourceMappingURL=tabs.module.js.map
 
 /***/ }),
 
-/***/ 769:
+/***/ 772:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PublicProfilePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_profile_profile__ = __webpack_require__(370);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(371);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__ = __webpack_require__(372);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_imghandler_imghandler__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(371);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -61,80 +58,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
 /**
- * Generated class for the PublicProfilePage page.
+ * Generated class for the TabsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var PublicProfilePage = /** @class */ (function () {
-    function PublicProfilePage(alertCtrl, navCtrl, viewCtrl, navParams, authProvider, profileProvider, popoverCtrl, cameraPlugin, modalCtrl, zone, imgservice) {
-        this.alertCtrl = alertCtrl;
+var TabsPage = /** @class */ (function () {
+    function TabsPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
-        this.viewCtrl = viewCtrl;
         this.navParams = navParams;
-        this.authProvider = authProvider;
-        this.profileProvider = profileProvider;
-        this.popoverCtrl = popoverCtrl;
-        this.cameraPlugin = cameraPlugin;
-        this.modalCtrl = modalCtrl;
-        this.zone = zone;
-        this.imgservice = imgservice;
+        this.tab1Root = __WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */];
+        this.tab2Root = 'MessagePage';
+        this.tab3Root = 'HelpPage';
+        this.tab4Root = 'ProfilePage';
     }
-    PublicProfilePage.prototype.ionViewDidLoad = function () {
-        var _this = this;
-        this.loaduserdetails();
-        this.profileProvider.getUserProfile().on("value", function (userProfileSnapshot) {
-            _this.userProfile = userProfileSnapshot.val();
-            _this.birthDate = userProfileSnapshot.val().birthDate;
-        });
+    TabsPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad TabsPage');
     };
-    PublicProfilePage.prototype.getAge = function (birthDate) {
-        var currentTime = new Date().getTime();
-        console.log(birthDate);
-        this.currentAge = ((currentTime - this.birthDate) / 31556952000).toFixed(0);
-        return this.currentAge;
-    };
-    PublicProfilePage.prototype.dismiss = function () {
-        this.viewCtrl.dismiss();
-    };
-    PublicProfilePage.prototype.loaduserdetails = function () {
-        var _this = this;
-        this.profileProvider.getuserdetails().then(function (res) {
-            console.log(res);
-            _this.displayName = res.displayName;
-            _this.email = res.email;
-            _this.age = res.age;
-            _this.phoneNumber = res.phoneNumber;
-            _this.zone.run(function () {
-                _this.avatar = res.photoURL;
-                _this.birthDate = res.birthDate;
-            });
-        });
-    };
-    PublicProfilePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-public-profile',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\public-profile\public-profile.html"*/'<ion-header class="jr_theme_color jr_header">\n\n  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>\n\n  <div class="jr_header_title">\n\n    <h4>My public profile</h4>\n\n  </div>\n\n  <button ion-button class="jr_right jr_header_btn jr_mail_icon"></button>\n\n  <button ion-button class="jr_right jr_header_btn jr_profile_icon"></button>\n\n  <div class="jr_clear"></div>\n\n</ion-header>\n\n<ion-content>\n\n  <div class="jr_profile_wrapper">\n\n    <div class="jr_profile_banner1">\n\n      <div class="jr_profile_photo1">\n\n          <img src="{{avatar}}">\n\n      </div>\n\n    </div>\n\n    <div class="jr_profile_content">\n\n      <h4> {{displayName}}</h4>\n\n      <p class="jr_age1"> {{birthDate}}</p>\n\n     \n\n      <hr>\n\n\n\n    <div class="jr_profile_tab_content">\n\n      <div class="jr_edit_row">\n\n<!--       <h4>ABOUT YOU</h4>\n\n      <p>\n\n        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered\n\n      </p> -->\n\n\n\n    <h4>VERIFICATION</h4>\n\n    <ul>\n\n      <li class="verified">Email</li>\n\n      <li class="verified">Phone Verified</li>\n\n    </ul>\n\n    <h4>LAST SEEN</h4>\n\n    <ul>\n\n      <li class="jr_bg_none">Last Seen&nbsp;:&nbsp;Today</li>\n\n      <li class="jr_bg_none">Member Since&nbsp;:&nbsp;August 2018</li>\n\n    </ul>\n\n    </div>\n\n    </div>\n\n    </div>\n\n  </div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\public-profile\public-profile.html"*/,
+    TabsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\tabs\tabs.html"*/'<ion-tabs color="default">\n  <ion-tab  [root]="tab1Root" tabTitle="Rides" tabIcon="car">\n  </ion-tab>\n  <ion-tab  [root]="tab2Root" tabTitle="Message" tabIcon="mail">\n  </ion-tab>\n  <ion-tab  [root]="tab3Root" tabTitle="Help" tabIcon="help">\n  </ion-tab>\n  <ion-tab  [root]="tab4Root" tabTitle="Profile" tabIcon="person">\n  </ion-tab>\n</ion-tabs>'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\tabs\tabs.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_profile_profile__["a" /* ProfileProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* PopoverController */],
-            __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgZone */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_imghandler_imghandler__["a" /* ImghandlerProvider */]])
-    ], PublicProfilePage);
-    return PublicProfilePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+    ], TabsPage);
+    return TabsPage;
 }());
 
-//# sourceMappingURL=public-profile.js.map
+//# sourceMappingURL=tabs.js.map
 
 /***/ })
 

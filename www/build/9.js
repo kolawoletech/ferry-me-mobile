@@ -1,14 +1,14 @@
 webpackJsonp([9],{
 
-/***/ 734:
+/***/ 740:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PasswordPageModule", function() { return PasswordPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PhonePageModule", function() { return PhonePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__password__ = __webpack_require__(760);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__phone__ = __webpack_require__(768);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,33 +18,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var PasswordPageModule = /** @class */ (function () {
-    function PasswordPageModule() {
+var PhonePageModule = /** @class */ (function () {
+    function PhonePageModule() {
     }
-    PasswordPageModule = __decorate([
+    PhonePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__password__["a" /* PasswordPage */],
+                __WEBPACK_IMPORTED_MODULE_2__phone__["a" /* PhonePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__password__["a" /* PasswordPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__phone__["a" /* PhonePage */]),
             ],
         })
-    ], PasswordPageModule);
-    return PasswordPageModule;
+    ], PhonePageModule);
+    return PhonePageModule;
 }());
 
-//# sourceMappingURL=password.module.js.map
+//# sourceMappingURL=phone.module.js.map
 
 /***/ }),
 
-/***/ 760:
+/***/ 768:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PasswordPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PhonePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_profile_profile__ = __webpack_require__(369);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -56,32 +57,51 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 /**
- * Generated class for the PasswordPage page.
+ * Generated class for the PhonePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var PasswordPage = /** @class */ (function () {
-    function PasswordPage(navCtrl, viewCtrl) {
+var PhonePage = /** @class */ (function () {
+    function PhonePage(navCtrl, navParams, profileProvider) {
         this.navCtrl = navCtrl;
-        this.viewCtrl = viewCtrl;
+        this.navParams = navParams;
+        this.profileProvider = profileProvider;
     }
-    PasswordPage.prototype.ionViewDidLoad = function () {
+    PhonePage.prototype.ionViewDidLoad = function () {
+        this.confirmPhone();
     };
-    PasswordPage.prototype.dismiss = function () {
-        this.viewCtrl.dismiss();
+    PhonePage.prototype.confirmPhone = function () {
+        var _this = this;
+        window.AccountKitPlugin.loginWithPhoneNumber({
+            useAccessToken: true,
+            defaultCountryCode: "ZA",
+            facebookNotificationsEnabled: true
+        }, function (successdata) {
+            window.AccountKitPlugin.getAccount(function (phone) {
+                console.log(phone);
+                _this.number = phone.phoneNumber;
+                _this.profileProvider.updateNumber(phone.phoneNumber);
+                _this.navCtrl.setRoot('TabsPage').then(function () {
+                    _this.navCtrl.setRoot('ProfilePage');
+                });
+            });
+        }, function (err) {
+            alert(err);
+        });
     };
-    PasswordPage = __decorate([
+    PhonePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-password',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\password\password.html"*/'<ion-header class="jr_theme_color jr_header">\n\n  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>\n\n  <div class="jr_header_title">\n\n    <h4>Change Password</h4>\n\n  </div>\n\n  <div class="jr_clear"></div>\n\n</ion-header>\n\n<ion-content>\n\n  <div class="jr_profile_content jr_paddingbtm0">\n\n    <br>\n\n    <br>\n\n      <div class="jr_edit_row">\n\n        <h5><strong>CHANGE A PASSWORD</strong></h5>\n\n        <p style="margin-top: 5px;margin-bottom:5px;">Choose a High Security Password</p>\n\n      </div>\n\n      <div class="jr_edit_row">\n\n        <input class="jr_edit_profile_input" placeholder="Current Password">\n\n      </div>\n\n      <div class="jr_edit_row">\n\n        <input class="jr_edit_profile_input" placeholder="New Password">\n\n      </div>\n\n      <div class="jr_edit_row">\n\n        <input class="jr_edit_profile_input" placeholder="Confirm Password">\n\n      </div>\n\n      <div class="jr_edit_row">\n\n        <button ion-button class="jr_member_rate" (click)="dismiss()">Update</button>\n\n      </div>\n\n  </div>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\password\password.html"*/,
+            selector: 'page-phone',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\phone\phone.html"*/'<!--\n\n  Generated template for the PhonePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Phone</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <h2>Set Phone Now</h2>\n\n  <h3> {{number}}</h3>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\phone\phone.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */]])
-    ], PasswordPage);
-    return PasswordPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_profile_profile__["a" /* ProfileProvider */]])
+    ], PhonePage);
+    return PhonePage;
 }());
 
-//# sourceMappingURL=password.js.map
+//# sourceMappingURL=phone.js.map
 
 /***/ })
 
