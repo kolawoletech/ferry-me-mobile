@@ -135,7 +135,6 @@ var SignupPage = /** @class */ (function () {
                 });
             }, function (error) {
                 loading.dismiss().then(function () {
-                    alert(error);
                 });
             });
         }
@@ -146,13 +145,11 @@ var SignupPage = /** @class */ (function () {
         var loading = this.loadingCtrl.create();
         this.authProvider.signUpWithFacebook().then(function () {
             loading.dismiss().then(function () {
-                alert("Hello");
             }).then(function () {
                 _this.navCtrl.setRoot('PhonePage');
             });
         }, function (error) {
             loading.dismiss().then(function () {
-                alert(error);
                 console.log(error);
             });
         });
@@ -166,7 +163,6 @@ var SignupPage = /** @class */ (function () {
             });
         }, function (error) {
             loading.dismiss().then(function () {
-                alert(error);
             });
         });
         loading.present();
