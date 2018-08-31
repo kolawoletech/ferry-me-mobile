@@ -12,7 +12,8 @@
         <h4>journey starts here !</h4>
         <p>Share your car journey with co- travellers just
           <br> like you and cover all your fuel costs!</p>
-        <hr>
+          <br>
+        
         <form [formGroup]="signupForm" (submit)="signup()" novalidate>
           <ion-item class="jr_login_input1">
             <ion-input formControlName="displayName" type="text" placeholder="Display Name"></ion-input>
@@ -39,8 +40,13 @@
           <button ion-button block type="submit" [disabled]="!signupForm.valid" class="jr_offer_ride3">SIGNUP</button>
         </form>
         <hr>
+        <button ion-button block class="jr_offer_ride3" (click)="login()">
+
+          Login
+        </button>
         <h5>OR</h5>
         <button ion-button full block (click)=" signUpWithFacebook()">
+
           <ion-icon name="logo-facebook"></ion-icon>
           Signup with Facebook
         </button>
@@ -53,10 +59,7 @@
 
 
         <hr>
-        <button ion-button block class="jr_offer_ride3" (click)="login()">
 
-          Login
-        </button>
       </div>
     </div>
   </div>

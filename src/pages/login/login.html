@@ -28,10 +28,14 @@
           </ion-item>
           <button ion-button block type="submit" [disabled]="!loginForm.valid" class="jr_offer_ride3">LOGIN</button>
         </form>
+        <br> 
+        <p (click)="password()"><i>Forgot Password</i></p>
         <br>
-        <p (click)="password()"><i>Forgot Password ?</i></p>
+        <button ion-button block class="jr_offer_ride3" (click)="register()">
+           
+          Register
+        </button>
 
-<hr>
         <h5>OR</h5>
         <button ion-button full block (click)="loginWithFacebook()">
           <ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon>
@@ -43,10 +47,7 @@
           Login with Google
         </button>
         <hr>
-        <button ion-button block class="jr_offer_ride3" (click)="register()">
-           
-            Register
-          </button>
+
       </div>
   
     </div>

@@ -2,8 +2,12 @@
   <div class="jr_header_title">
     <h4>Profile</h4>
   </div>
-  <img class="jr_right jr_header_btn " alt="logo" src="assets/icon/ico-trans.png">
-
+    
+  <div class="jr_icon_bar">
+     
+    <span> <img  width="192px"   alt="logo" src="assets/icon/ico-trans.png"></span>
+   
+   </div>
 
   <div class="jr_clear"></div>
 </ion-header>
@@ -17,7 +21,7 @@
 
 
       <div class="jr_profile_photo">
-        <img src="{{avatar}}">
+        <img alt="avatar" src="{{avatar}}">
         <div class="jr_profile_photo_edit" (click)="editimage()">
           <img src="assets/img/jr_edit.png">
 
