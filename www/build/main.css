@@ -28053,6 +28053,13 @@ ion-navbar.toolbar {
 }
 
 /*LANDING-PAGE*/
+.jr_ferry {
+  background-repeat: no-repeat !important;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
 .jr_landing_bg {
   background: url("../assets/img/jr_landing_bg.png") !important;
   background-repeat: no-repeat !important;
