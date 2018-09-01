@@ -1,14 +1,14 @@
 webpackJsonp([28],{
 
-/***/ 722:
+/***/ 723:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddCarPageModule", function() { return AddCarPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateRideTypePageModule", function() { return CreateRideTypePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__add_car__ = __webpack_require__(753);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__create_ride_type__ = __webpack_require__(755);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,31 +18,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AddCarPageModule = /** @class */ (function () {
-    function AddCarPageModule() {
+var CreateRideTypePageModule = /** @class */ (function () {
+    function CreateRideTypePageModule() {
     }
-    AddCarPageModule = __decorate([
+    CreateRideTypePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__add_car__["a" /* AddCarPage */],
+                __WEBPACK_IMPORTED_MODULE_2__create_ride_type__["a" /* CreateRideTypePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__add_car__["a" /* AddCarPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__create_ride_type__["a" /* CreateRideTypePage */]),
             ],
         })
-    ], AddCarPageModule);
-    return AddCarPageModule;
+    ], CreateRideTypePageModule);
+    return CreateRideTypePageModule;
 }());
 
-//# sourceMappingURL=add-car.module.js.map
+//# sourceMappingURL=create-ride-type.module.js.map
 
 /***/ }),
 
-/***/ 753:
+/***/ 755:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddCarPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateRideTypePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(68);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57,31 +57,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the AddCarPage page.
+ * Generated class for the CreateRideTypePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var AddCarPage = /** @class */ (function () {
-    function AddCarPage(navCtrl, viewCtrl) {
+var CreateRideTypePage = /** @class */ (function () {
+    function CreateRideTypePage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
-        this.viewCtrl = viewCtrl;
+        this.navParams = navParams;
     }
-    AddCarPage.prototype.ionViewDidLoad = function () {
+    CreateRideTypePage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad CreateRideTypePage');
     };
-    AddCarPage.prototype.dismiss = function () {
-        this.viewCtrl.dismiss();
-    };
-    AddCarPage = __decorate([
+    CreateRideTypePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-add-car',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\add-car\add-car.html"*/'<ion-header class="jr_theme_color jr_header">\n\n  <button ion-button class="jr_left jr_header_btn jr_back_icon" (click)="dismiss()"></button>\n\n  <div class="jr_header_title">\n\n    <h4>Add your car</h4>\n\n  </div>\n\n  <button ion-button class="jr_right jr_header_btn"></button>\n\n  <div class="jr_clear"></div>\n\n</ion-header>\n\n<ion-content>\n\n  <div class="jr_profile_content jr_paddingbtm0">\n\n    <div class="jr_text_center">\n\n      <div class="jr_edit_row jr_text_center">\n\n        <br><br>\n\n        <h3 class="jr_margintop0">Add your car</h3>\n\n      <hr>\n\n      <div class="jr_offer_bg">\n\n          <img src="assets/img/jr_mycar.png">\n\n      </div>\n\n      </div>\n\n    </div>\n\n    <div class="jr_edit_row">\n\n      <select class="jr_select jr_bordernone">\n\n        <option>Choose the make of the Car</option>\n\n      </select>\n\n    </div>\n\n    <div class="jr_edit_row">\n\n      <select class="jr_select jr_bordernone">\n\n        <option>Choose the Comfort level</option>\n\n      </select>\n\n    </div>\n\n    <div class="jr_edit_row">\n\n      <select class="jr_select jr_bordernone">\n\n        <option>Choose the type of the Car</option>\n\n      </select>\n\n    </div>\n\n    <div class="jr_edit_row">\n\n      <select class="jr_select jr_bordernone">\n\n        <option>Choose the Color level</option>\n\n      </select>\n\n    </div>\n\n    <div class="jr_edit_row">\n\n    <div class="jr_offerride_detail_content">\n\n          <div class="jr_offerride_detail_content_left jr_no_seat">\n\n            <h4><img src="assets/img/jr_seat.png">No. of Seats</h4>\n\n          </div>\n\n          <div class="jr_offerride_detail_content_right">\n\n            <div class="jr_offerride_price_tag">\n\n              <span><img src="assets/img/jr_sub.png"></span>\n\n              <span class="jr_offer_price" style="color:#717171;">04</span>\n\n              <span><img src="assets/img/jr_add.png"></span>\n\n            </div>\n\n          </div>\n\n          <div class="jr_clear"></div>\n\n        </div>\n\n        </div>\n\n    </div>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <div class="jr_bottom_button_bay">\n\n        <button ion-button class="jr_offer_ride2">Save my car</button>\n\n      </div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\add-car\add-car.html"*/,
+            selector: 'page-create-ride-type',template:/*ion-inline-start:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\create-ride-type\create-ride-type.html"*/'<ion-header class="jr_theme_color jr_header">\n    <!-- <button menuToggle ion-button class="jr_left jr_header_btn jr_sidemenu_icon"></button> -->\n    <div class="jr_header_title">\n      <h4>Your rides</h4>\n    </div>\n    \n    <div class="jr_icon_bar">\n     \n      <span> <img  width="192px"   alt="logo" src="assets/icon/ico-trans.png"></span>\n     \n     </div>\n\n    <div class="jr_clear"></div>\n    \n  </ion-header>\n  <ion-content class="jr_body_wrapper">\n    <div class="jr_home_tab_content"  [hidden]="tab==\'inactive\'">\n    <div class="jr_div_half">\n      <div class="jr_div_overlay">\n        <div class="jr_over_inner">\n        <button ion-button class="jr_offer_ride" (click)="offerride()">Offer a ride</button>\n        <p>Share your car journey with co- travellers just like you and cover all your fuel costs!</p>\n      </div>\n      </div>\n      <img src="assets/img/jr_div_half1.png">\n    </div>\n    <div class="jr_div_half">\n      <div class="jr_div_overlay">\n        <div class="jr_over_inner">\n        <button ion-button class="jr_offer_ride1" (click)="findride()"> Find a ride</button>\n        <p>Yoyfull and comfortable travel, share your journey with all like you</p>\n      </div>\n      </div>\n      <img src="assets/img/jr_div_half2.png">\n    </div>\n    <!-- <div class="jr_home_active">\n      <div class="jr_profile_content">\n        <div class="jr_home_offer_ride">\n          <ul>\n            <div class="jr_offer_ride_top">\n              Offered Ride\n            </div>\n            <li>\n              <div class="jr_home_offer_photo"><img src="assets/img/jr_car_img.png"></div>\n              <div class="jr_home_offer_detail">\n                <h5>Saturday 29, April</h5>\n                <h6>05: 00 am</h6>\n                <p>Majestic<span><img src="assets/img/jr_forward.png"></span>Christ Tower</p>\n                <div class="jr_edit_more" (click)="presentPopover($event)"><img src="assets/img/jr_more.png"></div>\n              </div>\n              <div class="jr_clear"></div>\n  \n              <div class="jr_home_btm">\n                <hr>\n                <p>Request waiting for Approval</p>\n              </div>\n            </li>\n            <li>\n              <div class="jr_home_offer_photo"><img src="assets/img/jr_car_img.png"></div>\n              <div class="jr_home_offer_detail">\n                <h5>Saturday 29, April</h5>\n                <h6>05: 00 am</h6>\n                <p>Electronic City<span><img src="assets/img/jr_forward.png"></span>Madiwala</p>\n                <div class="jr_edit_more" (click)="presentPopover($event)"><img src="assets/img/jr_more.png"></div>\n              </div>\n              <div class="jr_clear"></div>\n  \n            </li>\n          </ul>\n          <ul>\n            <div class="jr_book_ride_top">\n              Your Bookings\n            </div>\n            <li>\n              <div class="jr_home_offer_photo"><img src="assets/img/jr_car_img.png"></div>\n              <div class="jr_home_offer_detail">\n                <h5>Saturday 29, April</h5>\n                <h6>05: 00 am</h6>\n                <p>Infopark<span><img src="assets/img/jr_forward.png"></span>Piravom</p>\n                <div class="jr_edit_more" (click)="presentPopover($event)"><img src="assets/img/jr_more.png"></div>\n              </div>\n              <div class="jr_clear"></div>\n  \n              <div class="jr_home_btm">\n                <hr>\n                <p>Request waiting for Approval</p>\n              </div>\n            </li>\n          </ul>\n        </div>\n      </div>\n    </div> -->\n  </div>\n\n  </ion-content>\n  '/*ion-inline-end:"C:\Users\phy\Documents\freelance\ferry-me-mobile\src\pages\create-ride-type\create-ride-type.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */]])
-    ], AddCarPage);
-    return AddCarPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+    ], CreateRideTypePage);
+    return CreateRideTypePage;
 }());
 
-//# sourceMappingURL=add-car.js.map
+//# sourceMappingURL=create-ride-type.js.map
 
 /***/ })
 

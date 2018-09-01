@@ -17,6 +17,7 @@ export class TabsPage {
   tab2Root: string = 'MessagePage';
   tab3Root: string = 'HelpPage';
   tab4Root: string = 'ProfilePage';
+  tab5Root: string = 'CreateRideTypePage';
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
