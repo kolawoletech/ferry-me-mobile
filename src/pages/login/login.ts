@@ -98,7 +98,7 @@ export class LoginPage {
         .then(
           () => {
             loading.dismiss().then(() => {
-              this.navCtrl.setRoot(HomePage);
+              this.navCtrl.setRoot('TabsPage');
             });
           },
           error => {

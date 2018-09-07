@@ -44,5 +44,8 @@ export class HomePage {
     this.navCtrl.push('MessagePage');
   }
 
+  addRide(){
+    this.navCtrl.push('CreateRideTypePage');
+  }
 
 }
