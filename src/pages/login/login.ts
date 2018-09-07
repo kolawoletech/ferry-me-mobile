@@ -78,9 +78,17 @@ export class LoginPage {
       .catch(e => console.log('Error logging into Facebook', e));
   }
 
+  loginWithFacebook2() {
+    this.authProvider.signUpWithFacebook().then(() =>{
+      this.navCtrl.setRoot('TabsPage');
+    })
+  }
+
   loginWithGoogle() {
-    this.authProvider.googleLogin()
-    this.navCtrl.setRoot('TabsPage');
+    this.authProvider.googleLogin().then(() =>{
+      this.navCtrl.setRoot('TabsPage');
+    })
+    
 
   }
 

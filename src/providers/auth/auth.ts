@@ -71,7 +71,7 @@ export class AuthProvider {
 
   signUpWithFacebook(): Promise<any> {
     if (this.platform.is('cordova')) {
-      return this.facebook.login(['email'])
+      return this.facebook.login(['public_profile', 'email'])
         .then(response => {
           const facebookCredential = firebase.auth.FacebookAuthProvider
             .credential(response.authResponse.accessToken);
@@ -79,6 +79,7 @@ export class AuthProvider {
           firebase.auth().signInWithCredential(facebookCredential)
             .then(success => {
               console.log("Firebase success: " + JSON.stringify(success));
+              this.updateUserData(this.user);
             }).catch((error) => {
               console.log("Firebase failure: " + JSON.stringify(error));
             });
@@ -87,6 +88,8 @@ export class AuthProvider {
     } else {
       return firebase.auth().signInWithPopup(new firebase.auth.FacebookAuthProvider()).then((success) => {
         console.log("Firebase success: " + JSON.stringify(success));
+        this.updateUserData(this.user);
+        console.log(this.user)
       })
         .catch((error) => {
           console.log("Firebase failure: " + JSON.stringify(error));
@@ -152,7 +155,7 @@ export class AuthProvider {
 
   }
 
-  signUpWithGoogle(): any {
+  async signUpWithGoogle(): Promise<any> {
     if (this.platform.is('cordova')) {
       this.nativeGoogleLogin();
     } else {
@@ -174,7 +177,7 @@ export class AuthProvider {
       })
   }
 
-  googleLogin() {
+  googleLogin(): any{
     if (this.platform.is("cordova")) {
       this.nativeGoogleLogin2();
     } else {
