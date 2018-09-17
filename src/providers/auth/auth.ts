@@ -82,6 +82,7 @@ export class AuthProvider {
               this.updateUserData(this.user);
             }).catch((error) => {
               console.log("Firebase failure: " + JSON.stringify(error));
+              alert(error)
             });
 
         }).catch((error) => { console.log(error) });

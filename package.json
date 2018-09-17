@@ -68,7 +68,7 @@
       "cordova-plugin-accountkit": {
         "APP_ID": "1619199331525049",
         "APP_NAME": "Ionic2RGEngineering",
-        "CLIENT_TOKEN": "42999e3eaaa834a1033045cb9db221e4",
+        "CLIENT_TOKEN": "7f47844270fdb7fb109c634f92a78e4b",
         "API_VERSION": "v1.1"
       },
       "cordova-plugin-camera": {},
@@ -81,8 +81,8 @@
       "cordova-plugin-filechooser": {},
       "cordova-plugin-file": {},
       "cordova-plugin-facebook4": {
-        "APP_ID": "416332122105092",
-        "APP_NAME": "ferryme",
+        "APP_ID": "1619199331525049",
+        "APP_NAME": "Ionic2RGEngineering",
         "ANDROID_SDK_VERSION": "4.+"
       },
       "cordova-plugin-googleplus": {
